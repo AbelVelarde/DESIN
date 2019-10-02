@@ -1,5 +1,6 @@
-package es.abel.dam;
+package es.abel.dam.view;
 
+import es.abel.dam.models.Division;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,7 +9,6 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;

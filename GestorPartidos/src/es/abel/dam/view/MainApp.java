@@ -1,7 +1,10 @@
-package es.abel.dam;
+package es.abel.dam.view;
 
+import es.abel.dam.logica.Logica;
+import es.abel.dam.models.Division;
+import es.abel.dam.models.Partido;
+import es.abel.dam.models.Resultado;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -30,7 +33,8 @@ public class MainApp extends Application {
 
     public TableView crearTabla(){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        ObservableList<Partido> listaPartidos = FXCollections.observableArrayList();
+
+        ObservableList<Partido> listaPartidos = Logica.getINSTANCE().getListaPartidos();
 
         try {
             listaPartidos.add(new Partido("Santander", "Oviedo", Division.SEGUNDA, new Resultado(13, 16), sdf.parse("13/10/2018")));
