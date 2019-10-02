@@ -25,6 +25,10 @@ public class Logica {
         return listaPartidos;
     }
 
+    public void añadirPartido(Partido partido){
+        listaPartidos.add(partido);
+    }
+
 
 
 }

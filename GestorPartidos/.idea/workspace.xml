@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/es/abel/dam/Logica.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/logica/Logica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/logica/Logica.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -125,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570034537264</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Singleton de la logica y organizacion en carpetas logica, models y view">
+      <created>1570036305477</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1570036305477</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,6 +153,7 @@
     <MESSAGE value="Añadida clase MainApp" />
     <MESSAGE value="MainApp con tabla terminada" />
     <MESSAGE value="MainApp con tabla terminada y funcional" />
-    <option name="LAST_COMMIT_MESSAGE" value="MainApp con tabla terminada y funcional" />
+    <MESSAGE value="Singleton de la logica y organizacion en carpetas logica, models y view" />
+    <option name="LAST_COMMIT_MESSAGE" value="Singleton de la logica y organizacion en carpetas logica, models y view" />
   </component>
 </project>
