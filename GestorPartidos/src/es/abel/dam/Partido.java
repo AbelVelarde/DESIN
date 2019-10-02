@@ -39,6 +39,10 @@ public class Partido implements Comparable<Partido>{
     public Date getFecha() {
         return fecha;
     }
+    public String getFechaFormateada(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.format(getFecha());
+    }
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }

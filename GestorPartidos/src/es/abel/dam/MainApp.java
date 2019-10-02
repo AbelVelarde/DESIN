@@ -11,10 +11,6 @@ import javafx.stage.Stage;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-import java.util.PropertyPermission;
 
 public class MainApp extends Application {
 
@@ -26,7 +22,8 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         TableView tablaPartidos = crearTabla();
 
-        Scene scene = new Scene(tablaPartidos);
+        Scene scene = new Scene(tablaPartidos, 450, 300);
+        stage.setTitle("Gestor de Partidos");
         stage.setScene(scene);
         stage.show();
     }
@@ -36,7 +33,7 @@ public class MainApp extends Application {
         ObservableList<Partido> listaPartidos = FXCollections.observableArrayList();
 
         try {
-            listaPartidos.add(new Partido("Santantder", "Oviedo", Division.SEGUNDA, new Resultado(13, 16), sdf.parse("13/10/2018")));
+            listaPartidos.add(new Partido("Santander", "Oviedo", Division.SEGUNDA, new Resultado(13, 16), sdf.parse("13/10/2018")));
             listaPartidos.add(new Partido("Gijon", "Leon", Division.PRIMERA, new Resultado(21, 11), sdf.parse("27/11/2018")));
             listaPartidos.add(new Partido("Cadiz", "Madrid", Division.TERCERA, new Resultado(23, 17), sdf.parse("08/01/2019")));
         } catch (ParseException e) {
@@ -58,7 +55,9 @@ public class MainApp extends Application {
         columnaResultado.setCellValueFactory(new PropertyValueFactory<>("resultado"));
 
         TableColumn<String, Partido> columnaFecha = new TableColumn<>("Fecha");
-        columnaFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        columnaFecha.setCellValueFactory(new PropertyValueFactory<>("fechaFormateada"));
+
+        tablaPartidos.getColumns().addAll(columnaLocal, columnaVisitante, columnaDivision, columnaResultado, columnaFecha);
 
         return tablaPartidos;
     }
