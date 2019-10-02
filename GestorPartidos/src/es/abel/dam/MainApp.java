@@ -18,16 +18,20 @@ import java.util.PropertyPermission;
 
 public class MainApp extends Application {
 
+    public static void main(String[] args){
+        launch();
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
+        TableView tablaPartidos = crearTabla();
 
-
-        Scene scene = new Scene();
+        Scene scene = new Scene(tablaPartidos);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void crearTable(){
+    public TableView crearTabla(){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         ObservableList<Partido> listaPartidos = FXCollections.observableArrayList();
 
@@ -42,11 +46,21 @@ public class MainApp extends Application {
         TableView tablaPartidos = new TableView(listaPartidos);
 
         TableColumn<String, Partido> columnaLocal = new TableColumn<>("Equipo Local");
-        columnaLocal.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        columnaLocal.setCellValueFactory(new PropertyValueFactory<>("local"));
 
         TableColumn<String, Partido> columnaVisitante = new TableColumn<>("Equipo Visitante");
-        columnaLocal.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        columnaVisitante.setCellValueFactory(new PropertyValueFactory<>("visitante"));
 
+        TableColumn<String, Partido> columnaDivision = new TableColumn<>("Division");
+        columnaDivision.setCellValueFactory(new PropertyValueFactory<>("division"));
+
+        TableColumn<String, Partido> columnaResultado = new TableColumn<>("Resultado");
+        columnaResultado.setCellValueFactory(new PropertyValueFactory<>("resultado"));
+
+        TableColumn<String, Partido> columnaFecha = new TableColumn<>("Fecha");
+        columnaFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+
+        return tablaPartidos;
     }
 
 }
