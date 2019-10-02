@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/es/abel/dam/Partido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/es/abel/dam/Resultado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/es/abel/dam/MainApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/Partido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/Resultado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/Resultado.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570030151830</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Añadidas las clases Partido y Resultado">
+      <created>1570030776945</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1570030776945</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -98,7 +106,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Cambios menores en el Formulario" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios menores en el Formulario" />
+    <MESSAGE value="Añadidas las clases Partido y Resultado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadidas las clases Partido y Resultado" />
   </component>
 </project>
