@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="Singleton de la logica y organizacion en carpetas logica, models y view">
+    <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GestorPartidos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GestorPartidos.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/Formulario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/Formulario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +47,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainApp">
+  <component name="RunManager" selected="Application.Formulario">
     <configuration name="Formulario" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="es.abel.dam.view.Formulario" />
       <module name="GestorPartidos" />
@@ -75,8 +76,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainApp" />
         <item itemvalue="Application.Formulario" />
+        <item itemvalue="Application.MainApp" />
       </list>
     </recent_temporary>
   </component>
@@ -133,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570036305477</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Cambios menores despues del clone a local">
+      <created>1570103127439</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1570103127439</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -157,6 +165,7 @@
     <MESSAGE value="MainApp con tabla terminada" />
     <MESSAGE value="MainApp con tabla terminada y funcional" />
     <MESSAGE value="Singleton de la logica y organizacion en carpetas logica, models y view" />
-    <option name="LAST_COMMIT_MESSAGE" value="Singleton de la logica y organizacion en carpetas logica, models y view" />
+    <MESSAGE value="Cambios menores despues del clone a local" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios menores despues del clone a local" />
   </component>
 </project>
