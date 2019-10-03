@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.text.ParseException;
@@ -81,6 +82,7 @@ public class FormularioPartido extends Stage {
 
         Scene scene = new Scene(principal,900, 750);
         setTitle("Alta Partido");
+        initModality(Modality.APPLICATION_MODAL);
         setScene(scene);
     }
 
