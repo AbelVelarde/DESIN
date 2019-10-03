@@ -37,7 +37,7 @@ public class FormularioPartido extends Stage {
         listaDivisiones.add(Division.PRIMERA);
         listaDivisiones.add(Division.SEGUNDA);
         listaDivisiones.add(Division.TERCERA);
-        ComboBox cbDivision = new ComboBox(listaDivisiones);
+        ComboBox<Division> cbDivision = new ComboBox(listaDivisiones);
         VBox vboxDivision = new VBox(10, labelDivision, cbDivision);
 
         Label labelResultado = new Label("Resultado del partido:");
@@ -61,7 +61,7 @@ public class FormularioPartido extends Stage {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String local = tfNombreLocal.getText();
                 String visitante = tfNombreVisitante.getText();
-                Division division = (Division) cbDivision.getSelectionModel().getSelectedItem();
+                Division division = cbDivision.getSelectionModel().getSelectedItem();
                 Resultado resultado = new Resultado(Integer.parseInt(tfResultadoLocal.getText()), Integer.parseInt(tfResultadoVisitante.getText()));
                 Date fecha = new Date();
                 try {

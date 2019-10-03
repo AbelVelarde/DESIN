@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -175,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570120037358</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Cambios menores">
+      <created>1570120270343</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1570120270343</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,10 +207,10 @@
     <MESSAGE value="Singleton de la logica y organizacion en carpetas logica, models y view" />
     <MESSAGE value="Cambios menores despues del clone a local" />
     <MESSAGE value="Formulario añade un partido a la lista" />
-    <MESSAGE value="Cambios menores" />
     <MESSAGE value="Unir la funcionalidad de las clases MainApp y FormularioPartidos" />
     <MESSAGE value="Borrar partido implementado" />
     <MESSAGE value="Modularidad implementada" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modularidad implementada" />
+    <MESSAGE value="Cambios menores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios menores" />
   </component>
 </project>
