@@ -140,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570103127439</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Formulario añade un partido a la lista">
+      <created>1570110156433</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1570110156434</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,6 +172,7 @@
     <MESSAGE value="MainApp con tabla terminada y funcional" />
     <MESSAGE value="Singleton de la logica y organizacion en carpetas logica, models y view" />
     <MESSAGE value="Cambios menores despues del clone a local" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios menores despues del clone a local" />
+    <MESSAGE value="Formulario añade un partido a la lista" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formulario añade un partido a la lista" />
   </component>
 </project>

@@ -75,8 +75,6 @@ public class Formulario extends Application {
                 Partido partido = new Partido(local, visitante, division, resultado, fecha);
                 Logica.getINSTANCE().añadirPartido(partido);
 
-                System.out.println(Logica.getINSTANCE().getListaPartidos().toString());
-
             }
         });
 
