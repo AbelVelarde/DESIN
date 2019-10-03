@@ -6,10 +6,14 @@ import es.abel.dam.models.Partido;
 import es.abel.dam.models.Resultado;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.text.ParseException;
@@ -25,7 +29,20 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         TableView tablaPartidos = crearTabla();
 
-        Scene scene = new Scene(tablaPartidos, 450, 300);
+        Button btnAñadirPartido = new Button("AñadirPartido");
+
+
+        btnAñadirPartido.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                FormularioPartido formularioPartido = new FormularioPartido();
+                formularioPartido.show();
+            }
+        });
+
+        VBox ventanaPrincipal = new VBox(tablaPartidos, btnAñadirPartido);
+
+        Scene scene = new Scene(ventanaPrincipal, 450, 300);
         stage.setTitle("Gestor de Partidos");
         stage.setScene(scene);
         stage.show();
