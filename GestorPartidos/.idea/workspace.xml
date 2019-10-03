@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -181,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570120270343</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="ComboBox tipado">
+      <created>1570120940898</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1570120940898</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,6 +219,7 @@
     <MESSAGE value="Borrar partido implementado" />
     <MESSAGE value="Modularidad implementada" />
     <MESSAGE value="Cambios menores" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios menores" />
+    <MESSAGE value="ComboBox tipado" />
+    <option name="LAST_COMMIT_MESSAGE" value="ComboBox tipado" />
   </component>
 </project>

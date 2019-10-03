@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class FormularioPartido extends Stage {
@@ -38,6 +39,7 @@ public class FormularioPartido extends Stage {
         listaDivisiones.add(Division.SEGUNDA);
         listaDivisiones.add(Division.TERCERA);
         ComboBox<Division> cbDivision = new ComboBox(listaDivisiones);
+        cbDivision.setPromptText("Elija division");
         VBox vboxDivision = new VBox(10, labelDivision, cbDivision);
 
         Label labelResultado = new Label("Resultado del partido:");
@@ -50,7 +52,7 @@ public class FormularioPartido extends Stage {
         VBox vboxResultado = new VBox(10, labelResultado, hboxResultado);
 
         Label labelFecha = new Label("Fecha del partido:");
-        DatePicker dp = new DatePicker();
+        DatePicker dp = new DatePicker(LocalDate.now());
         VBox vboxFecha = new VBox(10, labelFecha, dp);
 
         Button btnAceptar = new Button("Aceptar");
