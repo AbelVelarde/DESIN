@@ -1,6 +1,8 @@
 package es.abel.dam.view;
 
+import es.abel.dam.logica.Logica;
 import es.abel.dam.models.Division;
+import es.abel.dam.models.Partido;
 import es.abel.dam.models.Resultado;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -13,6 +15,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
@@ -57,12 +60,22 @@ public class Formulario extends Application {
         btnAceptar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String local = tfNombreLocal.getText();
                 String visitante = tfNombreVisitante.getText();
                 Division division = (Division) cbDivision.getSelectionModel().getSelectedItem();
                 Resultado resultado = new Resultado(Integer.parseInt(tfResultadoLocal.getText()), Integer.parseInt(tfResultadoVisitante.getText()));
+                Date fecha = new Date();
+                try {
+                    fecha = sdf.parse(dp.getValue().toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
+                Partido partido = new Partido(local, visitante, division, resultado, fecha);
+                Logica.getINSTANCE().añadirPartido(partido);
+
+                System.out.println(Logica.getINSTANCE().getListaPartidos().toString());
 
             }
         });
