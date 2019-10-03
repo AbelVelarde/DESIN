@@ -21,11 +21,11 @@ import java.util.Date;
 
 public class FormularioPartido extends Stage {
 
-    public FormularioPartido(){
+    public FormularioPartido() {
         Label labelLocal = new Label("Nombre local:");
         TextField tfNombreLocal = new TextField();
         tfNombreLocal.setPromptText("Introduzca nombre del equipo local");
-        VBox vboxLocal = new VBox(10, labelLocal,  tfNombreLocal);
+        VBox vboxLocal = new VBox(10, labelLocal, tfNombreLocal);
 
         Label labelVisitante = new Label("Nombre visitante:");
         TextField tfNombreVisitante = new TextField();
@@ -78,9 +78,8 @@ public class FormularioPartido extends Stage {
         });
 
         VBox formulario = new VBox(10, vboxLocal, vboxVisitante, vboxDivision, vboxResultado, vboxFecha, btnAceptar);
-        TitledPane principal = new TitledPane("Formulario", formulario);
 
-        Scene scene = new Scene(principal,900, 750);
+        Scene scene = new Scene(formulario, 500, 450);
         setTitle("Alta Partido");
         initModality(Modality.APPLICATION_MODAL);
         setScene(scene);
