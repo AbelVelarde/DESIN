@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -29,7 +30,8 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         TableView tablaPartidos = crearTabla();
 
-        Button btnAñadirPartido = new Button("AñadirPartido");
+        Button btnAñadirPartido = new Button("Añadir Partido");
+        Button btnBorrarPartido = new Button("Borrar Partido");
 
 
         btnAñadirPartido.setOnAction(new EventHandler<ActionEvent>() {
@@ -40,7 +42,17 @@ public class MainApp extends Application {
             }
         });
 
-        VBox ventanaPrincipal = new VBox(tablaPartidos, btnAñadirPartido);
+        btnBorrarPartido.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                int idPartido = tablaPartidos.getSelectionModel().getSelectedIndex();
+                Logica.getINSTANCE().borrarPartido(idPartido);
+            }
+        });
+
+        HBox hboxBotones = new HBox(10, btnAñadirPartido, btnBorrarPartido);
+
+        VBox ventanaPrincipal = new VBox(10, tablaPartidos, hboxBotones);
 
         Scene scene = new Scene(ventanaPrincipal, 450, 300);
         stage.setTitle("Gestor de Partidos");

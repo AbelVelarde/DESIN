@@ -29,6 +29,10 @@ public class Logica {
         listaPartidos.add(partido);
     }
 
+    public void borrarPartido(int id){
+        listaPartidos.remove(id);
+    }
+
 
 
 }
