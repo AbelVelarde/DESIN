@@ -93,6 +93,9 @@ public class MainApp extends Application {
         tablaPartidos.getColumns().addAll(columnaLocal, columnaVisitante, columnaDivision, columnaResultado, columnaFecha);
 
         return tablaPartidos;
+
+
+
     }
 
 }
