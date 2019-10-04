@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/models/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/models/Partido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -189,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570120940898</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Cambios menores">
+      <created>1570123038357</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1570123038357</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -218,8 +226,8 @@
     <MESSAGE value="Unir la funcionalidad de las clases MainApp y FormularioPartidos" />
     <MESSAGE value="Borrar partido implementado" />
     <MESSAGE value="Modularidad implementada" />
-    <MESSAGE value="Cambios menores" />
     <MESSAGE value="ComboBox tipado" />
-    <option name="LAST_COMMIT_MESSAGE" value="ComboBox tipado" />
+    <MESSAGE value="Cambios menores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios menores" />
   </component>
 </project>

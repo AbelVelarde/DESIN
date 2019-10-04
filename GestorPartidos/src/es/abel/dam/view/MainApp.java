@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 
 public class MainApp extends Application {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         launch();
     }
 
@@ -60,7 +60,7 @@ public class MainApp extends Application {
         stage.show();
     }
 
-    public TableView crearTabla(){
+    public TableView crearTabla() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
         ObservableList<Partido> listaPartidos = Logica.getINSTANCE().getListaPartidos();

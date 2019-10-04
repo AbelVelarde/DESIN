@@ -4,7 +4,7 @@ package es.abel.dam.models;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Partido implements Comparable<Partido>{
+public class Partido implements Comparable<Partido> {
 
     private String local;
     private String visitante;
@@ -15,34 +15,44 @@ public class Partido implements Comparable<Partido>{
     public String getLocal() {
         return local;
     }
+
     public void setLocal(String local) {
         this.local = local;
     }
+
     public String getVisitante() {
         return visitante;
     }
+
     public void setVisitante(String visitante) {
         this.visitante = visitante;
     }
+
     public Division getDivision() {
         return division;
     }
+
     public void setDivision(Division division) {
         this.division = division;
     }
+
     public Resultado getResultado() {
         return resultado;
     }
+
     public void setResultado(Resultado resultado) {
         this.resultado = resultado;
     }
+
     public Date getFecha() {
         return fecha;
     }
-    public String getFechaFormateada(){
+
+    public String getFechaFormateada() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         return sdf.format(getFecha());
     }
+
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
@@ -66,13 +76,11 @@ public class Partido implements Comparable<Partido>{
 
     @Override
     public int compareTo(Partido p) {
-        if(p.getFecha().compareTo(this.getFecha()) > 0){
+        if (p.getFecha().compareTo(this.getFecha()) > 0) {
             return 1;
-        }
-        else if(p.getFecha().compareTo(this.getFecha()) < 0){
+        } else if (p.getFecha().compareTo(this.getFecha()) < 0) {
             return -1;
-        }
-        else{
+        } else {
             return 0;
         }
     }
