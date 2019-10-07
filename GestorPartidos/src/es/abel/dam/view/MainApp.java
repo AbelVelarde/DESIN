@@ -13,9 +13,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.text.ParseException;
@@ -51,6 +53,7 @@ public class MainApp extends Application {
             }
         });
 
+        ImageView imagenRugby = new ImageView(getClass().getResource("resources/rugby.jpg").toExternalForm());
         HBox hboxBotones = new HBox(10, btnAñadirPartido, btnBorrarPartido);
 
         AnchorPane contenedorPrincipal = new AnchorPane();
