@@ -10,7 +10,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -53,14 +52,17 @@ public class MainApp extends Application {
         });
 
         HBox hboxBotones = new HBox(10, btnAñadirPartido, btnBorrarPartido);
-        VBox ventanaPrincipal = new VBox(10, tablaPartidos, hboxBotones);
 
         AnchorPane contenedorPrincipal = new AnchorPane();
-        AnchorPane.setTopAnchor(ventanaPrincipal, 20d);
-        AnchorPane.setBottomAnchor(ventanaPrincipal, 20d);
-        AnchorPane.setRightAnchor(ventanaPrincipal, 20d);
-        AnchorPane.setLeftAnchor(ventanaPrincipal, 20d);
-        contenedorPrincipal.getChildren().add(ventanaPrincipal);
+
+        AnchorPane.setTopAnchor(tablaPartidos, 20d);
+        AnchorPane.setBottomAnchor(tablaPartidos, 100d);
+        AnchorPane.setRightAnchor(tablaPartidos, 20d);
+        AnchorPane.setLeftAnchor(tablaPartidos, 20d);
+        contenedorPrincipal.getChildren().add(tablaPartidos);
+
+        AnchorPane.setBottomAnchor(hboxBotones, 20d);
+        contenedorPrincipal.getChildren().add(hboxBotones);
 
         Scene scene = new Scene(contenedorPrincipal, 450, 300);
         stage.setTitle("Gestor de Partidos");
