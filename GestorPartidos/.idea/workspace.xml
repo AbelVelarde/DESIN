@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../PruebaPanes/PruebaPanes.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PruebaPanes/src/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PruebaPanes/src/prueba/GridPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
     </list>
@@ -215,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570206441304</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Cambios menores">
+      <created>1570457111543</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1570457111543</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,9 +249,9 @@
     <MESSAGE value="Borrar partido implementado" />
     <MESSAGE value="Modularidad implementada" />
     <MESSAGE value="ComboBox tipado" />
-    <MESSAGE value="Cambios menores" />
     <MESSAGE value="Identaciones" />
     <MESSAGE value="Formateo de codigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Formateo de codigo" />
+    <MESSAGE value="Cambios menores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios menores" />
   </component>
 </project>
