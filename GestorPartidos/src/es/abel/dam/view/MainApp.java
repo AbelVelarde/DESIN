@@ -25,13 +25,15 @@ import java.text.SimpleDateFormat;
 
 public class MainApp extends Application {
 
+    TableView tablaPartidos;
+
     public static void main(String[] args) {
         launch();
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        TableView tablaPartidos = crearTabla();
+         crearTabla();
 
         Button btnAñadirPartido = new Button("Añadir Partido");
         Button btnBorrarPartido = new Button("Borrar Partido");
@@ -74,7 +76,7 @@ public class MainApp extends Application {
         stage.show();
     }
 
-    public TableView crearTabla() {
+    public void crearTabla() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
         ObservableList<Partido> listaPartidos = Logica.getINSTANCE().getListaPartidos();
@@ -87,7 +89,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 
-        TableView tablaPartidos = new TableView(listaPartidos);
+        tablaPartidos = new TableView(listaPartidos);
 
         TableColumn<String, Partido> columnaLocal = new TableColumn<>("Equipo Local");
         columnaLocal.setCellValueFactory(new PropertyValueFactory<>("local"));
@@ -105,10 +107,6 @@ public class MainApp extends Application {
         columnaFecha.setCellValueFactory(new PropertyValueFactory<>("fechaFormateada"));
 
         tablaPartidos.getColumns().addAll(columnaLocal, columnaVisitante, columnaDivision, columnaResultado, columnaFecha);
-
-        return tablaPartidos;
-
-
 
     }
 

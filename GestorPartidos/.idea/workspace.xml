@@ -240,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570461247602</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Cambios menores">
+      <created>1570633686001</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1570633686001</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,10 +279,10 @@
     <MESSAGE value="ComboBox tipado" />
     <MESSAGE value="Identaciones" />
     <MESSAGE value="Formateo de codigo" />
-    <MESSAGE value="Cambios menores" />
     <MESSAGE value="AnchorPane en MainApp" />
     <MESSAGE value="Anchor y grid" />
     <MESSAGE value="Imagen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Imagen" />
+    <MESSAGE value="Cambios menores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios menores" />
   </component>
 </project>
