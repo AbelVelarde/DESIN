@@ -10,14 +10,13 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.text.ParseException;
@@ -33,9 +32,10 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-         crearTabla();
+        crearTabla();
 
         Button btnAñadirPartido = new Button("Añadir Partido");
+        Button btnEditarPartido = new Button("Editar Partido");
         Button btnBorrarPartido = new Button("Borrar Partido");
 
 
@@ -47,16 +47,31 @@ public class MainApp extends Application {
             }
         });
 
+        btnEditarPartido.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Partido editarPartido = (Partido) tablaPartidos.getSelectionModel().getSelectedItem();
+                int id = tablaPartidos.getSelectionModel().getSelectedIndex();
+                FormularioPartido formularioPartido = new FormularioPartido(editarPartido, id);
+                formularioPartido.show();
+            }
+        });
+
         btnBorrarPartido.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 int idPartido = tablaPartidos.getSelectionModel().getSelectedIndex();
-                Logica.getINSTANCE().borrarPartido(idPartido);
+                if(idPartido >=0){
+                    Logica.getINSTANCE().borrarPartido(idPartido);
+                }
+                else{
+                    //Todo: mostrar alerta al usuario
+                }
             }
         });
 
         ImageView imagenRugby = new ImageView(getClass().getResource("resources/rugby.jpg").toExternalForm());
-        HBox hboxBotones = new HBox(10, btnAñadirPartido, btnBorrarPartido);
+        HBox hboxBotones = new HBox(10, btnAñadirPartido, btnEditarPartido, btnBorrarPartido);
 
         AnchorPane contenedorPrincipal = new AnchorPane();
 
@@ -105,6 +120,8 @@ public class MainApp extends Application {
 
         TableColumn<String, Partido> columnaFecha = new TableColumn<>("Fecha");
         columnaFecha.setCellValueFactory(new PropertyValueFactory<>("fechaFormateada"));
+
+        tablaPartidos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         tablaPartidos.getColumns().addAll(columnaLocal, columnaVisitante, columnaDivision, columnaResultado, columnaFecha);
 

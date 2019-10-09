@@ -33,6 +33,4 @@ public class Logica {
         listaPartidos.remove(id);
     }
 
-
-
 }
