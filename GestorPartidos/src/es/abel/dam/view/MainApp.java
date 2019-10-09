@@ -58,14 +58,15 @@ public class MainApp extends Application {
 
         AnchorPane contenedorPrincipal = new AnchorPane();
 
+        contenedorPrincipal.getChildren().addAll(tablaPartidos, hboxBotones);
+
         AnchorPane.setTopAnchor(tablaPartidos, 20d);
-        AnchorPane.setBottomAnchor(tablaPartidos, 100d);
         AnchorPane.setRightAnchor(tablaPartidos, 20d);
         AnchorPane.setLeftAnchor(tablaPartidos, 20d);
-        contenedorPrincipal.getChildren().add(tablaPartidos);
+        AnchorPane.setBottomAnchor(tablaPartidos, 100d);
 
         AnchorPane.setBottomAnchor(hboxBotones, 20d);
-        contenedorPrincipal.getChildren().add(hboxBotones);
+        AnchorPane.setLeftAnchor(hboxBotones, 20d);
 
         Scene scene = new Scene(contenedorPrincipal, 450, 300);
         stage.setTitle("Gestor de Partidos");
