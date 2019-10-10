@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/logica/Logica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/logica/Logica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -285,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570723128244</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="TODOs">
+      <created>1570726898936</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1570726898936</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -326,6 +331,7 @@
     <MESSAGE value="DateUtils" />
     <MESSAGE value="Date Utils v2" />
     <MESSAGE value="Formulario borrado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Formulario borrado" />
+    <MESSAGE value="TODOs" />
+    <option name="LAST_COMMIT_MESSAGE" value="TODOs" />
   </component>
 </project>

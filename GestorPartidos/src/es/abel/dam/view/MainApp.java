@@ -21,6 +21,7 @@ public class MainApp extends Application {
 
     //TODO: meter imagen
     //TODO: Refactorizar codigo
+    //TODO: COMENTAR CODIGO
 
     TableView tablaPartidos;
 
@@ -36,38 +37,25 @@ public class MainApp extends Application {
         Button btnEditarPartido = new Button("Editar Partido");
         Button btnBorrarPartido = new Button("Borrar Partido");
 
-
         btnAñadirPartido.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                FormularioPartido formularioPartido = new FormularioPartido();
-                formularioPartido.show();
+                añadirPartido();
             }
         });
 
         btnEditarPartido.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Partido editarPartido = (Partido) tablaPartidos.getSelectionModel().getSelectedItem();
-                int id = tablaPartidos.getSelectionModel().getSelectedIndex();
-                FormularioPartido formularioPartido = new FormularioPartido(editarPartido, id);
-                formularioPartido.show();
+                editarPartido();
             }
         });
 
         btnBorrarPartido.setOnAction(new EventHandler<ActionEvent>() {
-            //TODO: borrado multiple
+            //TODO: borrado multiple (Ampliacion)
             @Override
             public void handle(ActionEvent actionEvent) {
-                Boolean confirm = alertaBorrado();
-                if (confirm) {
-                    int idPartido = tablaPartidos.getSelectionModel().getSelectedIndex();
-                    if (idPartido >= 0) {
-                        Logica.getINSTANCE().borrarPartido(idPartido);
-                    } else {
-                        //TODO: mostrar alerta al usuario
-                    }
-                }
+                borrarPartido();
             }
         });
 
@@ -130,6 +118,30 @@ public class MainApp extends Application {
         tablaPartidos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         tablaPartidos.getColumns().addAll(columnaLocal, columnaVisitante, columnaDivision, columnaResultado, columnaFecha);
+    }
+
+    private void añadirPartido(){
+        FormularioPartido formularioPartido = new FormularioPartido();
+        formularioPartido.show();
+    }
+
+    private void editarPartido(){
+        Partido editarPartido = (Partido) tablaPartidos.getSelectionModel().getSelectedItem();
+        int id = tablaPartidos.getSelectionModel().getSelectedIndex();
+        FormularioPartido formularioPartido = new FormularioPartido(editarPartido, id);
+        formularioPartido.show();
+    }
+
+    private void borrarPartido(){
+        Boolean confirm = alertaBorrado();
+        if (confirm) {
+            int idPartido = tablaPartidos.getSelectionModel().getSelectedIndex();
+            if (idPartido >= 0) {
+                Logica.getINSTANCE().borrarPartido(idPartido);
+            } else {
+                //TODO: mostrar alerta al usuario
+            }
+        }
     }
 
     private boolean alertaBorrado() {

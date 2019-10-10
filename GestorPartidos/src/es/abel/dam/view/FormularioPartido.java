@@ -11,15 +11,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -58,7 +54,7 @@ public class FormularioPartido extends Stage {
         btnAceptar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                editarPartido(id);
+                editPartido(id);
             }
         });
     }
@@ -82,7 +78,7 @@ public class FormularioPartido extends Stage {
         listaDivisiones.add(Division.PRIMERA);
         listaDivisiones.add(Division.SEGUNDA);
         listaDivisiones.add(Division.TERCERA);
-        comboDivision = new ComboBox(listaDivisiones);
+        comboDivision = new ComboBox<> (listaDivisiones);
         comboDivision.setPromptText("Elija division");
         gridFormulario.add(new Label("Division:"), 0, 2, 1, 1);
         gridFormulario.add(comboDivision, 1, 2, 1, 1);
@@ -121,7 +117,7 @@ public class FormularioPartido extends Stage {
         close();
     }
 
-    private void editarPartido(int id){
+    private void editPartido(int id){
         String local = textFieldLocal.getText();
         String visitante = textFieldVisitante.getText();
         Division division = comboDivision.getValue();
