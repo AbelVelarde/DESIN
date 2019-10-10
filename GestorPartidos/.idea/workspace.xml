@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/utils/DateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/utils/DateUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/logica/Logica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/logica/Logica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -269,7 +271,21 @@
       <option name="project" value="LOCAL" />
       <updated>1570721774113</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Date Utils v2">
+      <created>1570723103912</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1570723103912</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Formulario borrado">
+      <created>1570723128244</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1570723128244</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -308,6 +324,8 @@
     <MESSAGE value="Refactorizacion" />
     <MESSAGE value="implementacion de la modificacio de campos en la tabla" />
     <MESSAGE value="DateUtils" />
-    <option name="LAST_COMMIT_MESSAGE" value="DateUtils" />
+    <MESSAGE value="Date Utils v2" />
+    <MESSAGE value="Formulario borrado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formulario borrado" />
   </component>
 </project>

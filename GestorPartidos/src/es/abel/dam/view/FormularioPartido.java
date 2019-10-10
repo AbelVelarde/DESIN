@@ -25,14 +25,16 @@ import java.util.Date;
 
 public class FormularioPartido extends Stage {
 
-    TextField textFieldLocal;
-    TextField textFieldVisitante;
-    ObservableList<Division> listaDivisiones;
-    ComboBox<Division> comboDivision;
-    TextField tfResultadoLocal;
-    TextField tfResultadoVisitante;
-    DatePicker fechaPartido;
-    Button btnAceptar;
+    //TODO: Refactorizar codigo
+
+    private TextField textFieldLocal;
+    private TextField textFieldVisitante;
+    private ObservableList<Division> listaDivisiones;
+    private ComboBox<Division> comboDivision;
+    private TextField tfResultadoLocal;
+    private TextField tfResultadoVisitante;
+    private DatePicker fechaPartido;
+    private Button btnAceptar;
 
     public FormularioPartido() {
         inicializarLayout();
@@ -127,7 +129,6 @@ public class FormularioPartido extends Stage {
         Date fecha = DateUtils.convertToDate(fechaPartido.getValue());
 
         Partido partidoEditado = new Partido(local, visitante, division, resultado, fecha);
-        Logica.getINSTANCE().borrarPartido(id);
         Logica.getINSTANCE().editarPartido(partidoEditado, id);
 
         close();

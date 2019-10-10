@@ -6,6 +6,8 @@ import javafx.collections.ObservableList;
 
 public class Logica {
 
+    //TODO: Refactorizar codigo
+
     private static Logica INSTANCE = null;
 
     private ObservableList<Partido> listaPartidos;
@@ -34,7 +36,7 @@ public class Logica {
     }
 
     public void editarPartido(Partido partido, int id){
-        listaPartidos.add(id, partido);
+        listaPartidos.set(id, partido);
     }
 
 }

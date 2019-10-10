@@ -11,17 +11,16 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class MainApp extends Application {
 
-    //todo: meter imagen
+    //TODO: meter imagen
+    //TODO: Refactorizar codigo
 
     TableView tablaPartidos;
 
@@ -57,6 +56,7 @@ public class MainApp extends Application {
         });
 
         btnBorrarPartido.setOnAction(new EventHandler<ActionEvent>() {
+            //TODO: borrado multiple
             @Override
             public void handle(ActionEvent actionEvent) {
                 Boolean confirm = alertaBorrado();
@@ -65,13 +65,12 @@ public class MainApp extends Application {
                     if (idPartido >= 0) {
                         Logica.getINSTANCE().borrarPartido(idPartido);
                     } else {
-                        //Todo: mostrar alerta al usuario
+                        //TODO: mostrar alerta al usuario
                     }
                 }
             }
         });
 
-        ImageView imagenRugby = new ImageView(getClass().getResource("resources/rugby.jpg").toExternalForm());
         HBox hboxBotones = new HBox(10, btnAñadirPartido, btnEditarPartido, btnBorrarPartido);
 
         AnchorPane contenedorPrincipal = new AnchorPane();
@@ -90,13 +89,19 @@ public class MainApp extends Application {
         stage.setTitle("Gestor de Partidos");
         stage.setScene(scene);
         stage.show();
+
+        //TODO: guardar y cargar a disco
+        //list<Partido> listaPartidos = new ArrayList<>(listaPersonasFX) <- guardar
+        //ObservableList<Partido> listaPartidosFX = FXCollections.obsevableList(listaPartidos)
     }
 
     public void crearTabla() {
+        //TODO: borrar linea despues de implementar la lectura de fichero
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
         ObservableList<Partido> listaPartidos = Logica.getINSTANCE().getListaPartidos();
 
+        //TODO: Borrar despues de implementar la lectura de fichero;
         try {
             listaPartidos.add(new Partido("Santander", "Oviedo", Division.SEGUNDA, new Resultado(13, 16), sdf.parse("13/10/2018")));
             listaPartidos.add(new Partido("Gijon", "Leon", Division.PRIMERA, new Resultado(21, 11), sdf.parse("27/11/2018")));
@@ -125,7 +130,6 @@ public class MainApp extends Application {
         tablaPartidos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         tablaPartidos.getColumns().addAll(columnaLocal, columnaVisitante, columnaDivision, columnaResultado, columnaFecha);
-
     }
 
     private boolean alertaBorrado() {
