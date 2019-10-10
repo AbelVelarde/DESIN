@@ -4,6 +4,7 @@ import es.abel.dam.logica.Logica;
 import es.abel.dam.models.Division;
 import es.abel.dam.models.Partido;
 import es.abel.dam.models.Resultado;
+import es.abel.dam.utils.DateUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -115,12 +116,8 @@ public class FormularioPartido extends Stage {
         String visitante = textFieldVisitante.getText();
         Division division = comboDivision.getSelectionModel().getSelectedItem();
         Resultado resultado = new Resultado(Integer.parseInt(tfResultadoLocal.getText()), Integer.parseInt(tfResultadoVisitante.getText()));
-        Date fecha = new Date();
-        try {
-            fecha = sdf.parse(fechaPartido.getValue().toString());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        Date fecha = DateUtils.convertToDate(fechaPartido.getValue());
+
         Partido partido = new Partido(local, visitante, division, resultado, fecha);
         Logica.getINSTANCE().añadirPartido(partido);
 
@@ -132,16 +129,13 @@ public class FormularioPartido extends Stage {
         String visitante = textFieldVisitante.getText();
         Division division = comboDivision.getValue();
         Resultado resultado = new Resultado(Integer.parseInt(tfResultadoLocal.getText()), Integer.parseInt(tfResultadoVisitante.getText()));
-        Date fecha = new Date();
-        try {
-            fecha = sdf.parse(fechaPartido.getValue().toString());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        Date fecha = DateUtils.convertToDate(fechaPartido.getValue());
 
         Partido partidoEditado = new Partido(local, visitante, division, resultado, fecha);
+        Logica.getINSTANCE().borrarPartido(id);
+        Logica.getINSTANCE().editarPartido(partidoEditado, id);
 
-
+        close();
 
     }
 

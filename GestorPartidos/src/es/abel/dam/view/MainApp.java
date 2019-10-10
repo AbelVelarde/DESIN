@@ -9,10 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -23,6 +20,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class MainApp extends Application {
+
+    //todo: meter imagen
 
     TableView tablaPartidos;
 
@@ -60,12 +59,14 @@ public class MainApp extends Application {
         btnBorrarPartido.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                int idPartido = tablaPartidos.getSelectionModel().getSelectedIndex();
-                if(idPartido >=0){
-                    Logica.getINSTANCE().borrarPartido(idPartido);
-                }
-                else{
-                    //Todo: mostrar alerta al usuario
+                Boolean confirm = alertaBorrado();
+                if (confirm) {
+                    int idPartido = tablaPartidos.getSelectionModel().getSelectedIndex();
+                    if (idPartido >= 0) {
+                        Logica.getINSTANCE().borrarPartido(idPartido);
+                    } else {
+                        //Todo: mostrar alerta al usuario
+                    }
                 }
             }
         });
@@ -125,6 +126,19 @@ public class MainApp extends Application {
 
         tablaPartidos.getColumns().addAll(columnaLocal, columnaVisitante, columnaDivision, columnaResultado, columnaFecha);
 
+    }
+
+    private boolean alertaBorrado() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmar");
+        alert.setHeaderText("");
+        alert.setContentText("¿Desea borrar este partido? No podrá recuperarlo más adelante.");
+        alert.showAndWait();
+        if (alert.getResult() == ButtonType.OK) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

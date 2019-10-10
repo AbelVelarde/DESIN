@@ -33,4 +33,8 @@ public class Logica {
         listaPartidos.remove(id);
     }
 
+    public void editarPartido(Partido partido, int id){
+        listaPartidos.add(id, partido);
+    }
+
 }
