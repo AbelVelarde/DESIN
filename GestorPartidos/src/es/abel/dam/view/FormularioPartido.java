@@ -34,8 +34,6 @@ public class FormularioPartido extends Stage {
     DatePicker fechaPartido;
     Button btnAceptar;
 
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
     public FormularioPartido() {
         inicializarLayout();
         btnAceptar.setOnAction(new EventHandler<ActionEvent>() {
@@ -53,9 +51,7 @@ public class FormularioPartido extends Stage {
         comboDivision.setValue(partidoEditar.getDivision());
         tfResultadoLocal.setText("" + partidoEditar.getResultado().getResultadoLocal());
         tfResultadoVisitante.setText("" + partidoEditar.getResultado().getResultadoVisitante());
-        String fechaString = sdf.format(partidoEditar.getFecha());
-        LocalDate fechaLocal = LocalDate.parse(fechaString);
-        fechaPartido.setValue(fechaLocal);
+        fechaPartido.setValue(DateUtils.convertToLocalDate(partidoEditar.getFecha()));
 
         btnAceptar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -63,7 +59,6 @@ public class FormularioPartido extends Stage {
                 editarPartido(id);
             }
         });
-
     }
 
     private void inicializarLayout() {
@@ -136,7 +131,6 @@ public class FormularioPartido extends Stage {
         Logica.getINSTANCE().editarPartido(partidoEditado, id);
 
         close();
-
     }
 
 }

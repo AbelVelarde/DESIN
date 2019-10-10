@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class DateUtils {
 
-    private static SimpleDateFormat  sdf = new SimpleDateFormat("yyyy-MM-dd");
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     public static Date convertToDate(LocalDate localDate){
         Date fecha = null;
@@ -20,7 +20,8 @@ public class DateUtils {
     }
 
     public static LocalDate convertToLocalDate(Date date){
-        return null;
+        String fecha = sdf.format(date);
+        return LocalDate.parse(fecha);
     }
 
 }
