@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../HelloWorldJavaFX/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/utils/DateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/utils/DateUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorldJavaFX/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HelloWorldJavaFX/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorldJavaFX/src/es/abel/dam/Componentes3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HelloWorldJavaFX/src/es/abel/dam/Componentes3.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +32,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="K:/Programas/JavaJDK/javafx-sdk-13/lib/javafx.web.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HelloWorldJavaFX" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -290,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570726898936</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Mas TODOs y codigo refactorizado">
+      <created>1570728361865</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1570728361865</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -332,6 +341,7 @@
     <MESSAGE value="Date Utils v2" />
     <MESSAGE value="Formulario borrado" />
     <MESSAGE value="TODOs" />
-    <option name="LAST_COMMIT_MESSAGE" value="TODOs" />
+    <MESSAGE value="Mas TODOs y codigo refactorizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mas TODOs y codigo refactorizado" />
   </component>
 </project>

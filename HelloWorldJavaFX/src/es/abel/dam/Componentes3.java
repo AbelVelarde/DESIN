@@ -11,9 +11,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-
 public class Componentes3 extends Application {
 
 
