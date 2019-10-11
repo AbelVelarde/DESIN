@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../HelloWorldJavaFX/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/utils/DateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/utils/DateUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloWorldJavaFX/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HelloWorldJavaFX/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloWorldJavaFX/src/es/abel/dam/Componentes3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HelloWorldJavaFX/src/es/abel/dam/Componentes3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -299,7 +295,21 @@
       <option name="project" value="LOCAL" />
       <updated>1570728361865</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Mas TODO">
+      <created>1570809243374</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1570809243374</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Mas TODO">
+      <created>1570809294927</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1570809294927</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -317,7 +327,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Cambios menores en el Formulario" />
     <MESSAGE value="Añadidas las clases Partido y Resultado" />
     <MESSAGE value="Añadida clase MainApp" />
     <MESSAGE value="MainApp con tabla terminada" />
@@ -342,6 +351,7 @@
     <MESSAGE value="Formulario borrado" />
     <MESSAGE value="TODOs" />
     <MESSAGE value="Mas TODOs y codigo refactorizado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mas TODOs y codigo refactorizado" />
+    <MESSAGE value="Mas TODO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mas TODO" />
   </component>
 </project>
