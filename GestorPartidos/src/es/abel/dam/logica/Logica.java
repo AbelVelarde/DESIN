@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 
 public class Logica {
 
-    //TODO: Refactorizar codigo
+    //TODO: Refactorizar codigo y comentar
 
     private static Logica INSTANCE = null;
 
