@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -121,27 +122,27 @@ public class MainApp extends Application {
         tablaPartidos.getColumns().addAll(columnaLocal, columnaVisitante, columnaDivision, columnaResultado, columnaFecha);
     }
 
-    private void añadirPartido(){
+    private void añadirPartido() {
         FormularioPartido formularioPartido = new FormularioPartido();
         formularioPartido.show();
     }
 
-    private void editarPartido(){
+    private void editarPartido() {
         Partido editarPartido = (Partido) tablaPartidos.getSelectionModel().getSelectedItem();
         int id = tablaPartidos.getSelectionModel().getSelectedIndex();
         FormularioPartido formularioPartido = new FormularioPartido(editarPartido, id);
         formularioPartido.show();
     }
 
-    private void borrarPartido(){
-        Boolean confirm = alertaBorrado();
-        if (confirm) {
-            int idPartido = tablaPartidos.getSelectionModel().getSelectedIndex();
-            if (idPartido >= 0) {
+    private void borrarPartido() {
+        int idPartido = tablaPartidos.getSelectionModel().getSelectedIndex();
+        if (idPartido >= 0) {
+            Boolean confirm = alertaBorrado();
+            if (confirm) {
                 Logica.getINSTANCE().borrarPartido(idPartido);
-            } else {
-                //TODO: mostrar alerta al usuario
             }
+        } else {
+            alertaBorradoNoSelec();
         }
     }
 
@@ -156,6 +157,14 @@ public class MainApp extends Application {
         } else {
             return false;
         }
+    }
+
+    private void alertaBorradoNoSelec() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error borrado.");
+        alert.setHeaderText("");
+        alert.setContentText("Error, hay que seleccionar un partido para poder borrar.");
+        alert.showAndWait();
     }
 
 }
