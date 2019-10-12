@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/Alerts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/Alerts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -352,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570915586253</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Alertas comentadas">
+      <created>1570915944745</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1570915944745</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -370,7 +376,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Cambios menores despues del clone a local" />
     <MESSAGE value="Formulario añade un partido a la lista" />
     <MESSAGE value="Unir la funcionalidad de las clases MainApp y FormularioPartidos" />
     <MESSAGE value="Borrar partido implementado" />
@@ -395,6 +400,7 @@
     <MESSAGE value="Refactorizacion formulario" />
     <MESSAGE value="Alertas formulario" />
     <MESSAGE value="Formulario refactorizado y comentado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Formulario refactorizado y comentado" />
+    <MESSAGE value="Alertas comentadas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alertas comentadas" />
   </component>
 </project>

@@ -21,8 +21,6 @@ import java.util.Date;
 
 public class FormularioPartido extends Stage {
 
-    //TODO: Refactorizar codigo
-
     private TextField textFieldLocal;
     private TextField textFieldVisitante;
     private ObservableList<Division> listaDivisiones;
