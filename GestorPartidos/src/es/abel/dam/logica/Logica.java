@@ -6,8 +6,6 @@ import javafx.collections.ObservableList;
 
 public class Logica {
 
-    //TODO: Refactorizar codigo y comentar
-
     private static Logica INSTANCE = null;
 
     private ObservableList<Partido> listaPartidos;
@@ -16,6 +14,10 @@ public class Logica {
         listaPartidos = FXCollections.observableArrayList();
     }
 
+    /**
+     * Crea la instancia de logica, o la devuelve en caso de que ya este creada
+     * @return instancia de logica
+     */
     public static Logica getINSTANCE(){
         if(INSTANCE == null){
             INSTANCE = new Logica();
@@ -23,18 +25,35 @@ public class Logica {
         return INSTANCE;
     }
 
+    /**
+     * Devuelve la lista de partidos
+     * @return lista de partidos
+     */
     public ObservableList getListaPartidos(){
         return listaPartidos;
     }
 
+    /**
+     * Añade un partido a la lista.
+     * @param partido partido a añadir.
+     */
     public void añadirPartido(Partido partido){
         listaPartidos.add(partido);
     }
 
+    /**
+     * Borra un partido de la lista.
+     * @param id posicion del partido a borrar.
+     */
     public void borrarPartido(int id){
         listaPartidos.remove(id);
     }
 
+    /**
+     * Sutituye en la lista un partido.
+     * @param partido Partido nuevo.
+     * @param id Posicion a introducir el patido.
+     */
     public void editarPartido(Partido partido, int id){
         listaPartidos.set(id, partido);
     }
