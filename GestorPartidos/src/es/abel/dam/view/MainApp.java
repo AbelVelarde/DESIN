@@ -22,7 +22,6 @@ public class MainApp extends Application {
 
     //TODO: meter imagen
     //TODO: Refactorizar codigo
-    //TODO: COMENTAR CODIGO
     //TODO: implementar filtrado
 
     TableView tablaPartidos;
