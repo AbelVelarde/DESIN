@@ -105,10 +105,17 @@ public class FormularioPartido extends Stage {
     }
 
     private void addPartido(){
+        int localRes = Integer.parseInt(tfResultadoLocal.getText());
+        int visitRes = Integer.parseInt(tfResultadoVisitante.getText());
+
+        if(localRes < 0 || visitRes < 0){
+            alertaResultado();
+        }
+
         String local = textFieldLocal.getText();
         String visitante = textFieldVisitante.getText();
         Division division = comboDivision.getSelectionModel().getSelectedItem();
-        Resultado resultado = new Resultado(Integer.parseInt(tfResultadoLocal.getText()), Integer.parseInt(tfResultadoVisitante.getText()));
+        Resultado resultado = new Resultado(localRes, visitRes);
         Date fecha = DateUtils.convertToDate(fechaPartido.getValue());
 
         Partido partido = new Partido(local, visitante, division, resultado, fecha);

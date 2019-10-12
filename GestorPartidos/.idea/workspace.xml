@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -317,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570809402162</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Alerta borrar sin seleccion">
+      <created>1570904160335</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1570904160335</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -335,7 +342,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Añadidas las clases Partido y Resultado" />
     <MESSAGE value="Añadida clase MainApp" />
     <MESSAGE value="MainApp con tabla terminada" />
     <MESSAGE value="MainApp con tabla terminada y funcional" />
@@ -360,6 +366,7 @@
     <MESSAGE value="TODOs" />
     <MESSAGE value="Mas TODOs y codigo refactorizado" />
     <MESSAGE value="Mas TODO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mas TODO" />
+    <MESSAGE value="Alerta borrar sin seleccion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alerta borrar sin seleccion" />
   </component>
 </project>
