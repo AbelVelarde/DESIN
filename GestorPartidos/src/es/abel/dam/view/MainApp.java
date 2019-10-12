@@ -137,34 +137,13 @@ public class MainApp extends Application {
     private void borrarPartido() {
         int idPartido = tablaPartidos.getSelectionModel().getSelectedIndex();
         if (idPartido >= 0) {
-            Boolean confirm = alertaBorrado();
+            Boolean confirm = Alerts.alertaBorradoConfim();
             if (confirm) {
                 Logica.getINSTANCE().borrarPartido(idPartido);
             }
         } else {
-            alertaBorradoNoSelec();
+            Alerts.alertaBorradoNoSelec();
         }
-    }
-
-    private boolean alertaBorrado() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmar");
-        alert.setHeaderText("");
-        alert.setContentText("¿Desea borrar este partido? No podrá recuperarlo más adelante.");
-        alert.showAndWait();
-        if (alert.getResult() == ButtonType.OK) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private void alertaBorradoNoSelec() {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error borrado.");
-        alert.setHeaderText("");
-        alert.setContentText("Error, hay que seleccionar un partido para poder borrar.");
-        alert.showAndWait();
     }
 
 }

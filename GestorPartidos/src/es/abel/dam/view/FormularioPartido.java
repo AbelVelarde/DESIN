@@ -37,7 +37,7 @@ public class FormularioPartido extends Stage {
         btnAceptar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                addPartido();
+                addPartido(-1);
             }
         });
     }
@@ -54,7 +54,7 @@ public class FormularioPartido extends Stage {
         btnAceptar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                editPartido(id);
+                addPartido(id);
             }
         });
     }
@@ -104,37 +104,31 @@ public class FormularioPartido extends Stage {
         setScene(scene);
     }
 
-    private void addPartido(){
+    private void addPartido(int id){
         int localRes = Integer.parseInt(tfResultadoLocal.getText());
         int visitRes = Integer.parseInt(tfResultadoVisitante.getText());
 
         if(localRes < 0 || visitRes < 0){
-            alertaResultado();
+            Alerts.alertaResNegativo();
         }
+        else{
+            String local = textFieldLocal.getText();
+            String visitante = textFieldVisitante.getText();
+            Division division = comboDivision.getSelectionModel().getSelectedItem();
+            Resultado resultado = new Resultado(localRes, visitRes);
+            Date fecha = DateUtils.convertToDate(fechaPartido.getValue());
 
-        String local = textFieldLocal.getText();
-        String visitante = textFieldVisitante.getText();
-        Division division = comboDivision.getSelectionModel().getSelectedItem();
-        Resultado resultado = new Resultado(localRes, visitRes);
-        Date fecha = DateUtils.convertToDate(fechaPartido.getValue());
+            Partido partido = new Partido(local, visitante, division, resultado, fecha);
 
-        Partido partido = new Partido(local, visitante, division, resultado, fecha);
-        Logica.getINSTANCE().añadirPartido(partido);
+            if(id == -1){
+                Logica.getINSTANCE().añadirPartido(partido);
+            }
+            else{
+                Logica.getINSTANCE().editarPartido(partido, id);
+            }
 
-        close();
-    }
-
-    private void editPartido(int id){
-        String local = textFieldLocal.getText();
-        String visitante = textFieldVisitante.getText();
-        Division division = comboDivision.getValue();
-        Resultado resultado = new Resultado(Integer.parseInt(tfResultadoLocal.getText()), Integer.parseInt(tfResultadoVisitante.getText()));
-        Date fecha = DateUtils.convertToDate(fechaPartido.getValue());
-
-        Partido partidoEditado = new Partido(local, visitante, division, resultado, fecha);
-        Logica.getINSTANCE().editarPartido(partidoEditado, id);
-
-        close();
+            close();
+        }
     }
 
 }
