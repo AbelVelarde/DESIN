@@ -5,6 +5,10 @@ import javafx.scene.control.ButtonType;
 
 public class Alerts {
 
+    /**
+     * Alerta para confirmar el borrado
+     * @return true si se presiona el boton "aceptar"
+     */
     public static boolean alertaBorradoConfim() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmar");
@@ -18,6 +22,9 @@ public class Alerts {
         }
     }
 
+    /**
+     * Alerta de error de borrado cuando no se selecciona una fila de la tabla
+     */
     public static void alertaBorradoNoSelec() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
@@ -26,6 +33,9 @@ public class Alerts {
         alert.showAndWait();
     }
 
+    /**
+     * Alerta cuando el resultado (local o visitante) es no es valido (negativo o no entero)
+     */
     public static void alertaResultado(){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
@@ -34,6 +44,9 @@ public class Alerts {
         alert.showAndWait();
     }
 
+    /**
+     * Alerta cuando el nombre del equipo (local o visitante) esta en blanco
+     */
     public static void alertaNombre() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
@@ -42,6 +55,9 @@ public class Alerts {
         alert.showAndWait();
     }
 
+    /**
+     * Alerta cuando no se selecciona una division
+     */
     public static void alertaDivisionNula() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
