@@ -105,16 +105,24 @@ public class FormularioPartido extends Stage {
     }
 
     private void addPartido(int id){
-        int localRes = Integer.parseInt(tfResultadoLocal.getText());
-        int visitRes = Integer.parseInt(tfResultadoVisitante.getText());
-
-        if(localRes < 0 || visitRes < 0){
-            Alerts.alertaResNegativo();
+        String localResStr = tfResultadoLocal.getText();
+        String visitResStr = tfResultadoVisitante.getText();
+        String local = textFieldLocal.getText();
+        String visitante = textFieldVisitante.getText();
+        Division division = comboDivision.getSelectionModel().getSelectedItem();
+        //
+        if(!localResStr.matches("[0-9]+") || !visitResStr.matches("[0-9]+")){
+            Alerts.alertaResultado();
+        }
+        else if(!(local.trim().length() > 0) || !(visitante.trim().length() > 0)){
+            Alerts.alertaNombre();
+        }
+        else if(division == null){
+            Alerts.alertaDivisionNula();
         }
         else{
-            String local = textFieldLocal.getText();
-            String visitante = textFieldVisitante.getText();
-            Division division = comboDivision.getSelectionModel().getSelectedItem();
+            int localRes = Integer.parseInt(localResStr);
+            int visitRes = Integer.parseInt(visitResStr);
             Resultado resultado = new Resultado(localRes, visitRes);
             Date fecha = DateUtils.convertToDate(fechaPartido.getValue());
 

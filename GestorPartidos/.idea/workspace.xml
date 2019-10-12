@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/Alerts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/Alerts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -333,7 +332,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570905109169</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Refactorizacion formulario">
+      <created>1570906823321</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1570906823321</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -351,7 +357,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="MainApp con tabla terminada" />
     <MESSAGE value="MainApp con tabla terminada y funcional" />
     <MESSAGE value="Singleton de la logica y organizacion en carpetas logica, models y view" />
     <MESSAGE value="Cambios menores despues del clone a local" />
@@ -376,6 +381,7 @@
     <MESSAGE value="Mas TODO" />
     <MESSAGE value="Alerta borrar sin seleccion" />
     <MESSAGE value="Alerta resultado y clase alertas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alerta resultado y clase alertas" />
+    <MESSAGE value="Refactorizacion formulario" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactorizacion formulario" />
   </component>
 </project>

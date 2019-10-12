@@ -26,11 +26,27 @@ public class Alerts {
         alert.showAndWait();
     }
 
-    public static void alertaResNegativo(){
+    public static void alertaResultado(){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText("");
-        alert.setContentText("Error, un equipo no puede tener un resultado negativo.");
+        alert.setContentText("Error, un resultado introducido es negativo o no es un numero entero.");
+        alert.showAndWait();
+    }
+
+    public static void alertaNombre() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("");
+        alert.setContentText("Error, el nombre no puede quedar en blanco.");
+        alert.showAndWait();
+    }
+
+    public static void alertaDivisionNula() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("");
+        alert.setContentText("Error, escoja division.");
         alert.showAndWait();
     }
 
