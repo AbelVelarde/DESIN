@@ -85,6 +85,9 @@ public class MainApp extends Application {
         //ObservableList<Partido> listaPartidosFX = FXCollections.obsevableList(listaPartidos)
     }
 
+    /**
+     * Metodo que crea la tabla de partidos.
+     */
     public void crearTabla() {
         //TODO: borrar linea despues de implementar la lectura de fichero
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -122,11 +125,17 @@ public class MainApp extends Application {
         tablaPartidos.getColumns().addAll(columnaLocal, columnaVisitante, columnaDivision, columnaResultado, columnaFecha);
     }
 
+    /**
+     * Crea una nueva ventana de formulario para añadir un partdo.
+     */
     private void añadirPartido() {
         FormularioPartido formularioPartido = new FormularioPartido();
         formularioPartido.show();
     }
 
+    /**
+     * Crea un nuevo formulario para editar un partido.
+     */
     private void editarPartido() {
         Partido editarPartido = (Partido) tablaPartidos.getSelectionModel().getSelectedItem();
         int id = tablaPartidos.getSelectionModel().getSelectedIndex();
@@ -134,6 +143,9 @@ public class MainApp extends Application {
         formularioPartido.show();
     }
 
+    /**
+     * Llama al metodo de logica que permite borrar un partido.
+     */
     private void borrarPartido() {
         int idPartido = tablaPartidos.getSelectionModel().getSelectedIndex();
         if (idPartido >= 0) {

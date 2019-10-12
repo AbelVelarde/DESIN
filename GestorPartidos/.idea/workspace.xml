@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/logica/Logica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/logica/Logica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/utils/DateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/utils/DateUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -366,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570916022105</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Clase logica comentada">
+      <created>1570916510497</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1570916510497</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -384,7 +392,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Unir la funcionalidad de las clases MainApp y FormularioPartidos" />
     <MESSAGE value="Borrar partido implementado" />
     <MESSAGE value="Modularidad implementada" />
     <MESSAGE value="ComboBox tipado" />
@@ -409,6 +416,7 @@
     <MESSAGE value="Formulario refactorizado y comentado" />
     <MESSAGE value="Alertas comentadas" />
     <MESSAGE value="Formulario terminado (en principio)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Formulario terminado (en principio)" />
+    <MESSAGE value="Clase logica comentada" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clase logica comentada" />
   </component>
 </project>
