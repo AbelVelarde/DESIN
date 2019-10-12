@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/Alerts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/Alerts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/FormularioPartido.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -339,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570906823321</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Alertas formulario">
+      <created>1570914330269</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1570914330269</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -357,7 +363,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="MainApp con tabla terminada y funcional" />
     <MESSAGE value="Singleton de la logica y organizacion en carpetas logica, models y view" />
     <MESSAGE value="Cambios menores despues del clone a local" />
     <MESSAGE value="Formulario añade un partido a la lista" />
@@ -382,6 +387,7 @@
     <MESSAGE value="Alerta borrar sin seleccion" />
     <MESSAGE value="Alerta resultado y clase alertas" />
     <MESSAGE value="Refactorizacion formulario" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactorizacion formulario" />
+    <MESSAGE value="Alertas formulario" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alertas formulario" />
   </component>
 </project>
