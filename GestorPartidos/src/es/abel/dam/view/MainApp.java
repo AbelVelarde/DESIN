@@ -31,7 +31,6 @@ public class MainApp extends Application {
     //TODO: implementar filtrado
 
     TableView tablaPartidos;
-    //ComboBox<String> comboFiltrado;
 
     public static void main(String[] args) {
         launch();
@@ -68,7 +67,6 @@ public class MainApp extends Application {
             }
         });
 
-        //HBox hboxFiltrado = new HBox(10, new Label("Escoja division para filtrar: "), comboFiltrado);
         HBox hboxBotones = new HBox(10, btnAñadirPartido, btnEditarPartido, btnBorrarPartido);
 
         AnchorPane contenedorPrincipal = new AnchorPane();
@@ -94,30 +92,13 @@ public class MainApp extends Application {
         });
         stage.setScene(scene);
         stage.show();
-
-
-        //TODO: guardar y cargar a disco
-        //list<Partido> listaPartidos = new ArrayList<>(listaPersonasFX) <- guardar
-        //ObservableList<Partido> listaPartidosFX = FXCollections.obsevableList(listaPartidos)
     }
 
     /**
      * Metodo que crea la tabla de partidos.
      */
     public void crearTabla() {
-//        //TODO: borrar linea despues de implementar la lectura de fichero
-//        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-//
       ObservableList<Partido> listaPartidos = Logica.getINSTANCE().getListaPartidos();
-//
-//        //TODO: Borrar despues de implementar la lectura de fichero;
-//        try {
-//            listaPartidos.add(new Partido("Santander", "Oviedo", Division.SEGUNDA, new Resultado(13, 16), sdf.parse("13/10/2018")));
-//            listaPartidos.add(new Partido("Gijon", "Leon", Division.PRIMERA, new Resultado(21, 11), sdf.parse("27/11/2018")));
-//            listaPartidos.add(new Partido("Cadiz", "Madrid", Division.TERCERA, new Resultado(23, 17), sdf.parse("08/01/2019")));
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
 
         tablaPartidos = new TableView(listaPartidos);
 
@@ -141,27 +122,6 @@ public class MainApp extends Application {
         tablaPartidos.getColumns().addAll(columnaLocal, columnaVisitante, columnaDivision, columnaResultado, columnaFecha);
     }
 
-/*
-    private void crearComboFiltro(){
-        comboFiltrado = new ComboBox();
-        ObservableList<String> listaDivisiones = FXCollections.observableArrayList();
-
-        listaDivisiones.add("Todas");
-        listaDivisiones.add("Primera");
-        listaDivisiones.add("Segunda");
-        listaDivisiones.add("Tercera");
-        comboFiltrado = new ComboBox<> (listaDivisiones);
-
-        comboFiltrado.getSelectionModel().select(0);
-
-        comboFiltrado.valueProperty().addListener(new ChangeListener() {
-            @Override
-            public void changed(ObservableValue observableValue, Object o, Object t1) {
-                Logica.getINSTANCE().filtrarPorDivision(comboFiltrado.getSelectionModel().getSelectedItem());
-            }
-        });
-    }
-*/
     /**
      * Crea una nueva ventana de formulario para añadir un partdo.
      */
