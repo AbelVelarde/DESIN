@@ -39,6 +39,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        cargarListaPartidos();
         crearTabla();
 
         Button btnAñadirPartido = new Button("Añadir Partido");
@@ -84,6 +85,7 @@ public class MainApp extends Application {
 
         Scene scene = new Scene(contenedorPrincipal, 600, 450);
         stage.setTitle("Gestor de Partidos");
+
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent windowEvent) {
@@ -103,19 +105,19 @@ public class MainApp extends Application {
      * Metodo que crea la tabla de partidos.
      */
     public void crearTabla() {
-        //TODO: borrar linea despues de implementar la lectura de fichero
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-        ObservableList<Partido> listaPartidos = Logica.getINSTANCE().getListaPartidos();
-
-        //TODO: Borrar despues de implementar la lectura de fichero;
-        try {
-            listaPartidos.add(new Partido("Santander", "Oviedo", Division.SEGUNDA, new Resultado(13, 16), sdf.parse("13/10/2018")));
-            listaPartidos.add(new Partido("Gijon", "Leon", Division.PRIMERA, new Resultado(21, 11), sdf.parse("27/11/2018")));
-            listaPartidos.add(new Partido("Cadiz", "Madrid", Division.TERCERA, new Resultado(23, 17), sdf.parse("08/01/2019")));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+//        //TODO: borrar linea despues de implementar la lectura de fichero
+//        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//
+      ObservableList<Partido> listaPartidos = Logica.getINSTANCE().getListaPartidos();
+//
+//        //TODO: Borrar despues de implementar la lectura de fichero;
+//        try {
+//            listaPartidos.add(new Partido("Santander", "Oviedo", Division.SEGUNDA, new Resultado(13, 16), sdf.parse("13/10/2018")));
+//            listaPartidos.add(new Partido("Gijon", "Leon", Division.PRIMERA, new Resultado(21, 11), sdf.parse("27/11/2018")));
+//            listaPartidos.add(new Partido("Cadiz", "Madrid", Division.TERCERA, new Resultado(23, 17), sdf.parse("08/01/2019")));
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
 
         tablaPartidos = new TableView(listaPartidos);
 
@@ -216,8 +218,30 @@ public class MainApp extends Application {
                 }
             }
         }
+    }
 
+    private void cargarListaPartidos(){
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("ListaPartidos.txt"));
 
+            ArrayList<Partido> listaInput = (ArrayList<Partido>) ois.readObject();
+
+            Logica.getINSTANCE().setListaPartidos(listaInput);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            if(ois != null){
+                try {
+                    ois.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
 }

@@ -5,6 +5,8 @@ import es.abel.dam.models.Partido;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.ArrayList;
+
 public class Logica {
 
     private static Logica INSTANCE = null;
@@ -12,7 +14,7 @@ public class Logica {
     private ObservableList<Partido> listaPartidos;
 
     private Logica(){
-        listaPartidos = FXCollections.observableArrayList();
+
     }
 
     /**
@@ -32,6 +34,14 @@ public class Logica {
      */
     public ObservableList getListaPartidos(){
         return listaPartidos;
+    }
+
+    /**
+     * Crea la lista de partidos en formato ObservableList
+     * @param listaInput lista leida de fichero
+     */
+    public void setListaPartidos(ArrayList listaInput){
+        listaPartidos = FXCollections.observableArrayList(listaInput);
     }
 
     /**
