@@ -5,6 +5,9 @@ import es.abel.dam.models.Division;
 import es.abel.dam.models.Partido;
 import es.abel.dam.models.Resultado;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -25,6 +28,7 @@ public class MainApp extends Application {
     //TODO: implementar filtrado
 
     TableView tablaPartidos;
+    ComboBox<String> comboFiltrado;
 
     public static void main(String[] args) {
         launch();
@@ -33,6 +37,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         crearTabla();
+        crearComboFiltro();
 
         Button btnAñadirPartido = new Button("Añadir Partido");
         Button btnEditarPartido = new Button("Editar Partido");
@@ -60,13 +65,17 @@ public class MainApp extends Application {
             }
         });
 
+        HBox hboxFiltrado = new HBox(10, new Label("Escoja division para filtrar: "), comboFiltrado);
         HBox hboxBotones = new HBox(10, btnAñadirPartido, btnEditarPartido, btnBorrarPartido);
 
         AnchorPane contenedorPrincipal = new AnchorPane();
 
-        contenedorPrincipal.getChildren().addAll(tablaPartidos, hboxBotones);
+        contenedorPrincipal.getChildren().addAll(hboxFiltrado, tablaPartidos, hboxBotones);
 
-        AnchorPane.setTopAnchor(tablaPartidos, 20d);
+        AnchorPane.setTopAnchor(hboxFiltrado, 20d);
+        AnchorPane.setLeftAnchor(hboxFiltrado, 20d);
+
+        AnchorPane.setTopAnchor(tablaPartidos, 60d);
         AnchorPane.setRightAnchor(tablaPartidos, 20d);
         AnchorPane.setLeftAnchor(tablaPartidos, 20d);
         AnchorPane.setBottomAnchor(tablaPartidos, 100d);
@@ -74,7 +83,7 @@ public class MainApp extends Application {
         AnchorPane.setBottomAnchor(hboxBotones, 20d);
         AnchorPane.setLeftAnchor(hboxBotones, 20d);
 
-        Scene scene = new Scene(contenedorPrincipal, 450, 300);
+        Scene scene = new Scene(contenedorPrincipal, 600, 450);
         stage.setTitle("Gestor de Partidos");
         stage.setScene(scene);
         stage.show();
@@ -122,6 +131,31 @@ public class MainApp extends Application {
         tablaPartidos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         tablaPartidos.getColumns().addAll(columnaLocal, columnaVisitante, columnaDivision, columnaResultado, columnaFecha);
+    }
+
+    /**
+     *
+     */
+    private void crearComboFiltro(){
+        comboFiltrado = new ComboBox();
+        ObservableList<String> listaDivisiones = FXCollections.observableArrayList();
+
+        listaDivisiones.add("Todas");
+        listaDivisiones.add("Primera");
+        listaDivisiones.add("Segunda");
+        listaDivisiones.add("Tercera");
+        comboFiltrado = new ComboBox<> (listaDivisiones);
+
+        comboFiltrado.getSelectionModel().select(0);
+
+        comboFiltrado.valueProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observableValue, Object o, Object t1) {
+                switch(){
+
+                }
+            }
+        });
     }
 
     /**

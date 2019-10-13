@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -379,7 +380,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570918129184</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Formateo de codigo">
+      <created>1570918198331</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1570918198331</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -400,7 +408,6 @@
     <MESSAGE value="Modularidad implementada" />
     <MESSAGE value="ComboBox tipado" />
     <MESSAGE value="Identaciones" />
-    <MESSAGE value="Formateo de codigo" />
     <MESSAGE value="AnchorPane en MainApp" />
     <MESSAGE value="Anchor y grid" />
     <MESSAGE value="Imagen" />
@@ -422,6 +429,7 @@
     <MESSAGE value="Formulario terminado (en principio)" />
     <MESSAGE value="Clase logica comentada" />
     <MESSAGE value="Comentario del conversor de fechas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comentario del conversor de fechas" />
+    <MESSAGE value="Formateo de codigo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formateo de codigo" />
   </component>
 </project>
