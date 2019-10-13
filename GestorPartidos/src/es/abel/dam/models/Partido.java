@@ -1,10 +1,11 @@
 package es.abel.dam.models;
 
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Partido implements Comparable<Partido> {
+public class Partido implements Comparable<Partido>, Serializable {
 
     private String local;
     private String visitante;

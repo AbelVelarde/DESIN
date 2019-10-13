@@ -2,7 +2,7 @@ package es.abel.dam.models;
 
 import java.io.Serializable;
 
-public class Resultado{
+public class Resultado implements Serializable{
     private int resultadoLocal;
     private int resultadoVisitante;
 

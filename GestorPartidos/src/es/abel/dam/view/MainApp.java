@@ -17,9 +17,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class MainApp extends Application {
 
@@ -28,7 +31,7 @@ public class MainApp extends Application {
     //TODO: implementar filtrado
 
     TableView tablaPartidos;
-    ComboBox<String> comboFiltrado;
+    //ComboBox<String> comboFiltrado;
 
     public static void main(String[] args) {
         launch();
@@ -37,7 +40,6 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         crearTabla();
-        crearComboFiltro();
 
         Button btnAñadirPartido = new Button("Añadir Partido");
         Button btnEditarPartido = new Button("Editar Partido");
@@ -65,17 +67,14 @@ public class MainApp extends Application {
             }
         });
 
-        HBox hboxFiltrado = new HBox(10, new Label("Escoja division para filtrar: "), comboFiltrado);
+        //HBox hboxFiltrado = new HBox(10, new Label("Escoja division para filtrar: "), comboFiltrado);
         HBox hboxBotones = new HBox(10, btnAñadirPartido, btnEditarPartido, btnBorrarPartido);
 
         AnchorPane contenedorPrincipal = new AnchorPane();
 
-        contenedorPrincipal.getChildren().addAll(hboxFiltrado, tablaPartidos, hboxBotones);
+        contenedorPrincipal.getChildren().addAll( tablaPartidos, hboxBotones);
 
-        AnchorPane.setTopAnchor(hboxFiltrado, 20d);
-        AnchorPane.setLeftAnchor(hboxFiltrado, 20d);
-
-        AnchorPane.setTopAnchor(tablaPartidos, 60d);
+        AnchorPane.setTopAnchor(tablaPartidos, 20d);
         AnchorPane.setRightAnchor(tablaPartidos, 20d);
         AnchorPane.setLeftAnchor(tablaPartidos, 20d);
         AnchorPane.setBottomAnchor(tablaPartidos, 100d);
@@ -85,8 +84,15 @@ public class MainApp extends Application {
 
         Scene scene = new Scene(contenedorPrincipal, 600, 450);
         stage.setTitle("Gestor de Partidos");
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                guardarListaPartidos();
+            }
+        });
         stage.setScene(scene);
         stage.show();
+
 
         //TODO: guardar y cargar a disco
         //list<Partido> listaPartidos = new ArrayList<>(listaPersonasFX) <- guardar
@@ -133,9 +139,7 @@ public class MainApp extends Application {
         tablaPartidos.getColumns().addAll(columnaLocal, columnaVisitante, columnaDivision, columnaResultado, columnaFecha);
     }
 
-    /**
-     *
-     */
+/*
     private void crearComboFiltro(){
         comboFiltrado = new ComboBox();
         ObservableList<String> listaDivisiones = FXCollections.observableArrayList();
@@ -151,12 +155,11 @@ public class MainApp extends Application {
         comboFiltrado.valueProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
-                ObservableList listaFiltrada = Logica.getINSTANCE().filtrarPorDivision(comboFiltrado.getSelectionModel().getSelectedItem());
-                tablaPartidos = new TableView(listaFiltrada);
+                Logica.getINSTANCE().filtrarPorDivision(comboFiltrado.getSelectionModel().getSelectedItem());
             }
         });
     }
-
+*/
     /**
      * Crea una nueva ventana de formulario para añadir un partdo.
      */
@@ -188,6 +191,33 @@ public class MainApp extends Application {
         } else {
             Alerts.alertaBorradoNoSelec();
         }
+    }
+
+    /**
+     * Metodo que permite guardar a disco la lista de partidos al cerrar la applicacion.
+     */
+    private void guardarListaPartidos(){
+        ObjectOutputStream oos = null;
+        try {
+            oos = new ObjectOutputStream(new FileOutputStream("ListaPartidos.txt"));
+
+            ArrayList<Partido> listaOutput = new ArrayList<>(Logica.getINSTANCE().getListaPartidos());
+
+            oos.writeObject(listaOutput);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            if(oos != null){
+                try {
+                    oos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
     }
 
 }

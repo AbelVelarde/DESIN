@@ -59,16 +59,17 @@ public class Logica {
         listaPartidos.set(id, partido);
     }
 
-    public ObservableList<Partido> filtrarPorDivision(String div){
+
+    public void filtrarPorDivision(String div){
+        ObservableList<Partido> listaApoyo = FXCollections.observableArrayList();
         ObservableList<Partido> listaFiltrada = FXCollections.observableArrayList();
-        if(div.equals("Primera")){
-            for (Partido partido: listaPartidos) {
-                if(partido.getDivision().equals(Division.PRIMERA)){
-                    listaFiltrada.add(partido);
-                }
+        for (Partido partido: listaPartidos) {
+            listaApoyo.add(partido);
+            if(partido.getDivision().toString().equalsIgnoreCase(div)){
+                listaFiltrada.add(partido);
             }
         }
-        return listaFiltrada;
+        listaPartidos = listaFiltrada;
     }
 
 }

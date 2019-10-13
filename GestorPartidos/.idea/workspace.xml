@@ -4,6 +4,8 @@
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/logica/Logica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/logica/Logica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/models/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/models/Partido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/models/Resultado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/models/Resultado.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -395,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570962313050</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="comboBox Filtrado en proceso">
+      <created>1570989316209</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1570989316209</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -413,7 +422,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="ComboBox tipado" />
     <MESSAGE value="Identaciones" />
     <MESSAGE value="AnchorPane en MainApp" />
     <MESSAGE value="Anchor y grid" />
@@ -438,20 +446,7 @@
     <MESSAGE value="Comentario del conversor de fechas" />
     <MESSAGE value="Formateo de codigo" />
     <MESSAGE value="comboBox Filtrado" />
-    <option name="LAST_COMMIT_MESSAGE" value="comboBox Filtrado" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/es/abel/dam/logica/Logica.java</url>
-          <line>61</line>
-          <properties class="es.abel.dam.logica.Logica" method="filtrarPorDivision">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="comboBox Filtrado en proceso" />
+    <option name="LAST_COMMIT_MESSAGE" value="comboBox Filtrado en proceso" />
   </component>
 </project>
