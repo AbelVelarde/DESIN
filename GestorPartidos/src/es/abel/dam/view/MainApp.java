@@ -27,8 +27,7 @@ import java.util.ArrayList;
 public class MainApp extends Application {
 
     //TODO: meter imagen
-    //TODO: Refactorizar codigo
-    //TODO: implementar filtrado
+    //TODO: implementar filtrado (Ampliacion)
 
     TableView tablaPartidos;
 
