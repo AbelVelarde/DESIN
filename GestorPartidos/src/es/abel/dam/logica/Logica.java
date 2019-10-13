@@ -1,5 +1,6 @@
 package es.abel.dam.logica;
 
+import es.abel.dam.models.Division;
 import es.abel.dam.models.Partido;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -56,6 +57,18 @@ public class Logica {
      */
     public void editarPartido(Partido partido, int id){
         listaPartidos.set(id, partido);
+    }
+
+    public ObservableList<Partido> filtrarPorDivision(String div){
+        ObservableList<Partido> listaFiltrada = FXCollections.observableArrayList();
+        if(div.equals("Primera")){
+            for (Partido partido: listaPartidos) {
+                if(partido.getDivision().equals(Division.PRIMERA)){
+                    listaFiltrada.add(partido);
+                }
+            }
+        }
+        return listaFiltrada;
     }
 
 }

@@ -151,9 +151,8 @@ public class MainApp extends Application {
         comboFiltrado.valueProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
-                switch(){
-
-                }
+                ObservableList listaFiltrada = Logica.getINSTANCE().filtrarPorDivision(comboFiltrado.getSelectionModel().getSelectedItem());
+                tablaPartidos = new TableView(listaFiltrada);
             }
         });
     }
