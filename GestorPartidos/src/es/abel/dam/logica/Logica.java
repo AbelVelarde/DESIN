@@ -74,7 +74,6 @@ public class Logica {
         listaPartidos.set(id, partido);
     }
 
-
     public void filtrarPorDivision(String div){
         ObservableList<Partido> listaApoyo = FXCollections.observableArrayList();
         ObservableList<Partido> listaFiltrada = FXCollections.observableArrayList();

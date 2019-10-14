@@ -142,12 +142,16 @@ public class MainApp extends Application {
         comboFiltrado = new ComboBox<>(listaDivisiones);
         comboFiltrado.getSelectionModel().select(0);
 
-        ObservableList listaAuxiliar = FXCollections.observableArrayList(Logica.getINSTANCE().getListaPartidos());
+
 
         comboFiltrado.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 ObservableList listaFiltrada = FXCollections.observableArrayList();
+                ObservableList listaAuxiliar = FXCollections.observableArrayList();
+                for (Object partido: Logica.getINSTANCE().getListaPartidos()) {
+                    listaAuxiliar.add(partido);
+                }
                 if(comboFiltrado.getValue().equalsIgnoreCase("Todas")){
                     listaFiltrada.removeAll(listaFiltrada);
                     tablaPartidos.getItems().removeAll(tablaPartidos.getItems());
