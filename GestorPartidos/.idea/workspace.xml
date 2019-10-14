@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/Unidad2JavaFXEjemplo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/logica/Logica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/logica/Logica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../HelloWorldJavaFX/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HelloWorldJavaFX/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -431,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571005626780</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Solucion error leer de fichero">
+      <created>1571059539998</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1571059539998</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -449,7 +461,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Cambios menores" />
     <MESSAGE value="Refactorizacion" />
     <MESSAGE value="implementacion de la modificacio de campos en la tabla" />
     <MESSAGE value="DateUtils" />
@@ -474,6 +485,7 @@
     <MESSAGE value="Cargar de disco" />
     <MESSAGE value="Borrado de codigo inutil y TODOs" />
     <MESSAGE value="Cambios minimos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios minimos" />
+    <MESSAGE value="Solucion error leer de fichero" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solucion error leer de fichero" />
   </component>
 </project>

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c8305c4e-4f4c-42bd-aafa-ebf51945b352" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../GestorPartidos/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GestorPartidos/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GestorPartidos/src/es/abel/dam/logica/Logica.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestorPartidos/src/es/abel/dam/logica/Logica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GestorPartidos/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestorPartidos/src/es/abel/dam/view/MainApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
