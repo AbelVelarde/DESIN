@@ -151,11 +151,11 @@ public class MainApp extends Application {
                 if(comboFiltrado.getValue().equalsIgnoreCase("Todas")){
                     listaFiltrada.removeAll(listaFiltrada);
                     tablaPartidos.getItems().removeAll(tablaPartidos.getItems());
-                    tablaPartidos = new TableView(Logica.getINSTANCE().getListaPartidos());
+                    tablaPartidos = new TableView(listaAuxiliar);
                 }
                 else {
                     listaFiltrada.removeAll(listaFiltrada);
-                    for (Object partido : Logica.getINSTANCE().getListaPartidos()) {
+                    for (Object partido : listaAuxiliar) {
                         if (((Partido) partido).getDivision().toString().equalsIgnoreCase(comboFiltrado.getValue())) {
                             listaFiltrada.add(partido);
                         }
