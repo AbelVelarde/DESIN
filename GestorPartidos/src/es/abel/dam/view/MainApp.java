@@ -14,6 +14,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -26,10 +27,11 @@ import java.util.ArrayList;
 
 public class MainApp extends Application {
 
-    //TODO: meter imagen
-    //TODO: implementar filtrado (Ampliacion)
+    //TODO: implementar filtrado
 
     TableView tablaPartidos;
+    ComboBox<String> comboFiltrado;
+    ObservableList<Partido> listaApoyo = FXCollections.observableArrayList();
 
     public static void main(String[] args) {
         launch();
@@ -39,10 +41,15 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         cargarListaPartidos();
         crearTabla();
+        crearComboFiltrado();
 
         Button btnAñadirPartido = new Button("Añadir Partido");
         Button btnEditarPartido = new Button("Editar Partido");
         Button btnBorrarPartido = new Button("Borrar Partido");
+
+        ImageView imagenRugby = new ImageView(getClass().getResource("resources/AllBlacks.jpg").toExternalForm());
+        imagenRugby.setPreserveRatio(true);
+        imagenRugby.setFitHeight(130);
 
         btnAñadirPartido.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -66,19 +73,26 @@ public class MainApp extends Application {
             }
         });
 
+        HBox hboxFiltrado = new HBox(10, new Label("Seleccione Division para filtrar: "), comboFiltrado);
         HBox hboxBotones = new HBox(10, btnAñadirPartido, btnEditarPartido, btnBorrarPartido);
 
         AnchorPane contenedorPrincipal = new AnchorPane();
 
-        contenedorPrincipal.getChildren().addAll( tablaPartidos, hboxBotones);
+        contenedorPrincipal.getChildren().addAll(hboxFiltrado, tablaPartidos, imagenRugby ,hboxBotones);
 
-        AnchorPane.setTopAnchor(tablaPartidos, 20d);
+        AnchorPane.setTopAnchor(hboxFiltrado, 20d);
+        AnchorPane.setLeftAnchor(hboxFiltrado, 20d);
+
+        AnchorPane.setTopAnchor(tablaPartidos, 60d);
         AnchorPane.setRightAnchor(tablaPartidos, 20d);
         AnchorPane.setLeftAnchor(tablaPartidos, 20d);
-        AnchorPane.setBottomAnchor(tablaPartidos, 100d);
+        AnchorPane.setBottomAnchor(tablaPartidos, 160d);
 
         AnchorPane.setBottomAnchor(hboxBotones, 20d);
         AnchorPane.setLeftAnchor(hboxBotones, 20d);
+
+        AnchorPane.setRightAnchor(imagenRugby,20d);
+        AnchorPane.setBottomAnchor(imagenRugby, 20d);
 
         Scene scene = new Scene(contenedorPrincipal, 600, 450);
         stage.setTitle("Gestor de Partidos");
@@ -100,6 +114,7 @@ public class MainApp extends Application {
       ObservableList<Partido> listaPartidos = Logica.getINSTANCE().getListaPartidos();
 
         tablaPartidos = new TableView(listaPartidos);
+        listaApoyo = tablaPartidos.getItems();
 
         TableColumn<String, Partido> columnaLocal = new TableColumn<>("Equipo Local");
         columnaLocal.setCellValueFactory(new PropertyValueFactory<>("local"));
@@ -121,12 +136,45 @@ public class MainApp extends Application {
         tablaPartidos.getColumns().addAll(columnaLocal, columnaVisitante, columnaDivision, columnaResultado, columnaFecha);
     }
 
+    private void crearComboFiltrado(){
+        ObservableList<String> listaDivisiones = FXCollections.observableArrayList();
+        listaDivisiones.add("Todas");
+        listaDivisiones.add("Primera");
+        listaDivisiones.add("Segunda");
+        listaDivisiones.add("Tercera");
+
+        comboFiltrado = new ComboBox<>(listaDivisiones);
+        comboFiltrado.getSelectionModel().select(0);
+
+        comboFiltrado.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                ObservableList listaFiltrada = FXCollections.observableArrayList();
+                if(comboFiltrado.getValue().equalsIgnoreCase("Todas")){
+                    listaFiltrada.removeAll();
+                    listaFiltrada = listaApoyo;
+                }
+                else {
+                    listaFiltrada.removeAll();
+                    for (Object partido : listaApoyo) {
+                        if (((Partido) partido).getDivision().toString().equalsIgnoreCase(comboFiltrado.getValue())) {
+                            listaFiltrada.add(partido);
+                        }
+                    }
+                }
+                tablaPartidos.getItems().removeAll(tablaPartidos.getItems());
+                tablaPartidos.getItems().addAll(listaFiltrada);
+            }
+        });
+    }
+
     /**
      * Crea una nueva ventana de formulario para añadir un partdo.
      */
     private void añadirPartido() {
         FormularioPartido formularioPartido = new FormularioPartido();
         formularioPartido.show();
+        listaApoyo = tablaPartidos.getItems();
     }
 
     /**
@@ -137,6 +185,7 @@ public class MainApp extends Application {
         int id = tablaPartidos.getSelectionModel().getSelectedIndex();
         FormularioPartido formularioPartido = new FormularioPartido(editarPartido, id);
         formularioPartido.show();
+        listaApoyo = tablaPartidos.getItems();
     }
 
     /**
@@ -148,6 +197,7 @@ public class MainApp extends Application {
             Boolean confirm = Alerts.alertaBorradoConfim();
             if (confirm) {
                 Logica.getINSTANCE().borrarPartido(idPartido);
+                listaApoyo = tablaPartidos.getItems();
             }
         } else {
             Alerts.alertaBorradoNoSelec();
