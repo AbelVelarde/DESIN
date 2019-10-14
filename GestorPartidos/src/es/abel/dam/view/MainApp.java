@@ -234,7 +234,10 @@ public class MainApp extends Application {
         try {
             ois = new ObjectInputStream(new FileInputStream("ListaPartidos.txt"));
 
-            ArrayList<Partido> listaInput = (ArrayList<Partido>) ois.readObject();
+            ArrayList<Partido> listaInput = null;
+            if(ois.available() == -1){
+                listaInput = (ArrayList<Partido>) ois.readObject();
+            }
 
             Logica.getINSTANCE().setListaPartidos(listaInput);
 

@@ -41,7 +41,12 @@ public class Logica {
      * @param listaInput lista leida de fichero
      */
     public void setListaPartidos(ArrayList listaInput){
-        listaPartidos = FXCollections.observableArrayList(listaInput);
+        if(listaInput == null){
+            listaPartidos = FXCollections.observableArrayList();
+        }
+        else{
+            listaPartidos = FXCollections.observableArrayList(listaInput);
+        }
     }
 
     /**
