@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/Unidad2JavaFXEjemplo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/module-info.java" afterDir="false" />
+    <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="Solucion error leer de fichero">
+      <change afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/MainWindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloWorldJavaFX/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HelloWorldJavaFX/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -487,5 +481,12 @@
     <MESSAGE value="Cambios minimos" />
     <MESSAGE value="Solucion error leer de fichero" />
     <option name="LAST_COMMIT_MESSAGE" value="Solucion error leer de fichero" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="Logica.getINSTANCE().listaPartidos" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

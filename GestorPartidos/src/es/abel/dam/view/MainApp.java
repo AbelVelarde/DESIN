@@ -142,6 +142,8 @@ public class MainApp extends Application {
         comboFiltrado = new ComboBox<>(listaDivisiones);
         comboFiltrado.getSelectionModel().select(0);
 
+        ObservableList listaAuxiliar = FXCollections.observableArrayList(Logica.getINSTANCE().getListaPartidos());
+
         comboFiltrado.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
