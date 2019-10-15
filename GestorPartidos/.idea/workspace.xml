@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/logica/Logica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/logica/Logica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/Alerts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/Alerts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
@@ -94,13 +93,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569516999652</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Añadida clase MainApp">
-      <created>1570031847357</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1570031847357</updated>
     </task>
     <task id="LOCAL-00004" summary="MainApp con tabla terminada">
       <created>1570033600012</created>
@@ -438,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571065070251</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Filtrado implementado, solucion de errores y cambios en alertas">
+      <created>1571134865917</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1571134865917</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -456,7 +455,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="DateUtils" />
     <MESSAGE value="Date Utils v2" />
     <MESSAGE value="Formulario borrado" />
     <MESSAGE value="TODOs" />
@@ -481,7 +479,8 @@
     <MESSAGE value="Solucion error leer de fichero" />
     <MESSAGE value="Filtrado..." />
     <MESSAGE value="Filtrado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filtrado" />
+    <MESSAGE value="Filtrado implementado, solucion de errores y cambios en alertas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Filtrado implementado, solucion de errores y cambios en alertas" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

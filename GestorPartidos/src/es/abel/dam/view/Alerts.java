@@ -23,7 +23,7 @@ public class Alerts {
     }
 
     /**
-     * Alerta de error de borrado cuando no se selecciona una fila de la tabla
+     * Alerta de error de borrado o edicion cuando no se selecciona una fila de la tabla
      */
     public static void alertaNoSelec() {
         Alert alert = new Alert(Alert.AlertType.ERROR);

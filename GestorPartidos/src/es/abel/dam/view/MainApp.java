@@ -25,8 +25,6 @@ import java.util.ArrayList;
 
 public class MainApp extends Application {
 
-    //TODO: implementar filtrado
-
     TableView tablaPartidos;
     ComboBox<String> comboFiltrado;
 
