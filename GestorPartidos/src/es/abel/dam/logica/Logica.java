@@ -32,7 +32,7 @@ public class Logica {
      * Devuelve la lista de partidos
      * @return lista de partidos
      */
-    public ObservableList getListaPartidos(){
+    public ObservableList<Partido> getListaPartidos(){
         return listaPartidos;
     }
 

@@ -37,8 +37,8 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         cargarListaPartidos();
-        crearTabla();
         crearComboFiltrado();
+        crearTabla();
 
         Button btnAñadirPartido = new Button("Añadir Partido");
         Button btnEditarPartido = new Button("Editar Partido");
@@ -108,9 +108,8 @@ public class MainApp extends Application {
      * Metodo que crea la tabla de partidos.
      */
     public void crearTabla() {
-        ObservableList<Partido> listaPartidos = Logica.getINSTANCE().getListaPartidos();
-
-        tablaPartidos = new TableView(listaPartidos);
+        tablaPartidos = new TableView();
+        actualizarTabla();
 
         TableColumn<String, Partido> columnaLocal = new TableColumn<>("Equipo Local");
         columnaLocal.setCellValueFactory(new PropertyValueFactory<>("local"));
@@ -132,6 +131,9 @@ public class MainApp extends Application {
         tablaPartidos.getColumns().addAll(columnaLocal, columnaVisitante, columnaDivision, columnaResultado, columnaFecha);
     }
 
+    /**
+     * Crea el combo para filtrar por division y el evento del mismo.
+     */
     private void crearComboFiltrado(){
         ObservableList<String> listaDivisiones = FXCollections.observableArrayList();
         listaDivisiones.add("Todas");
@@ -142,24 +144,18 @@ public class MainApp extends Application {
         comboFiltrado = new ComboBox<>(listaDivisiones);
         comboFiltrado.getSelectionModel().select(0);
 
-
-
         comboFiltrado.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 ObservableList listaFiltrada = FXCollections.observableArrayList();
-                ObservableList listaAuxiliar = FXCollections.observableArrayList();
-                for (Object partido: Logica.getINSTANCE().getListaPartidos()) {
-                    listaAuxiliar.add(partido);
-                }
+
+                listaFiltrada.removeAll(listaFiltrada);
                 if(comboFiltrado.getValue().equalsIgnoreCase("Todas")){
-                    listaFiltrada.removeAll(listaFiltrada);
                     tablaPartidos.getItems().removeAll(tablaPartidos.getItems());
-                    tablaPartidos = new TableView(listaAuxiliar);
+                    actualizarTabla();
                 }
                 else {
-                    listaFiltrada.removeAll(listaFiltrada);
-                    for (Object partido : listaAuxiliar) {
+                    for (Object partido : Logica.getINSTANCE().getListaPartidos()) {
                         if (((Partido) partido).getDivision().toString().equalsIgnoreCase(comboFiltrado.getValue())) {
                             listaFiltrada.add(partido);
                         }
@@ -176,7 +172,8 @@ public class MainApp extends Application {
      */
     private void añadirPartido() {
         FormularioPartido formularioPartido = new FormularioPartido();
-        formularioPartido.show();
+        formularioPartido.showAndWait();
+        actualizarTabla();
     }
 
     /**
@@ -184,9 +181,15 @@ public class MainApp extends Application {
      */
     private void editarPartido() {
         Partido editarPartido = (Partido) tablaPartidos.getSelectionModel().getSelectedItem();
-        int id = tablaPartidos.getSelectionModel().getSelectedIndex();
-        FormularioPartido formularioPartido = new FormularioPartido(editarPartido, id);
-        formularioPartido.show();
+        int idPartido = tablaPartidos.getSelectionModel().getSelectedIndex();
+        if(idPartido >= 0) {
+            FormularioPartido formularioPartido = new FormularioPartido(editarPartido, idPartido);
+            formularioPartido.showAndWait();
+        }
+        else{
+            Alerts.alertaNoSelec();
+        }
+        actualizarTabla();
     }
 
     /**
@@ -200,8 +203,22 @@ public class MainApp extends Application {
                 Logica.getINSTANCE().borrarPartido(idPartido);
             }
         } else {
-            Alerts.alertaBorradoNoSelec();
+            Alerts.alertaNoSelec();
         }
+        actualizarTabla();
+    }
+
+    /**
+     * Metodo que permite actualizar la tabla al realizar un cambio(añadir, editar o borrar) en la lista de partidos de logica.
+     */
+    private void actualizarTabla(){
+        tablaPartidos.getItems().removeAll(tablaPartidos.getItems());
+        ObservableList listaCopia = FXCollections.observableArrayList();
+        for (Partido partido:Logica.getINSTANCE().getListaPartidos()) {
+            listaCopia.add(partido);
+        }
+        tablaPartidos.getItems().addAll(listaCopia);
+        comboFiltrado.getSelectionModel().select(0);
     }
 
     /**
@@ -233,17 +250,17 @@ public class MainApp extends Application {
      * Metodo que permite cargar la lista de partido desde fichero.
      */
     private void cargarListaPartidos(){
+        File fichero = new File("ListaPartidos.txt");
         ObjectInputStream ois = null;
         try {
-            ois = new ObjectInputStream(new FileInputStream("ListaPartidos.txt"));
-
             ArrayList<Partido> listaInput = null;
-            if(ois.available() == -1){
-                listaInput = (ArrayList<Partido>) ois.readObject();
+            if(fichero.exists()){
+                ois = new ObjectInputStream(new FileInputStream(fichero));
+                if(ois.available() != -1){
+                    listaInput = (ArrayList<Partido>) ois.readObject();
+                }
             }
-
             Logica.getINSTANCE().setListaPartidos(listaInput);
-
         }catch (IOException e){
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

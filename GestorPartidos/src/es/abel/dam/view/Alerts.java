@@ -25,11 +25,11 @@ public class Alerts {
     /**
      * Alerta de error de borrado cuando no se selecciona una fila de la tabla
      */
-    public static void alertaBorradoNoSelec() {
+    public static void alertaNoSelec() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText("");
-        alert.setContentText("Error, hay que seleccionar un partido para poder borrar.");
+        alert.setContentText("Error, hay que seleccionar un partido primero.");
         alert.showAndWait();
     }
 
