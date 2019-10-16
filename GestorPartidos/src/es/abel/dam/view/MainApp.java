@@ -248,14 +248,14 @@ public class MainApp extends Application {
         File fichero = new File("ListaPartidos.txt");
         ObjectInputStream ois = null;
         try {
-            ArrayList<Partido> listaInput = null;
+            ArrayList<Partido> listaInput;
             if(fichero.exists()){
                 ois = new ObjectInputStream(new FileInputStream(fichero));
                 if(ois.available() != -1){
                     listaInput = (ArrayList<Partido>) ois.readObject();
+                    Logica.getINSTANCE().setListaPartidos(listaInput);
                 }
             }
-            Logica.getINSTANCE().setListaPartidos(listaInput);
         }catch (IOException e){
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
