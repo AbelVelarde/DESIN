@@ -1,12 +1,8 @@
 package es.abel.dam.view;
 
 import es.abel.dam.logica.Logica;
-import es.abel.dam.models.Division;
 import es.abel.dam.models.Partido;
-import es.abel.dam.models.Resultado;
 import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,9 +15,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-
 import java.io.*;
-import java.security.AlgorithmConstraints;
+
 import java.util.ArrayList;
 
 public class MainApp extends Application {
