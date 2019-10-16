@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.abel.dam.view.MainWindowController">
   <children>
       <MenuBar>
@@ -23,8 +24,21 @@
       <children>
             <TableView fx:id="tablaPartidos" layoutX="14.0" layoutY="14.0" prefHeight="269.0" prefWidth="614.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Columna1" />
-                <TableColumn prefWidth="75.0" text="Columna2" />
+                <TableColumn fx:id="TCLocal" prefWidth="100.0" text="Local">
+                  <cellValueFactory><PropertyValueFactory property="local" /></cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="TCVisitante" prefWidth="100.0" text="Visitante">
+                  <cellValueFactory><PropertyValueFactory property="visitante" /></cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="TCDivision" prefWidth="100.0" text="Division">
+                  <cellValueFactory><PropertyValueFactory property="division" /></cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="TCResultado" prefWidth="100.0" text="Resultado">
+                  <cellValueFactory><PropertyValueFactory property="resultado" /></cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="TCFecha" prefWidth="100.0" text="Fecha">
+                  <cellValueFactory><PropertyValueFactory property="fecha" /></cellValueFactory>
+                </TableColumn>
               </columns>
             </TableView>
       </children>

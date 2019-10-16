@@ -13,7 +13,7 @@ public class Logica {
     private ObservableList<Partido> listaPartidos;
 
     private Logica(){
-
+        listaPartidos = FXCollections.observableArrayList();
     }
 
     /**

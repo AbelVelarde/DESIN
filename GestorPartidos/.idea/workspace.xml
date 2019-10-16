@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/logica/Logica.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/logica/Logica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/MainWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/MainWindowController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,13 +94,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569516999652</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Singleton de la logica y organizacion en carpetas logica, models y view">
-      <created>1570036305477</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1570036305477</updated>
     </task>
     <task id="LOCAL-00007" summary="Cambios menores despues del clone a local">
       <created>1570103127439</created>
@@ -436,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571234136689</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Refactorizacion de Codigo">
+      <created>1571239307099</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1571239307099</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -454,7 +456,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="TODOs" />
     <MESSAGE value="Mas TODOs y codigo refactorizado" />
     <MESSAGE value="Mas TODO" />
     <MESSAGE value="Alerta borrar sin seleccion" />
@@ -479,7 +480,8 @@
     <MESSAGE value="Filtrado implementado, solucion de errores y cambios en alertas" />
     <MESSAGE value="Comentarios" />
     <MESSAGE value="Correccion de errores" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correccion de errores" />
+    <MESSAGE value="Refactorizacion de Codigo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactorizacion de Codigo" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
