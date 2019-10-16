@@ -67,12 +67,10 @@ public class Logica {
 
     /**
      * Sutituye en la lista un partido.
-     * @param partido Partido vamos a editar.
-     * @param partidoEditado Nuevo Partido.
+     * @param partidoEditado Nuevo Partido a editar.
+     * @param id posicion del partido a editar.
      */
-    public void editarPartido(Partido partidoEditado, Partido partido){
-        int id = listaPartidos.indexOf(partido);
-        listaPartidos.set(id, partidoEditado
-        );
+    public void editarPartido(Partido partidoEditado, int id){
+        listaPartidos.set(id, partidoEditado);
     }
 }

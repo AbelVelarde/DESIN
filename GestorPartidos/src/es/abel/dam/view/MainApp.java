@@ -180,7 +180,7 @@ public class MainApp extends Application {
      */
     private void editarPartido() {
         Partido editarPartido = (Partido) tablaPartidos.getSelectionModel().getSelectedItem();
-        int idPartido = tablaPartidos.getSelectionModel().getSelectedIndex();
+        int idPartido = Logica.getINSTANCE().getListaPartidos().indexOf(editarPartido);
         if(idPartido >= 0) {
             FormularioPartido formularioPartido = new FormularioPartido(editarPartido, idPartido);
             formularioPartido.showAndWait();
