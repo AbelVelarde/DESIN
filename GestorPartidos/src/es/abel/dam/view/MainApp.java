@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import java.io.*;
+import java.security.AlgorithmConstraints;
 import java.util.ArrayList;
 
 public class MainApp extends Application {
@@ -194,11 +195,12 @@ public class MainApp extends Application {
      * Llama al metodo de logica que permite borrar un partido.
      */
     private void borrarPartido() {
+        Partido partidoBorrar = (Partido) tablaPartidos.getSelectionModel().getSelectedItem();
         int idPartido = tablaPartidos.getSelectionModel().getSelectedIndex();
-        if (idPartido >= 0) {
+        if (idPartido >=0) {
             Boolean confirm = Alerts.alertaBorradoConfim();
             if (confirm) {
-                Logica.getINSTANCE().borrarPartido(idPartido);
+                Logica.getINSTANCE().borrarPartido(partidoBorrar);
             }
         } else {
             Alerts.alertaNoSelec();

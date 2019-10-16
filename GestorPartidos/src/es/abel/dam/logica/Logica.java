@@ -59,18 +59,20 @@ public class Logica {
 
     /**
      * Borra un partido de la lista.
-     * @param id posicion del partido a borrar.
+     * @param partido partido a borrar.
      */
-    public void borrarPartido(int id){
-        listaPartidos.remove(id);
+    public void borrarPartido(Partido partido){
+        listaPartidos.remove(partido);
     }
 
     /**
      * Sutituye en la lista un partido.
-     * @param partido Partido nuevo.
-     * @param id Posicion a introducir el patido.
+     * @param partido Partido vamos a editar.
+     * @param partidoEditado Nuevo Partido.
      */
-    public void editarPartido(Partido partido, int id){
-        listaPartidos.set(id, partido);
+    public void editarPartido(Partido partidoEditado, Partido partido){
+        int id = listaPartidos.indexOf(partido);
+        listaPartidos.set(id, partidoEditado
+        );
     }
 }

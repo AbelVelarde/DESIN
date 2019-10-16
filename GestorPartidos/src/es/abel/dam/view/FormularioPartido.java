@@ -38,7 +38,7 @@ public class FormularioPartido extends Stage {
         btnAceptar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                addPartido(-1);
+                addPartido(null,-1);
             }
         });
     }
@@ -60,7 +60,7 @@ public class FormularioPartido extends Stage {
         btnAceptar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                addPartido(id);
+                addPartido(partidoEditar, id);
             }
         });
     }
@@ -126,7 +126,7 @@ public class FormularioPartido extends Stage {
      * @param id posicion en ListaPartidos del partido a editar.
      *           Si el valor es -1 el partido se añade a la lista.
      */
-    private void addPartido(int id){
+    private void addPartido(Partido partido, int id){
         String localResStr = tfResultadoLocal.getText();
         String visitResStr = tfResultadoVisitante.getText();
         String local = textFieldLocal.getText();
@@ -150,13 +150,13 @@ public class FormularioPartido extends Stage {
             Resultado resultado = new Resultado(localRes, visitRes);
             Date fecha = DateUtils.convertToDate(fechaPartido.getValue());
 
-            Partido partido = new Partido(local, visitante, division, resultado, fecha);
+            Partido partidoNuevo = new Partido(local, visitante, division, resultado, fecha);
 
             if(id == -1){
-                Logica.getINSTANCE().añadirPartido(partido);
+                Logica.getINSTANCE().añadirPartido(partidoNuevo);
             }
             else{
-                Logica.getINSTANCE().editarPartido(partido, id);
+                Logica.getINSTANCE().editarPartido(partidoNuevo, partido);
             }
             close();
         }
