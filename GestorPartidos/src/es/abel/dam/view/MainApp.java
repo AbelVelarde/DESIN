@@ -67,9 +67,9 @@ public class MainApp extends Application {
         HBox hboxFiltrado = new HBox(10, new Label("Seleccione Division para filtrar: "), comboFiltrado);
         HBox hboxBotones = new HBox(10, btnAñadirPartido, btnEditarPartido, btnBorrarPartido);
 
-        AnchorPane contenedorPrincipal = new AnchorPane();
+        AnchorPane anchorPaneMain = new AnchorPane();
 
-        contenedorPrincipal.getChildren().addAll(hboxFiltrado, tablaPartidos, imagenRugby ,hboxBotones);
+        anchorPaneMain.getChildren().addAll(hboxFiltrado, tablaPartidos, imagenRugby ,hboxBotones);
 
         AnchorPane.setTopAnchor(hboxFiltrado, 20d);
         AnchorPane.setLeftAnchor(hboxFiltrado, 20d);
@@ -85,7 +85,7 @@ public class MainApp extends Application {
         AnchorPane.setRightAnchor(imagenRugby,20d);
         AnchorPane.setBottomAnchor(imagenRugby, 20d);
 
-        Scene scene = new Scene(contenedorPrincipal, 600, 450);
+        Scene scene = new Scene(anchorPaneMain, 600, 450);
         stage.setTitle("Gestor de Partidos");
 
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {

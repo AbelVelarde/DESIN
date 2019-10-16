@@ -9,8 +9,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
@@ -144,6 +147,7 @@ public class FormularioPartido extends Stage {
         else if(division == null){
             Alerts.alertaDivisionNula();
         }
+        //Crea el partido y lo añade
         else{
             int localRes = Integer.parseInt(localResStr);
             int visitRes = Integer.parseInt(visitResStr);

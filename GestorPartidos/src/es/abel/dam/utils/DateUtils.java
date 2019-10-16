@@ -7,8 +7,6 @@ import java.util.Date;
 
 public class DateUtils {
 
-    //TODO: Comentar codigo
-
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     /**
