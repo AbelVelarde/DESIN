@@ -16,7 +16,7 @@ public class Launcher extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("view/MainWindow.fxml"));
         stage.setTitle("Pantalla Principal");
-        stage.setScene(new Scene(root, 500, 600));
+        stage.setScene(new Scene(root, 600, 350));
         stage.show();
     }
 }
