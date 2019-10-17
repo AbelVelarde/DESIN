@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -48,6 +49,7 @@ public class MainWindowController implements Initializable {
         try{
             Parent root = FXMLLoader.load(getClass().getResource("FormularioPartidos.fxml"));
             Stage stage = new Stage();
+            stage.initModality(Modality.WINDOW_MODAL);
             stage.setTitle("Formulario Partidos");
             stage.setScene(new Scene(root, 700, 500));
             stage.show();
@@ -56,6 +58,22 @@ public class MainWindowController implements Initializable {
         }
     }
 
+    @FXML
+    private void modificarPartido(ActionEvent event){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FormularioPartidos.fxml"));
+            Parent root = fxmlLoader.load();
+            FormularioPartidosController controller = fxmlLoader.getController();
+            controller.editarPartido(tablaPartidos.getSelectionModel().getSelectedItem());
+            Stage stage = new Stage();
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.setTitle("Formulario Partidos");
+            stage.setScene(new Scene(root, 700, 500));
+            stage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
