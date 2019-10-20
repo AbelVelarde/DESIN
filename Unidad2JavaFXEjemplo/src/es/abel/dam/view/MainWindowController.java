@@ -64,7 +64,7 @@ public class MainWindowController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FormularioPartidos.fxml"));
             Parent root = fxmlLoader.load();
             FormularioPartidosController controller = fxmlLoader.getController();
-            controller.editarPartido(tablaPartidos.getSelectionModel().getSelectedItem());
+            controller.editarPartido(event, tablaPartidos.getSelectionModel().getSelectedItem());
             Stage stage = new Stage();
             stage.initModality(Modality.WINDOW_MODAL);
             stage.setTitle("Formulario Partidos");
