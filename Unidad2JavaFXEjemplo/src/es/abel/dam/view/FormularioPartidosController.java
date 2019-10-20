@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 
 public class FormularioPartidosController {
 
+    private int id = -1;
+
     @FXML
     private TextField tfLocal;
     @FXML
@@ -37,7 +39,12 @@ public class FormularioPartidosController {
                 new Resultado(Integer.parseInt(tfResultadoLocal.getText()), Integer.parseInt(tfResultadoVisitante.getText())),
                 DateUtils.convertToDate(datePickerFecha.getValue()));
 
-        Logica.getINSTANCE().añadirPartido(partido);
+        if (id == -1) {
+            Logica.getINSTANCE().addPartido(partido);
+        }
+        else{
+            Logica.getINSTANCE().setPartido(partido, id);
+        }
         ((Stage)((Node)event.getSource()).getScene().getWindow()).close();
     }
 
@@ -49,6 +56,8 @@ public class FormularioPartidosController {
         tfResultadoLocal.setText(""+partido.getResultado().getResultadoLocal());
         tfResultadoVisitante.setText(""+partido.getResultado().getResultadoVisitante());
         datePickerFecha.setValue(DateUtils.convertToLocalDate(partido.getFecha()));
+
+        id = Logica.getINSTANCE().getListaPartidos().indexOf(partido);
     }
 
 }

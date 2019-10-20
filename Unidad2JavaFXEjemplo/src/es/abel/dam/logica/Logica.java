@@ -52,7 +52,7 @@ public class Logica {
      * Añade un partido a la lista.
      * @param partido partido a añadir.
      */
-    public void añadirPartido(Partido partido){
+    public void addPartido(Partido partido){
         listaPartidos.add(partido);
     }
 
@@ -69,7 +69,7 @@ public class Logica {
      * @param partido Partido nuevo.
      * @param id Posicion a introducir el patido.
      */
-    public void editarPartido(Partido partido, int id){
+    public void setPartido(Partido partido, int id){
         listaPartidos.set(id, partido);
     }
 
