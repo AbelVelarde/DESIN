@@ -42,24 +42,13 @@ public class FormularioPartidosController {
     }
 
     @FXML
-    public void editarPartido(ActionEvent event, Partido partido){
-        int id = Logica.getINSTANCE().getListaPartidos().indexOf(partido);
-
+    public void editarPartido(Partido partido){
         tfLocal.setText(partido.getLocal());
         tfVisitante.setText(partido.getVisitante());
         cbDivision.setValue(partido.getDivision());
         tfResultadoLocal.setText(""+partido.getResultado().getResultadoLocal());
         tfResultadoVisitante.setText(""+partido.getResultado().getResultadoVisitante());
         datePickerFecha.setValue(DateUtils.convertToLocalDate(partido.getFecha()));
-
-        Partido partidoEditado = new Partido(tfLocal.getText(),
-                tfVisitante.getText(),
-                cbDivision.getValue(),
-                new Resultado(Integer.parseInt(tfResultadoLocal.getText()), Integer.parseInt(tfResultadoVisitante.getText())),
-                DateUtils.convertToDate(datePickerFecha.getValue()));
-
-        Logica.getINSTANCE().editarPartido(partido, id);
-        ((Stage)((Node)event.getSource()).getScene().getWindow()).close();
     }
 
 }
