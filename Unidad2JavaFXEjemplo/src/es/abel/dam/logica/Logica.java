@@ -58,32 +58,19 @@ public class Logica {
 
     /**
      * Borra un partido de la lista.
-     * @param id posicion del partido a borrar.
+     * @param partido partido a borrar.
      */
-    public void borrarPartido(int id){
-        listaPartidos.remove(id);
+    public void borrarPartido(Partido partido){
+        listaPartidos.remove(partido);
     }
 
     /**
      * Sutituye en la lista un partido.
      * @param partido Partido nuevo.
-     * @param id Posicion a introducir el patido.
      */
-    public void setPartido(Partido partido, int id){
+    public void setPartido(Partido partido){
+        int id = listaPartidos.indexOf(partido);
         listaPartidos.set(id, partido);
-    }
-
-
-    public void filtrarPorDivision(String div){
-        ObservableList<Partido> listaApoyo = FXCollections.observableArrayList();
-        ObservableList<Partido> listaFiltrada = FXCollections.observableArrayList();
-        for (Partido partido: listaPartidos) {
-            listaApoyo.add(partido);
-            if(partido.getDivision().toString().equalsIgnoreCase(div)){
-                listaFiltrada.add(partido);
-            }
-        }
-        listaPartidos = listaFiltrada;
     }
 
 }
