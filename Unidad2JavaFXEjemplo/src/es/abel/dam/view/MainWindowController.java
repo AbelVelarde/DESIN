@@ -28,7 +28,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-public class MainWindowController implements Initializable {
+public class MainWindowController extends BaseController implements Initializable {
 
     FiltradoEquipo filtradoEquipo;
     FiltradoDivision filtradoDivision;
@@ -42,46 +42,30 @@ public class MainWindowController implements Initializable {
 
     @FXML
     void altaPartido(ActionEvent event) {
-        try{
-            Parent root = FXMLLoader.load(getClass().getResource("FormularioPartidos.fxml"));
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Formulario Partidos");
-            stage.setScene(new Scene(root, 700, 500));
-            stage.showAndWait();
-            filtradoEquipo.filtrar(tfBusquedaEquipo.getText());
-            filtradoDivision.filtrar(cbDivision.getValue());
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+        cargarDialogo("FormularioPartidos.fxml", "Alta Partido", 700, 500).abrirDialogo(true);
+
+        filtradoEquipo.filtrar(tfBusquedaEquipo.getText());
+        filtradoDivision.filtrar(cbDivision.getValue());
     }
 
     @FXML
-    private void modificarPartido(ActionEvent event){
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FormularioPartidos.fxml"));
-            Parent root = fxmlLoader.load();
-            FormularioPartidosController controller = fxmlLoader.getController();
-            controller.setPartidoEditar(tablaPartidos.getSelectionModel().getSelectedItem());
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Formulario Partidos");
-            stage.setScene(new Scene(root, 700, 500));
-            stage.showAndWait();
-            filtradoEquipo.filtrar(tfBusquedaEquipo.getText());
-            filtradoDivision.filtrar(cbDivision.getValue());
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+    private void modificarPartido(ActionEvent event) {
+        FormularioPartidosController controller = (FormularioPartidosController) cargarDialogo("FormularioPartidos.fxml", "Alta Partido", 700, 500);
+        controller.setPartidoEditar(tablaPartidos.getSelectionModel().getSelectedItem());
+        controller.abrirDialogo(true);
+
+        filtradoEquipo.filtrar(tfBusquedaEquipo.getText());
+        filtradoDivision.filtrar(cbDivision.getValue());
+
     }
 
     @FXML
-    private void salir(ActionEvent event){
+    private void salir(ActionEvent event) {
         System.exit(0);
     }
 
     @FXML
-    private void filtroDivision(ActionEvent event){
+    private void filtroDivision(ActionEvent event) {
         String divisionFiltrar = cbDivision.getValue();
         tablaPartidos.setItems(filtradoDivision.filtrar(divisionFiltrar));
     }
@@ -101,9 +85,9 @@ public class MainWindowController implements Initializable {
 
         ObservableList<Partido> listaPartidos = Logica.getINSTANCE().getListaPartidos();
 
-        listaPartidos.add(new Partido("Madrid", "Barcelona", Division.PRIMERA, new Resultado(12,32), new Date()));
-        listaPartidos.add(new Partido("Sporting", "Oviedo", Division.SEGUNDA, new Resultado(1,3), new Date()));
-        listaPartidos.add(new Partido("Llanes", "Urraca", Division.TERCERA, new Resultado(0,4), new Date()));
+        listaPartidos.add(new Partido("Madrid", "Barcelona", Division.PRIMERA, new Resultado(12, 32), new Date()));
+        listaPartidos.add(new Partido("Sporting", "Oviedo", Division.SEGUNDA, new Resultado(1, 3), new Date()));
+        listaPartidos.add(new Partido("Llanes", "Urraca", Division.TERCERA, new Resultado(0, 4), new Date()));
 
         tablaPartidos.setItems(listaPartidos);
 

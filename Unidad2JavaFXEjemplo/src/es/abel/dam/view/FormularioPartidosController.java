@@ -21,7 +21,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-public class FormularioPartidosController implements Initializable {
+public class FormularioPartidosController extends BaseController implements Initializable {
 
     private Partido partidoEditar = null;
 
@@ -57,7 +57,8 @@ public class FormularioPartidosController implements Initializable {
             Logica.getINSTANCE().setPartido(partidoEditar);
         }
         //Obtener stage desde un evento
-        ((Stage)((Node)event.getSource()).getScene().getWindow()).close();
+        //((Stage)((Node)event.getSource()).getScene().getWindow()).close();
+        getStage().close();
     }
 
     @FXML
