@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -12,6 +13,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.collections.FXCollections?>
+<?import java.util.ArrayList?>
+<?import java.lang.String?>
+<?import java.util.List?>
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.abel.dam.view.MainWindowController">
   <children>
       <MenuBar>
@@ -47,9 +52,20 @@
             </TableView>
             <Button fx:id="btnAñadir" layoutX="14.0" layoutY="336.0" mnemonicParsing="false" onAction="#altaPartido" text="Añadir" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
             <Button fx:id="btnModificar" layoutX="85.0" layoutY="336.0" mnemonicParsing="false" onAction="#modificarPartido" text="Modificar" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="85.0" />
-            <Button fx:id="btnSalir" layoutX="574.0" layoutY="336.0" mnemonicParsing="false" text="Salir" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="25.0" />
-            <Label layoutX="40.0" layoutY="6.0" text="Buscar Equipo:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="6.0" />
-            <TextField fx:id="tfBusquedaEquipo" layoutX="109.0" layoutY="2.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="2.0" />
+            <Button fx:id="btnSalir" layoutX="574.0" layoutY="336.0" mnemonicParsing="false" onAction="#salir" text="Salir" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="25.0" />
+            <Label layoutX="40.0" layoutY="6.0" text="Buscar Equipo:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
+            <TextField fx:id="tfBusquedaEquipo" layoutX="109.0" layoutY="2.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="5.0" />
+            <ComboBox fx:id="cbDivision" layoutX="465.0" layoutY="2.0" prefWidth="150.0" onAction="#filtroDivision" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="5.0">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Todas"/>
+                        <String fx:value="Primera"/>
+                        <String fx:value="Segunda"/>
+                        <String fx:value="Tercera"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <Label layoutX="379.0" layoutY="10.0" text="Filtro Division:" AnchorPane.rightAnchor="186.0" AnchorPane.topAnchor="10.0" />
       </children>
     </AnchorPane>
   </children>

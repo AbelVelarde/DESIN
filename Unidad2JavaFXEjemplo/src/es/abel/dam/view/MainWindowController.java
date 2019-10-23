@@ -1,5 +1,6 @@
 package es.abel.dam.view;
 
+import es.abel.dam.filters.FiltradoDivision;
 import es.abel.dam.filters.FiltradoEquipo;
 import es.abel.dam.logica.Logica;
 import es.abel.dam.models.Division;
@@ -15,11 +16,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -33,25 +31,14 @@ import java.util.ResourceBundle;
 public class MainWindowController implements Initializable {
 
     FiltradoEquipo filtradoEquipo;
-
-    @FXML
-    private MenuItem MenuAlta;
-    @FXML
-    private TableColumn TCLocal;
-    @FXML
-    private TableColumn TCVisitante;
-    @FXML
-    private TableColumn TCDivision;
-    @FXML
-    private TableColumn TCResultado;
-    @FXML
-    private TableColumn TCFecha;
+    FiltradoDivision filtradoDivision;
 
     @FXML
     private TableView<Partido> tablaPartidos;
-
     @FXML
     private TextField tfBusquedaEquipo;
+    @FXML
+    private ComboBox<String> cbDivision;
 
     @FXML
     void altaPartido(ActionEvent event) {
@@ -84,6 +71,18 @@ public class MainWindowController implements Initializable {
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void salir(ActionEvent event){
+        System.exit(0);
+    }
+
+    @FXML
+    private void filtroDivision(ActionEvent event){
+        String divisionFiltrar = cbDivision.getValue();
+        filtradoDivision = new FiltradoDivision(Logica.getINSTANCE().getListaPartidos());
+        tablaPartidos.setItems(filtradoDivision.filtrar(divisionFiltrar));
     }
 
     @Override
