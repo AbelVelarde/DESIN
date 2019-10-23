@@ -50,6 +50,7 @@ public class MainWindowController implements Initializable {
             stage.setScene(new Scene(root, 700, 500));
             stage.showAndWait();
             filtradoEquipo.filtrar(tfBusquedaEquipo.getText());
+            filtradoDivision.filtrar(cbDivision.getValue());
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -68,6 +69,7 @@ public class MainWindowController implements Initializable {
             stage.setScene(new Scene(root, 700, 500));
             stage.showAndWait();
             filtradoEquipo.filtrar(tfBusquedaEquipo.getText());
+            filtradoDivision.filtrar(cbDivision.getValue());
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -81,13 +83,14 @@ public class MainWindowController implements Initializable {
     @FXML
     private void filtroDivision(ActionEvent event){
         String divisionFiltrar = cbDivision.getValue();
-        filtradoDivision = new FiltradoDivision(Logica.getINSTANCE().getListaPartidos());
         tablaPartidos.setItems(filtradoDivision.filtrar(divisionFiltrar));
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         filtradoEquipo = new FiltradoEquipo(Logica.getINSTANCE().getListaPartidos());
+        filtradoDivision = new FiltradoDivision(Logica.getINSTANCE().getListaPartidos());
+
         //Nos suscribimos a cambios en la propiedad text del textfield
         tfBusquedaEquipo.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -103,6 +106,8 @@ public class MainWindowController implements Initializable {
         listaPartidos.add(new Partido("Llanes", "Urraca", Division.TERCERA, new Resultado(0,4), new Date()));
 
         tablaPartidos.setItems(listaPartidos);
+
+        cbDivision.setValue("Todas");
     }
 }
 
