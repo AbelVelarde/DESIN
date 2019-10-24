@@ -4,6 +4,7 @@ import es.abel.dam.models.Partido;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.*;
 import java.util.ArrayList;
 
 public class Logica {
@@ -71,6 +72,30 @@ public class Logica {
     public void setPartido(Partido partido){
         int id = listaPartidos.indexOf(partido);
         listaPartidos.set(id, partido);
+    }
+
+    public void guardarLista(File fichero){
+        try {
+            ArrayList<Partido> listaFichero = new ArrayList<>(listaPartidos);
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichero));
+
+            oos.writeObject(listaFichero);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void cargarLista(File fichero){
+        try{
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichero));
+            listaPartidos = (ObservableList<Partido>) ois.readObject();
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }catch (ClassNotFoundException e){
+            e.printStackTrace();
+        }
     }
 
 }
