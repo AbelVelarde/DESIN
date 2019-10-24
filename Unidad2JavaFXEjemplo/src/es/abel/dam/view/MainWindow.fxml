@@ -19,6 +19,11 @@
   <children>
       <MenuBar>
         <menus>
+            <Menu mnemonicParsing="false" text="Archivo">
+              <items>
+                <MenuItem fx:id="MenuGuardarEn" mnemonicParsing="false" onAction="#guardarListaEn" text="Guardar Lista" />
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Partidos">
             <items>
               <MenuItem fx:id="MenuAlta" mnemonicParsing="false" onAction="#altaPartido" text="Alta" />
@@ -64,7 +69,7 @@
             <Button fx:id="btnAñadir" layoutX="14.0" layoutY="336.0" mnemonicParsing="false" onAction="#altaPartido" text="Añadir" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
             <Button fx:id="btnModificar" layoutX="85.0" layoutY="336.0" mnemonicParsing="false" onAction="#modificarPartido" text="Modificar" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="85.0" />
             <Button fx:id="btnBorrar" layoutX="166.0" layoutY="335.0" mnemonicParsing="false" onAction="#borrarPartido" text="Borrar" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="170.0" />
-            <Button fx:id="btnSalir" layoutX="574.0" layoutY="336.0" mnemonicParsing="false" onAction="#salir" text="Salir" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="25.0" />
+            <Button fx:id="btnSalir" layoutX="574.0" layoutY="336.0" mnemonicParsing="false" onAction="#guardarListaEn" text="Salir" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="25.0" />
       </children>
     </AnchorPane>
   </children>

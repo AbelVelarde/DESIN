@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/logica/Logica.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/logica/Logica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/BaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/MainWindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/MainWindowController.java" afterDir="false" />
     </list>

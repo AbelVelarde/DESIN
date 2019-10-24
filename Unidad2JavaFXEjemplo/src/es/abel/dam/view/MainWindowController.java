@@ -14,14 +14,17 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -33,12 +36,16 @@ public class MainWindowController extends BaseController implements Initializabl
     FiltradoEquipo filtradoEquipo;
     FiltradoDivision filtradoDivision;
 
+    Stage stage;
+
     @FXML
     private TableView<Partido> tablaPartidos;
     @FXML
     private TextField tfBusquedaEquipo;
     @FXML
     private ComboBox<String> cbDivision;
+    @FXML
+    private MenuItem MenuGuardarEn;
 
     @FXML
     void altaPartido(ActionEvent event) {
@@ -69,7 +76,7 @@ public class MainWindowController extends BaseController implements Initializabl
 
     @FXML
     private void salir(ActionEvent event) {
-        System.exit(0);
+        ((Stage)((Node) event.getSource()).getScene().getWindow()).close();
     }
 
     @FXML
@@ -78,8 +85,18 @@ public class MainWindowController extends BaseController implements Initializabl
         tablaPartidos.setItems(filtradoDivision.filtrar(divisionFiltrar));
     }
 
+    @FXML
+    private void guardarListaEn(ActionEvent event){
+        FileChooser fileChooser = new FileChooser();
+        stage = (Stage) tfBusquedaEquipo.getScene().getWindow();
+        File file = fileChooser.showSaveDialog(stage);
+        System.out.println(file.toString());
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Logica.getINSTANCE().cargarLista(new File("listaPartidos.txt"));
+
         filtradoEquipo = new FiltradoEquipo(Logica.getINSTANCE().getListaPartidos());
         filtradoDivision = new FiltradoDivision(Logica.getINSTANCE().getListaPartidos());
 
@@ -91,13 +108,13 @@ public class MainWindowController extends BaseController implements Initializabl
             }
         });
 
-        ObservableList<Partido> listaPartidos = Logica.getINSTANCE().getListaPartidos();
+//        ObservableList<Partido> listaPartidos = Logica.getINSTANCE().getListaPartidos();
+//
+//        listaPartidos.add(new Partido("Madrid", "Barcelona", Division.PRIMERA, new Resultado(12, 32), new Date()));
+//        listaPartidos.add(new Partido("Sporting", "Oviedo", Division.SEGUNDA, new Resultado(1, 3), new Date()));
+//        listaPartidos.add(new Partido("Llanes", "Urraca", Division.TERCERA, new Resultado(0, 4), new Date()));
 
-        listaPartidos.add(new Partido("Madrid", "Barcelona", Division.PRIMERA, new Resultado(12, 32), new Date()));
-        listaPartidos.add(new Partido("Sporting", "Oviedo", Division.SEGUNDA, new Resultado(1, 3), new Date()));
-        listaPartidos.add(new Partido("Llanes", "Urraca", Division.TERCERA, new Resultado(0, 4), new Date()));
-
-        tablaPartidos.setItems(listaPartidos);
+        tablaPartidos.setItems(Logica.getINSTANCE().getListaPartidos());
 
         cbDivision.setValue("Todas");
     }

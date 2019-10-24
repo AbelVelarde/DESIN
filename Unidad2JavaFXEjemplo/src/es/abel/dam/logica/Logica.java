@@ -37,19 +37,6 @@ public class Logica {
     }
 
     /**
-     * Crea la lista de partidos en formato ObservableList
-     * @param listaInput lista leida de fichero
-     */
-    public void setListaPartidos(ArrayList listaInput){
-        if(listaInput == null){
-            listaPartidos = FXCollections.observableArrayList();
-        }
-        else{
-            listaPartidos = FXCollections.observableArrayList(listaInput);
-        }
-    }
-
-    /**
      * Añade un partido a la lista.
      * @param partido partido a añadir.
      */
@@ -87,15 +74,18 @@ public class Logica {
     }
 
     public void cargarLista(File fichero){
-        try{
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichero));
-            listaPartidos = (ObservableList<Partido>) ois.readObject();
-
-        }catch (IOException e){
-            e.printStackTrace();
-        }catch (ClassNotFoundException e){
-            e.printStackTrace();
+        if(fichero.exists()){
+            try{
+                ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichero));
+                listaPartidos = FXCollections.observableArrayList((ArrayList<Partido>) ois.readObject());
+            }catch (IOException e){
+                e.printStackTrace();
+            }catch (ClassNotFoundException e){
+                e.printStackTrace();
+            }
         }
+        //TODO: alerta lista no cargada
+
     }
 
 }

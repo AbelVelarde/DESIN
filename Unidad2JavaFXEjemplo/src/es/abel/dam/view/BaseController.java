@@ -52,7 +52,6 @@ public class BaseController {
 
     }
 
-
     private void cargarStage(Parent root, String titulo, int anchura, int altura){
         stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
