@@ -56,7 +56,15 @@ public class MainWindowController extends BaseController implements Initializabl
 
         filtradoEquipo.filtrar(tfBusquedaEquipo.getText());
         filtradoDivision.filtrar(cbDivision.getValue());
+    }
 
+    @FXML
+    private void borrarPartido(ActionEvent event){
+        Partido partidoBorrar = tablaPartidos.getSelectionModel().getSelectedItem();
+        Logica.getINSTANCE().borrarPartido(partidoBorrar);
+
+        filtradoEquipo.filtrar(tfBusquedaEquipo.getText());
+        filtradoDivision.filtrar(cbDivision.getValue());
     }
 
     @FXML
