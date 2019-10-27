@@ -1,40 +1,25 @@
 package es.abel.dam.view;
 
-import es.abel.dam.filters.FiltradoDivision;
-import es.abel.dam.filters.FiltradoEquipo;
+import es.abel.dam.filters.Filtrado;
 import es.abel.dam.logica.Logica;
-import es.abel.dam.models.Division;
 import es.abel.dam.models.Partido;
-import es.abel.dam.models.Resultado;
-import es.abel.dam.utils.DateUtils;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class MainWindowController extends BaseController implements Initializable {
 
-    FiltradoEquipo filtradoEquipo;
-    FiltradoDivision filtradoDivision;
+    Filtrado filtrado;
 
     Stage stage;
 
@@ -45,14 +30,13 @@ public class MainWindowController extends BaseController implements Initializabl
     @FXML
     private ComboBox<String> cbDivision;
     @FXML
-    private MenuItem MenuGuardarEn;
+    private Button btnGuardar;
 
     @FXML
     void altaPartido(ActionEvent event) {
         cargarDialogo("FormularioPartidos.fxml", "Alta Partido", 700, 500).abrirDialogo(true);
 
-        filtradoEquipo.filtrar(tfBusquedaEquipo.getText());
-        filtradoDivision.filtrar(cbDivision.getValue());
+        actualizarTabla();
     }
 
     @FXML
@@ -61,8 +45,7 @@ public class MainWindowController extends BaseController implements Initializabl
         controller.setPartidoEditar(tablaPartidos.getSelectionModel().getSelectedItem());
         controller.abrirDialogo(true);
 
-        filtradoEquipo.filtrar(tfBusquedaEquipo.getText());
-        filtradoDivision.filtrar(cbDivision.getValue());
+        actualizarTabla();
     }
 
     @FXML
@@ -70,41 +53,61 @@ public class MainWindowController extends BaseController implements Initializabl
         Partido partidoBorrar = tablaPartidos.getSelectionModel().getSelectedItem();
         Logica.getINSTANCE().borrarPartido(partidoBorrar);
 
-        filtradoEquipo.filtrar(tfBusquedaEquipo.getText());
-        filtradoDivision.filtrar(cbDivision.getValue());
+        actualizarTabla();
     }
 
     @FXML
     private void salir(ActionEvent event) {
-        ((Stage)((Node) event.getSource()).getScene().getWindow()).close();
+        ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
     }
 
     @FXML
     private void filtroDivision(ActionEvent event) {
         String divisionFiltrar = cbDivision.getValue();
-        tablaPartidos.setItems(filtradoDivision.filtrar(divisionFiltrar));
+        tablaPartidos.setItems(filtrado.filtrar(divisionFiltrar, tfBusquedaEquipo.getText()));
     }
 
     @FXML
     private void guardarListaEn(ActionEvent event){
         FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Archivos de texto (*.txt)", "*.txt");
+        fileChooser.getExtensionFilters().add(extFilter);
         stage = (Stage) tfBusquedaEquipo.getScene().getWindow();
         File file = fileChooser.showSaveDialog(stage);
-        System.out.println(file.toString());
+        Logica.getINSTANCE().guardarLista(file);
+
+        tablaPartidos.setItems(Logica.getINSTANCE().getListaPartidos());
+    }
+
+    @FXML
+    private void cargarListaDe(){
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Archivos de texto (*.txt)", "*.txt");
+        fileChooser.getExtensionFilters().add(extFilter);
+        stage = (Stage) tfBusquedaEquipo.getScene().getWindow();
+        File file = fileChooser.showOpenDialog(stage);
+        Logica.getINSTANCE().cargarLista(file);
+
+        tablaPartidos.setItems(Logica.getINSTANCE().getListaPartidos());
+        filtrado = new Filtrado(Logica.getINSTANCE().getListaPartidos());
+        actualizarTabla();
+    }
+
+    private void actualizarTabla(){
+        filtrado.filtrar(cbDivision.getValue(), tfBusquedaEquipo.getText());
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Logica.getINSTANCE().cargarLista(new File("listaPartidos.txt"));
 
-        filtradoEquipo = new FiltradoEquipo(Logica.getINSTANCE().getListaPartidos());
-        filtradoDivision = new FiltradoDivision(Logica.getINSTANCE().getListaPartidos());
+        filtrado = new Filtrado(Logica.getINSTANCE().getListaPartidos());
 
         //Nos suscribimos a cambios en la propiedad text del textfield
         tfBusquedaEquipo.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
-                tablaPartidos.setItems(filtradoEquipo.filtrar(newValue));
+                tablaPartidos.setItems(filtrado.filtrar(cbDivision.getValue(),newValue));
             }
         });
 
