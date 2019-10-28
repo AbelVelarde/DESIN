@@ -22,36 +22,41 @@ public class Filtrado {
         else if(divisionFiltrar.equalsIgnoreCase("Todas")){
             //filtrado equipo
             listaFiltrada.clear();
-            filtrarEquipo(equipoFiltrar, listaPartidos);
+            listaFiltrada = filtrarEquipo(equipoFiltrar, listaPartidos);
         }
         else if(equipoFiltrar == null || "".equals(equipoFiltrar)){
             listaFiltrada.clear();
-            filtrarDivision(divisionFiltrar, listaPartidos);
+            listaFiltrada = filtrarDivision(divisionFiltrar);
         }
         else{
             //Filtrado division y equipo
             listaFiltrada.clear();
-            listaFiltrada = listaPartidos;
-            filtrarDivision(divisionFiltrar,listaFiltrada);
-            filtrarEquipo(equipoFiltrar, listaFiltrada);
+            listaFiltrada = filtrarDivision(divisionFiltrar);
+            listaFiltrada = filtrarEquipo(equipoFiltrar, listaFiltrada);
         }
         return listaFiltrada;
     }
 
-    private void filtrarEquipo(String equipoFiltrar, ObservableList<Partido> lista){
-        for (Partido partido : lista) {
-            if(partido.getLocal().contains(equipoFiltrar) || partido.getVisitante().contains(equipoFiltrar)){
-                listaFiltrada.add(partido);
+    private ObservableList<Partido> filtrarDivision(String divisionFiltrar){
+        ObservableList<Partido> aux = FXCollections.observableArrayList();
+        for (Partido partido : listaPartidos) {
+            if(partido.getDivision().toString().equalsIgnoreCase(divisionFiltrar)){
+                aux.add(partido);
             }
         }
+        return aux;
     }
 
-    private void filtrarDivision(String divisionFiltrar, ObservableList<Partido> lista){
+    private ObservableList<Partido> filtrarEquipo(String equipoFiltrar, ObservableList<Partido> lista){
+        ObservableList<Partido> aux = FXCollections.observableArrayList();
         for (Partido partido : lista) {
-            if(partido.getDivision().toString().equalsIgnoreCase(divisionFiltrar)){
-                listaFiltrada.add(partido);
+            if(partido.getLocal().contains(equipoFiltrar) || partido.getVisitante().contains(equipoFiltrar)){
+                aux.add(partido);
             }
         }
+        return aux;
     }
+
+
 
 }
