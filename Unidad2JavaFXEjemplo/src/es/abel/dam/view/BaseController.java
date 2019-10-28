@@ -20,17 +20,15 @@ public class BaseController {
      * Cargar una nueva ventana
      * @param fxml fxml a cargar
      * @param titulo titulo de la ventana
-     * @param anchura anchura de la ventada
-     * @param altura altura de la ventana
      * @return Controlador de la pantalla a crear. Hay que llamar posterior
      */
-    protected BaseController cargarDialogo(String fxml, String titulo, int anchura, int altura){
+    protected BaseController cargarDialogo(String fxml, String titulo){
         try {
             //Cargar el FXML
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxml));
             Parent root = fxmlLoader.load();
             BaseController controller = fxmlLoader.getController();
-            controller.cargarStage(root, titulo, anchura, altura);
+            controller.cargarStage(root, titulo);
             return controller;
         }catch(IOException e){
             e.printStackTrace();
@@ -52,11 +50,11 @@ public class BaseController {
 
     }
 
-    private void cargarStage(Parent root, String titulo, int anchura, int altura){
+    private void cargarStage(Parent root, String titulo){
         stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle(titulo);
-        stage.setScene(new Scene(root, anchura, altura));
+        stage.setScene(new Scene(root));
     }
 
 }

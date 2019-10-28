@@ -34,7 +34,7 @@ public class MainWindowController extends BaseController implements Initializabl
 
     @FXML
     void altaPartido(ActionEvent event) {
-        cargarDialogo("FormularioPartidos.fxml", "Alta Partido", 700, 500).abrirDialogo(true);
+        cargarDialogo("FormularioPartidos.fxml", "Alta Partido").abrirDialogo(true);
 
         actualizarTabla();
     }
@@ -44,7 +44,7 @@ public class MainWindowController extends BaseController implements Initializabl
         Partido partidoEditar = tablaPartidos.getSelectionModel().getSelectedItem();
 
         if(partidoEditar != null){
-            FormularioPartidosController controller = (FormularioPartidosController) cargarDialogo("FormularioPartidos.fxml", "Alta Partido", 700, 500);
+            FormularioPartidosController controller = (FormularioPartidosController) cargarDialogo("FormularioPartidos.fxml", "Alta Partido");
             controller.setPartidoEditar(partidoEditar);
             controller.abrirDialogo(true);
 
