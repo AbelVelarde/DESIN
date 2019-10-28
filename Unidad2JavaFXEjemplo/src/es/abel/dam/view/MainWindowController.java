@@ -41,19 +41,37 @@ public class MainWindowController extends BaseController implements Initializabl
 
     @FXML
     private void modificarPartido(ActionEvent event) {
-        FormularioPartidosController controller = (FormularioPartidosController) cargarDialogo("FormularioPartidos.fxml", "Alta Partido", 700, 500);
-        controller.setPartidoEditar(tablaPartidos.getSelectionModel().getSelectedItem());
-        controller.abrirDialogo(true);
+        Partido partidoEditar = tablaPartidos.getSelectionModel().getSelectedItem();
 
-        actualizarTabla();
+        if(partidoEditar != null){
+            FormularioPartidosController controller = (FormularioPartidosController) cargarDialogo("FormularioPartidos.fxml", "Alta Partido", 700, 500);
+            controller.setPartidoEditar(partidoEditar);
+            controller.abrirDialogo(true);
+
+            actualizarTabla();
+        }
+        else{
+            Alerts.alertaNoSelec();
+        }
+
     }
 
     @FXML
     private void borrarPartido(ActionEvent event){
         Partido partidoBorrar = tablaPartidos.getSelectionModel().getSelectedItem();
-        Logica.getINSTANCE().borrarPartido(partidoBorrar);
 
-        actualizarTabla();
+        if(partidoBorrar != null){
+            boolean confirm = Alerts.alertaBorradoConfim();
+            if(confirm){
+                Logica.getINSTANCE().borrarPartido(partidoBorrar);
+                actualizarTabla();
+            }
+        }
+        else{
+            Alerts.alertaNoSelec();
+        }
+
+
     }
 
     @FXML

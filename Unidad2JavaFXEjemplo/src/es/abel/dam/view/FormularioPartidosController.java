@@ -40,25 +40,42 @@ public class FormularioPartidosController extends BaseController implements Init
 
     @FXML
     private void añadirPartido(ActionEvent event){
-        if (partidoEditar == null) {
-            Partido partido = new Partido(tfLocal.getText(),
-                    tfVisitante.getText(),
-                    cbDivision.getValue(),
-                    new Resultado(Integer.parseInt(tfResultadoLocal.getText()), Integer.parseInt(tfResultadoVisitante.getText())),
-                    DateUtils.convertToDate(datePickerFecha.getValue()));
-            Logica.getINSTANCE().addPartido(partido);
+
+        String local = tfLocal.getText();
+        String visitante = tfVisitante.getText();
+        Division div = cbDivision.getValue();
+        String localRes =tfResultadoLocal.getText();
+        String visitRes = tfResultadoVisitante.getText();
+        Date fecha = DateUtils.convertToDate(datePickerFecha.getValue());
+
+        if(!localRes.matches("[0-9]+") || !visitRes.matches("[0-9]+")){
+            Alerts.alertaResultado();
         }
-        else{
-            partidoEditar.setLocal(tfLocal.getText());
-            partidoEditar.setVisitante(tfVisitante.getText());
-            partidoEditar.setDivision(cbDivision.getValue());
-            partidoEditar.setResultado(new Resultado(Integer.parseInt(tfResultadoLocal.getText()), Integer.parseInt(tfResultadoVisitante.getText())));
-            partidoEditar.setFecha(DateUtils.convertToDate(datePickerFecha.getValue()));
-            Logica.getINSTANCE().setPartido(partidoEditar);
+        //Comprueba que el nombre de los equipos no este en blanco
+        else if(!(local.trim().length() > 0) || !(visitante.trim().length() > 0)){
+            Alerts.alertaNombre();
         }
-        //Obtener stage desde un evento
-        //((Stage)((Node)event.getSource()).getScene().getWindow()).close();
-        getStage().close();
+        //Comprueba que se halla elegido una division
+        else if(div == null){
+            Alerts.alertaDivisionNula();
+        }
+        else {
+            Resultado res = new Resultado(Integer.parseInt(localRes), Integer.parseInt(visitRes));
+            if (partidoEditar == null) {
+                Partido partido = new Partido(local, visitante, div, res, fecha);
+                Logica.getINSTANCE().addPartido(partido);
+            } else {
+                partidoEditar.setLocal(local);
+                partidoEditar.setVisitante(visitante);
+                partidoEditar.setDivision(div);
+                partidoEditar.setResultado(res);
+                partidoEditar.setFecha(fecha);
+                Logica.getINSTANCE().setPartido(partidoEditar);
+            }
+            //Obtener stage desde un evento
+            //((Stage)((Node)event.getSource()).getScene().getWindow()).close();
+            getStage().close();
+        }
     }
 
     @FXML

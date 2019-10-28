@@ -1,6 +1,7 @@
 package es.abel.dam.logica;
 
 import es.abel.dam.models.Partido;
+import es.abel.dam.view.Alerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -80,11 +81,12 @@ public class Logica {
                 listaPartidos = FXCollections.observableArrayList((ArrayList<Partido>) ois.readObject());
             }catch (IOException e){
                 e.printStackTrace();
+                Alerts.alertaCargarFichero();
             }catch (ClassNotFoundException e){
                 e.printStackTrace();
+                Alerts.alertaCargarFichero();
             }
         }
-        //TODO: alerta lista no cargada
 
     }
 
