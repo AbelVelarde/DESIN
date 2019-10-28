@@ -5,16 +5,18 @@ import es.abel.dam.models.Division;
 import es.abel.dam.models.Partido;
 import es.abel.dam.models.Resultado;
 import es.abel.dam.utils.DateUtils;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.controlsfx.validation.Severity;
+import org.controlsfx.validation.ValidationSupport;
+import org.controlsfx.validation.Validator;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -37,6 +39,9 @@ public class FormularioPartidosController extends BaseController implements Init
     private TextField tfResultadoVisitante;
     @FXML
     private DatePicker datePickerFecha;
+
+    @FXML
+    private Button btnAceptar;
 
     @FXML
     private void añadirPartido(ActionEvent event){
@@ -93,6 +98,25 @@ public class FormularioPartidosController extends BaseController implements Init
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         datePickerFecha.setValue(LocalDate.now());
+
+        ValidationSupport validationSupport = new ValidationSupport();
+        validationSupport.registerValidator(tfLocal, Validator.createEmptyValidator("El nombre del equipo local no puede quedar vacío"));
+        validationSupport.registerValidator(tfVisitante, Validator.createEmptyValidator("El nombre del equipo visitante no puede quedar vacío"));
+        validationSupport.registerValidator(cbDivision, Validator.createEmptyValidator("Hay que seleccionar una division"));
+        validationSupport.registerValidator(tfResultadoLocal, Validator.createRegexValidator("El resultado local solo puede contener enteros positivos", "[0-9]+", Severity.ERROR));
+        validationSupport.registerValidator(tfResultadoVisitante, Validator.createRegexValidator("El resultado visitante solo puede contener enteros positivos", "[0-9]+", Severity.ERROR));
+
+        validationSupport.invalidProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
+                btnAceptar.setDisable(newValue);
+            }
+        });
+
+        //crea un binding, linkeando ambas propiedades. Cuando una cambia (invalidProperty cambia a true)
+        // la otra cambia igualmente (disableProperty cambia a true tambien)
+
+        // btnAceptar.disableProperty().bind(validationSupport.invalidProperty());
     }
 
 }

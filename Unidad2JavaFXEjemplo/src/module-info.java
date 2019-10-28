@@ -2,6 +2,7 @@ module Unidad2JavaFXEjemplo {
     requires javafx.controls;
     requires javafx.graphics;
     requires javafx.fxml;
+    requires org.controlsfx.controls;
 
     exports es.abel.dam;
     exports es.abel.dam.models;
