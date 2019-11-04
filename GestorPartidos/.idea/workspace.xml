@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/Alerts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/logica/Logica.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/logica/Logica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/FormularioPartidosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/FormularioPartidosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Unidad2JavaFXEjemplo/src/es/abel/dam/view/MainWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoEmail/out/production/ProyectoEmail/es/abel/dam/view/EmailMainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoEmail/out/production/ProyectoEmail/es/abel/dam/view/EmailMainWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoEmail/src/es/abel/dam/view/EmailMainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoEmail/src/es/abel/dam/view/EmailMainWindow.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
