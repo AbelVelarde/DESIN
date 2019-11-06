@@ -20,9 +20,4 @@ public class Launcher extends Application {
         stage.show();
     }
 
-    private void getCarpetas(){
-
-
-    }
-
 }
