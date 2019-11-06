@@ -14,7 +14,7 @@
 
 <VBox maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.abel.dam.view.EmailMainWindowController">
    <children>
-      <MenuBar>
+      <MenuBar style="-fx-background-color: lightgrey;">
         <menus>
           <Menu mnemonicParsing="false" text="Correos">
             <items>
@@ -25,9 +25,9 @@
           </Menu>
         </menus>
       </MenuBar>
-      <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="1200.0">
+      <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="1200.0" style="-fx-background-color: lightblue;">
          <children>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="375.0" prefWidth="204.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <ScrollPane hbarPolicy="NEVER" prefHeight="375.0" prefWidth="204.0" style="-fx-border-color: black;" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
             <SplitPane dividerPositions="0.4192634560906516" layoutX="205.0" orientation="VERTICAL" prefHeight="375.0" prefWidth="435.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="444.0">

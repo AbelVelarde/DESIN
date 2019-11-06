@@ -5,43 +5,45 @@ import javax.mail.MessagingException;
 
 public class Mail{
 
-    private String asunto;
-    private String remitente = "";
+    private Message message;
 
-    public void setAsunto(Message mensaje){
-        try {
-            asunto = mensaje.getSubject();
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
-    }
+    private String asunto;
 
     public String getAsunto(){
         return asunto;
-    }
-
-    private void setRemitente(Message mensaje){
-        try {
-            int n = mensaje.getFrom().length;
-
-            for (int i = 0; i < n ; i++) {
-                if(i == 0){
-                    remitente = mensaje.getFrom()[i].toString();
-                }
-                remitente = remitente + ", " + mensaje.getFrom()[i].toString();
-            }
-
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            return message.getSubject();
+//        } catch (MessagingException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
     }
 
     public String getRemitente(){
-        return remitente;
+        String remitente = "";
+        try {
+            int n = message.getFrom().length;
+            for (int i = 0; i < n ; i++) {
+                if(i == 0){
+                    remitente = message.getFrom()[i].toString();
+                }
+                else{
+                    remitente = remitente + ", " + message.getFrom()[i].toString();
+                }
+            }
+            return remitente;
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public Mail(Message mensaje){
-        setAsunto(mensaje);
-        setRemitente(mensaje);
+    public Mail(Message message){
+        try{
+            asunto = message.getSubject();
+        }catch (MessagingException e) {
+            e.printStackTrace();
+        }
+        this.message = message;
     }
 }
