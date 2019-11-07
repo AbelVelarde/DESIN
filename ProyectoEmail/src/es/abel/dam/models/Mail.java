@@ -7,16 +7,13 @@ public class Mail{
 
     private Message message;
 
-    private String asunto;
-
     public String getAsunto(){
-        return asunto;
-//        try {
-//            return message.getSubject();
-//        } catch (MessagingException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
+        try {
+            return message.getSubject();
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public String getRemitente(){
@@ -39,11 +36,6 @@ public class Mail{
     }
 
     public Mail(Message message){
-        try{
-            asunto = message.getSubject();
-        }catch (MessagingException e) {
-            e.printStackTrace();
-        }
         this.message = message;
     }
 }

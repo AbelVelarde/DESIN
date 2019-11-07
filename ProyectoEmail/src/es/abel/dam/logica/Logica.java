@@ -44,8 +44,8 @@ public class Logica {
                 listaMails.add(new Mail(message));
             }
 
-            emailFolder.close(true);
-            store.close();
+            //emailFolder.close(true);
+            //store.close();
 
             return listaMails;
         } catch (NoSuchProviderException e) {
