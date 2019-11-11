@@ -1,5 +1,6 @@
 package es.abel.dam.view;
 
+import es.abel.dam.logica.Logica;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
@@ -19,7 +20,16 @@ public class EmailLoginWindowController extends BaseController implements Initia
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tfCorreo.setText("sandierparapromociones@gmail.com");
         pfPassword.setText("abelvelarde97");
+    }
 
+    @FXML
+    public void añadirMail(){
+        Logica.getInstance().setListaMails(tfCorreo.getText(), pfPassword.getText());
+        getStage().close();
+    }
 
+    @FXML
+    private void cancelar(){
+        getStage().close();
     }
 }

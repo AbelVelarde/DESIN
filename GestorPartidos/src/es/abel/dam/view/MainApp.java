@@ -214,7 +214,7 @@ public class MainApp extends Application {
         }
         tablaPartidos.getItems().addAll(listaCopia);
         comboFiltrado.getSelectionModel().select(0);
-    }
+
 
     /**
      * Metodo que permite guardar a disco la lista de partidos al cerrar la applicacion.
