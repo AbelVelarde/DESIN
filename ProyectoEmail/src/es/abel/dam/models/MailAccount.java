@@ -2,19 +2,19 @@ package es.abel.dam.models;
 
 public class MailAccount {
 
-    private String mail;
+    private String account;
     private String password;
 
-    public MailAccount(String mail, String password){
-        this.mail = mail;
+    public MailAccount(String account, String password){
+        this.account = account;
         this.password = password;
     }
 
-    public String getMail() {
-        return mail;
+    public String getAccount() {
+        return account;
     }
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setAccount(String mail) {
+        this.account = mail;
     }
     public String getPassword() {
         return password;

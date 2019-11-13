@@ -2,9 +2,12 @@ package es.abel.dam.view;
 
 import es.abel.dam.logica.Logica;
 import es.abel.dam.models.Mail;
+import es.abel.dam.models.MailAccount;
 import es.abel.dam.models.MailTreeItem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -30,7 +33,9 @@ public class EmailMainWindowController extends BaseController implements Initial
     @FXML
     private VBox panelPrueba;
 
-    private Mail mail;
+    private MailAccount mailAccount;
+
+    TreeItem root;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -42,26 +47,27 @@ public class EmailMainWindowController extends BaseController implements Initial
         BaseController baseController = cargarVentana("EmailLoginWindow.fxml", "Login");
         baseController.abrirVentana(true);
 
-        treeViewMail.setRoot(cargarTreeView());
+        tablaMails.setItems(Logica.getInstance().getListaMails());
 
+        mailAccount = Logica.getInstance().getMailAccount();
+        cargarTreeView();
+        treeViewMail.setRoot(root);
     }
 
     @FXML
-    private TreeItem cargarTreeView(){
+    private void cargarTreeView(){
         try {
-            MailTreeItem root = new MailTreeItem(mail.toString(), mail, Logica.getInstance().getFolder());
-            getFolder(root.getFolder().list(), root);
-            return root;
+           root = new MailTreeItem(mailAccount.getAccount(), mailAccount, Logica.getInstance().getFolder());
+           getFolder(((MailTreeItem)root).getFolder().list(), (MailTreeItem) root);
         } catch (MessagingException e) {
             e.printStackTrace();
-            return null;
         }
     }
 
-    private void getFolder(Folder[] folders, MailTreeItem treeItem) throws MessagingException {
+    private void getFolder(Folder[] folders, MailTreeItem item) throws MessagingException {
         for (Folder folder : folders) {
-            MailTreeItem mti = new MailTreeItem(folder.getName(), mail, folder);
-            treeItem.getChildren().add(mti);
+            MailTreeItem mti = new MailTreeItem(folder.getName(), mailAccount, folder);
+            item.getChildren().add(mti);
             if(folder.getType() == Folder.HOLDS_FOLDERS){
                 getFolder(folder.list(), mti);
             }

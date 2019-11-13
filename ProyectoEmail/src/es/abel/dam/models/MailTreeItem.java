@@ -7,7 +7,7 @@ import javax.mail.Folder;
 public class MailTreeItem extends TreeItem<String> {
 
     private String nombre;
-    private Mail mail;
+    private MailAccount mailAccount;
     private Folder folder;
 
     public Folder getFolder() {
@@ -17,9 +17,9 @@ public class MailTreeItem extends TreeItem<String> {
         this.folder = folder;
     }
 
-    public MailTreeItem(String name, Mail mail, Folder folder){
+    public MailTreeItem(String name, MailAccount mailAccount, Folder folder){
         nombre = name;
-        this.mail = mail;
+        this.mailAccount = mailAccount;
         this.folder = folder;
     }
 

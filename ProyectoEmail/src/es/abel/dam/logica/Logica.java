@@ -1,6 +1,7 @@
 package es.abel.dam.logica;
 
 import es.abel.dam.models.Mail;
+import es.abel.dam.models.MailAccount;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -13,6 +14,7 @@ public class Logica {
 
     private ObservableList<Mail> listaMails;
     private Store store;
+    private MailAccount mailAccount;
 
     public static Logica getInstance() {
         if(INSTANCE == null){
@@ -25,23 +27,13 @@ public class Logica {
         listaMails = FXCollections.observableArrayList();
     }
 
-    public void setListaMails(String mail, String pwd){
+    public void setListaMails(MailAccount mailAccount){
         try{
+            this.mailAccount = mailAccount;
             Properties prop = new Properties();
             Session emailSesion = Session.getDefaultInstance(prop, null);
             store = emailSesion.getStore("imaps");
-            store.connect("smtp.gmail.com", mail, pwd);
-
-
-
-//            Folder emailFolder = store.getFolder("INBOX");
-//            emailFolder.open(Folder.READ_ONLY);
-//            Message[] messages = emailFolder.getMessages();
-//            listaMails = FXCollections.observableArrayList();
-//            for (Message message: messages) {
-//                listaMails.add(new Mail(message));
-//            }
-
+            store.connect("smtp.gmail.com", mailAccount.getAccount(), mailAccount.getPassword());
 
         } catch (NoSuchProviderException e) {
             e.printStackTrace();
@@ -51,11 +43,29 @@ public class Logica {
     }
 
     public ObservableList<Mail> getListaMails(){
+        Folder folder = null;
+        try {
+            folder = store.getFolder("INBOX");
+            folder.open(1);
+            Message[] messages = folder.getMessages();
+            for (Message message: messages) {
+                listaMails.add(new Mail(message));
+            }
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+
+
+
         return listaMails;
     }
 
-    public Store getStore() throws MessagingException {
-        return store;
+    public Folder getFolder() throws MessagingException {
+        return store.getDefaultFolder();
+    }
+
+    public MailAccount getMailAccount(){
+        return mailAccount;
     }
 
 
