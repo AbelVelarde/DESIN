@@ -2,6 +2,8 @@ package es.abel.dam.models;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import java.io.IOException;
 
 public class Mail{
 
@@ -33,6 +35,11 @@ public class Mail{
             e.printStackTrace();
             return null;
         }
+    }
+
+    public String getMensaje(){
+        Message mensaje = new MimeMessage(message.getSession());
+        return null;
     }
 
     public Mail(Message message){

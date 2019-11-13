@@ -28,10 +28,7 @@ public class EmailMainWindowController extends BaseController implements Initial
     private TableView<Mail> tablaMails;
 
     @FXML
-    private TreeView<MailTreeItem> treeViewMail;
-
-    @FXML
-    private VBox panelPrueba;
+    private TreeView<String> treeViewMail;
 
     private MailAccount mailAccount;
 
@@ -52,6 +49,7 @@ public class EmailMainWindowController extends BaseController implements Initial
         mailAccount = Logica.getInstance().getMailAccount();
         cargarTreeView();
         treeViewMail.setRoot(root);
+        System.out.println(root.toString());
     }
 
     @FXML

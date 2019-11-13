@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../ProyectoEmail/src/es/abel/dam/models/MailTreeItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ProyectoEmail/src/es/abel/dam/resources/mail.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/es/abel/dam/view/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoEmail/out/production/ProyectoEmail/es/abel/dam/view/EmailMainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoEmail/out/production/ProyectoEmail/es/abel/dam/view/EmailMainWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoEmail/src/es/abel/dam/logica/Logica.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoEmail/src/es/abel/dam/logica/Logica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoEmail/src/es/abel/dam/view/EmailLoginWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoEmail/src/es/abel/dam/view/EmailLoginWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoEmail/src/es/abel/dam/view/EmailLoginWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoEmail/src/es/abel/dam/view/EmailLoginWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoEmail/src/es/abel/dam/view/EmailMainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoEmail/src/es/abel/dam/view/EmailMainWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoEmail/src/es/abel/dam/view/EmailMainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoEmail/src/es/abel/dam/view/EmailMainWindowController.java" afterDir="false" />
-    </list>
+    <list default="true" id="b76acb38-3967-450d-a845-500204d41bf5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

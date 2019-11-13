@@ -23,4 +23,9 @@ public class MailTreeItem extends TreeItem<String> {
         this.folder = folder;
     }
 
+    @Override
+    public String toString(){
+        return nombre;
+    }
+
 }
