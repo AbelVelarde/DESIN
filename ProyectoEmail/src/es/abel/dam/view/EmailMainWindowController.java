@@ -4,6 +4,8 @@ import es.abel.dam.logica.Logica;
 import es.abel.dam.models.Mail;
 import es.abel.dam.models.MailAccount;
 import es.abel.dam.models.MailTreeItem;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -36,7 +38,20 @@ public class EmailMainWindowController extends BaseController implements Initial
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        treeViewMail.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
+            @Override
+            public void changed(ObservableValue<? extends TreeItem<String>> observableValue, TreeItem<String> stringTreeItem, TreeItem<String> newValue) {
+                String carpeta = "";
+                while(newValue.getParent()!=null){
+                    carpeta =  newValue.toString() + "/" + carpeta;
+                    newValue = newValue.getParent();
+                }
+                StringBuilder str = new StringBuilder(carpeta);
+                str.delete(carpeta.length()-1, carpeta.length());
+                carpeta = str.toString();
+                tablaMails.setItems(Logica.getInstance().getListaMails(carpeta));
+            }
+        });
     }
 
     @FXML
@@ -44,12 +59,11 @@ public class EmailMainWindowController extends BaseController implements Initial
         BaseController baseController = cargarVentana("EmailLoginWindow.fxml", "Login");
         baseController.abrirVentana(true);
 
-        tablaMails.setItems(Logica.getInstance().getListaMails());
+        tablaMails.setItems(Logica.getInstance().getListaMails("INBOX"));
 
         mailAccount = Logica.getInstance().getMailAccount();
         cargarTreeView();
         treeViewMail.setRoot(root);
-        System.out.println(root.toString());
     }
 
     @FXML

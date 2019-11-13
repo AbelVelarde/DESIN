@@ -42,12 +42,13 @@ public class Logica {
         }
     }
 
-    public ObservableList<Mail> getListaMails(){
+    public ObservableList<Mail> getListaMails(String carpeta){
         Folder folder = null;
         try {
-            folder = store.getFolder("INBOX");
+            folder = store.getFolder(carpeta);
             folder.open(1);
             Message[] messages = folder.getMessages();
+            listaMails.clear();
             for (Message message: messages) {
                 listaMails.add(new Mail(message));
             }

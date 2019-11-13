@@ -18,6 +18,7 @@ public class MailTreeItem extends TreeItem<String> {
     }
 
     public MailTreeItem(String name, MailAccount mailAccount, Folder folder){
+        super(name);
         nombre = name;
         this.mailAccount = mailAccount;
         this.folder = folder;
