@@ -82,23 +82,5 @@ public class EmailMainWindowController extends BaseController implements Initial
         root.setExpanded(true);
     }
 
-    private void cargarTreeView(){
-        try {
-           root = new MailTreeItem(mailAccount.getAccount(), mailAccount, Logica.getInstance().getFolder());
-           getFolder(((MailTreeItem)root).getFolder().list(), (MailTreeItem) root);
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
-    }
 
-    private void getFolder(Folder[] folders, MailTreeItem item) throws MessagingException {
-        for (Folder folder : folders) {
-            MailTreeItem mti = new MailTreeItem(folder.getName(), mailAccount, folder);
-            item.getChildren().add(mti);
-            if(folder.getType() == Folder.HOLDS_FOLDERS){
-                mti.setExpanded(true);
-                getFolder(folder.list(), mti);
-            }
-        }
-    }
 }
