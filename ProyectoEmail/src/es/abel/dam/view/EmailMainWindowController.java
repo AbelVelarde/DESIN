@@ -52,6 +52,12 @@ public class EmailMainWindowController extends BaseController implements Initial
                 tablaMails.setItems(Logica.getInstance().getListaMails(carpeta));
             }
         });
+        tablaMails.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Mail>() {
+            @Override
+            public void changed(ObservableValue<? extends Mail> observableValue, Mail mail, Mail newValue) {
+
+            }
+        });
     }
 
     @FXML
