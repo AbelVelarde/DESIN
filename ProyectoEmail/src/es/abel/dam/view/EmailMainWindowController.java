@@ -14,10 +14,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
 import java.net.URL;
 import java.util.Properties;
@@ -31,6 +34,9 @@ public class EmailMainWindowController extends BaseController implements Initial
 
     @FXML
     private TreeView<String> treeViewMail;
+
+    @FXML
+    private WebView wvMail;
 
     private MailAccount mailAccount;
 
@@ -52,10 +58,13 @@ public class EmailMainWindowController extends BaseController implements Initial
                 tablaMails.setItems(Logica.getInstance().getListaMails(carpeta));
             }
         });
+
         tablaMails.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Mail>() {
             @Override
             public void changed(ObservableValue<? extends Mail> observableValue, Mail mail, Mail newValue) {
-
+                String mensaje = newValue.getContenido();
+                WebEngine webEngine = wvMail.getEngine();
+                webEngine.loadContent(mensaje);
             }
         });
     }
@@ -70,9 +79,9 @@ public class EmailMainWindowController extends BaseController implements Initial
         mailAccount = Logica.getInstance().getMailAccount();
         cargarTreeView();
         treeViewMail.setRoot(root);
+        root.setExpanded(true);
     }
 
-    @FXML
     private void cargarTreeView(){
         try {
            root = new MailTreeItem(mailAccount.getAccount(), mailAccount, Logica.getInstance().getFolder());
@@ -87,6 +96,7 @@ public class EmailMainWindowController extends BaseController implements Initial
             MailTreeItem mti = new MailTreeItem(folder.getName(), mailAccount, folder);
             item.getChildren().add(mti);
             if(folder.getType() == Folder.HOLDS_FOLDERS){
+                mti.setExpanded(true);
                 getFolder(folder.list(), mti);
             }
         }

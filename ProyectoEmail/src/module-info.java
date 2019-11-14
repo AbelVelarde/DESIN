@@ -2,8 +2,10 @@ module ProyectoEmail {
     requires javafx.controls;
     requires javafx.graphics;
     requires javafx.fxml;
+    requires javafx.web;
 
     requires java.mail;
+    requires commons.email;
 
     exports es.abel.dam;
     exports es.abel.dam.view;

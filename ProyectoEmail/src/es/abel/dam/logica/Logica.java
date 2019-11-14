@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import javax.mail.*;
+import java.util.ArrayList;
 import java.util.Properties;
 
 public class Logica {
@@ -13,6 +14,7 @@ public class Logica {
     private static Logica INSTANCE = null;
 
     private ObservableList<Mail> listaMails;
+    private ArrayList<MailAccount> listaCuentas;
     private Store store;
     private MailAccount mailAccount;
 
@@ -24,11 +26,13 @@ public class Logica {
     }
 
     public Logica(){
+        listaCuentas = new ArrayList<>();
         listaMails = FXCollections.observableArrayList();
     }
 
     public void setListaMails(MailAccount mailAccount){
         try{
+            listaCuentas.add(mailAccount);
             this.mailAccount = mailAccount;
             Properties prop = new Properties();
             Session emailSesion = Session.getDefaultInstance(prop, null);
@@ -55,9 +59,6 @@ public class Logica {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-
-
-
         return listaMails;
     }
 
