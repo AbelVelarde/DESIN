@@ -76,8 +76,7 @@ public class EmailMainWindowController extends BaseController implements Initial
 
         tablaMails.setItems(Logica.getInstance().getListaMails("INBOX"));
 
-        mailAccount = Logica.getInstance().getMailAccount();
-        cargarTreeView();
+        root = Logica.getInstance().getRootPrincipal();
         treeViewMail.setRoot(root);
         root.setExpanded(true);
     }

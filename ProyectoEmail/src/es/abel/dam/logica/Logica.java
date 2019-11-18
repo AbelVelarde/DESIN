@@ -30,11 +30,14 @@ public class Logica {
     public Logica(){
         listaCuentas = new ArrayList<>();
         listaMails = FXCollections.observableArrayList();
+
     }
 
     public void setListaMails(MailAccount mailAccount){
         try{
             listaCuentas.add(mailAccount);
+            rootPrincipal = new MailTreeItem("", mailAccount, null);
+
             Properties prop = new Properties();
             Session emailSesion = Session.getDefaultInstance(prop, null);
             store = emailSesion.getStore("imaps");
@@ -86,10 +89,6 @@ public class Logica {
                 getFolder(folder.list(), mti, mailAccount);
             }
         }
-    }
-
-    public Folder getFolder() throws MessagingException {
-        return store.getDefaultFolder();
     }
 
     public MailTreeItem getRootPrincipal(){
