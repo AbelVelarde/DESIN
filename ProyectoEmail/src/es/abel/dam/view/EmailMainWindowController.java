@@ -85,5 +85,11 @@ public class EmailMainWindowController extends BaseController implements Initial
         root.setExpanded(true);
     }
 
+    @FXML
+    private void cambiarTemas(){
+        BaseController controller = cargarVentana("EmailTemasWindow.fxml", "Temas");
+        controller.abrirVentana(true);
+    }
+
 
 }

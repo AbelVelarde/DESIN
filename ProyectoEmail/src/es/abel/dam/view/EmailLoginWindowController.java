@@ -40,4 +40,5 @@ public class EmailLoginWindowController extends BaseController implements Initia
     private void cancelar(){
         getStage().close();
     }
+
 }

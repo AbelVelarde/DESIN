@@ -57,6 +57,7 @@ public class Logica {
     }
 
     public ObservableList<Mail> getListaMails(String carpeta, MailAccount mailAccount){
+        //TODO: cambiar funcionalidad para que reciba una folder
         try {
             Folder folder = cargarMail(mailAccount).getFolder(carpeta);
             folder.open(1);

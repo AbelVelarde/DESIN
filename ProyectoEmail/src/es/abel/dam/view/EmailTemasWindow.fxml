@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Button fx:id="btnAceptar" layoutX="14.0" layoutY="359.0" mnemonicParsing="false" text="Aceptar" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
+                        <Button fx:id="btnCancelar" layoutX="76.0" layoutY="359.0" mnemonicParsing="false" text="Cancelar" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="100.0" />
+                        <ComboBox fx:id="cbTemas" layoutX="15.0" layoutY="70.0" prefWidth="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="70.0" />
+                        <Label layoutX="20.0" layoutY="44.0" prefHeight="17.0" prefWidth="150.0" text="Seleccione un tema:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <VBox layoutX="6.0" layoutY="-1.0" prefHeight="400.0" prefWidth="325.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <MenuBar>
+                                 <menus>
+                                    <Menu mnemonicParsing="false" text="File">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Close" />
+                                       </items>
+                                    </Menu>
+                                    <Menu mnemonicParsing="false" text="Edit">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Delete" />
+                                       </items>
+                                    </Menu>
+                                    <Menu mnemonicParsing="false" text="Help">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="About" />
+                                       </items>
+                                    </Menu>
+                                 </menus>
+                              </MenuBar>
+                              <Label prefHeight="20.0" prefWidth="84.0" text="Muesta" />
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Button" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
