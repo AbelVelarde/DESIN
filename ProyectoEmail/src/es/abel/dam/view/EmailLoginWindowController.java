@@ -19,6 +19,10 @@ public class EmailLoginWindowController extends BaseController implements Initia
 
     private MailAccount mailAccount;
 
+    public MailAccount getMailAccount(){
+        return mailAccount;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tfCorreo.setText("sandierparapromociones@gmail.com");
@@ -28,7 +32,7 @@ public class EmailLoginWindowController extends BaseController implements Initia
     @FXML
     public void añadirMail(){
         mailAccount = new MailAccount(tfCorreo.getText(), pfPassword.getText());
-        Logica.getInstance().setListaMails(mailAccount);
+        Logica.getInstance().setCuenta(mailAccount);
         getStage().close();
     }
 

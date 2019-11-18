@@ -3,6 +3,7 @@ package es.abel.dam.logica;
 import es.abel.dam.models.Mail;
 import es.abel.dam.models.MailAccount;
 import es.abel.dam.models.MailTreeItem;
+import es.abel.dam.view.Alerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -30,33 +31,34 @@ public class Logica {
     public Logica(){
         listaCuentas = new ArrayList<>();
         listaMails = FXCollections.observableArrayList();
-
+        rootPrincipal = new MailTreeItem("", null, null);
     }
 
-    public void setListaMails(MailAccount mailAccount){
-        try{
+    public void setCuenta(MailAccount mailAccount){
+        if(!listaCuentas.contains(mailAccount)){
             listaCuentas.add(mailAccount);
-            rootPrincipal = new MailTreeItem("", mailAccount, null);
+        }
+        Folder f = cargarMail(mailAccount);
+        rootPrincipal.getChildren().add(cargarTreeView(mailAccount, f));
+    }
 
+    private Folder cargarMail(MailAccount mailAccount){
+        try {
             Properties prop = new Properties();
             Session emailSesion = Session.getDefaultInstance(prop, null);
             store = emailSesion.getStore("imaps");
             store.connect("smtp.gmail.com", mailAccount.getAccount(), mailAccount.getPassword());
-            Folder f = store.getDefaultFolder();
-
-            rootPrincipal.getChildren().add(cargarTreeView(mailAccount, f));
-
-        } catch (NoSuchProviderException e) {
+            return store.getDefaultFolder();
+        }catch(MessagingException e){
             e.printStackTrace();
-        } catch (MessagingException e) {
-            e.printStackTrace();
+            Alerts.alertaCredencialesEmail();
+            return null;
         }
     }
 
-    public ObservableList<Mail> getListaMails(String carpeta){
-        Folder folder = null;
+    public ObservableList<Mail> getListaMails(String carpeta, MailAccount mailAccount){
         try {
-            folder = store.getFolder(carpeta);
+            Folder folder = cargarMail(mailAccount).getFolder(carpeta);
             folder.open(1);
             Message[] messages = folder.getMessages();
             listaMails.clear();
@@ -73,6 +75,7 @@ public class Logica {
         try {
             MailTreeItem root = new MailTreeItem(mailAccount.getAccount(), mailAccount, folder);
             getFolder((root).getFolder().list(), root, mailAccount);
+            root.setExpanded(true);
             return root;
         } catch (MessagingException e) {
             e.printStackTrace();

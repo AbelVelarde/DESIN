@@ -38,8 +38,6 @@ public class EmailMainWindowController extends BaseController implements Initial
     @FXML
     private WebView wvMail;
 
-    private MailAccount mailAccount;
-
     TreeItem root;
 
     @Override
@@ -47,37 +45,43 @@ public class EmailMainWindowController extends BaseController implements Initial
         treeViewMail.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
             @Override
             public void changed(ObservableValue<? extends TreeItem<String>> observableValue, TreeItem<String> stringTreeItem, TreeItem<String> newValue) {
-                String carpeta = "";
-                while(newValue.getParent()!=null){
-                    carpeta =  newValue.toString() + "/" + carpeta;
-                    newValue = newValue.getParent();
+                if(((MailTreeItem)newValue.getParent()).getFolder() != null){
+                    String carpeta = "";
+                    while(newValue.getParent().getParent()!=null){
+                        carpeta =  newValue.toString() + "/" + carpeta;
+                        newValue = newValue.getParent();
+                    }
+                    StringBuilder str = new StringBuilder(carpeta);
+                    str.delete(carpeta.length()-1, carpeta.length());
+                    carpeta = str.toString();
+                    System.out.println(carpeta);
+                    tablaMails.setItems(Logica.getInstance().getListaMails(carpeta, ((MailTreeItem)newValue).getMailAccount()));
                 }
-                StringBuilder str = new StringBuilder(carpeta);
-                str.delete(carpeta.length()-1, carpeta.length());
-                carpeta = str.toString();
-                tablaMails.setItems(Logica.getInstance().getListaMails(carpeta));
             }
         });
 
         tablaMails.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Mail>() {
             @Override
             public void changed(ObservableValue<? extends Mail> observableValue, Mail mail, Mail newValue) {
-                String mensaje = newValue.getContenido();
-                WebEngine webEngine = wvMail.getEngine();
-                webEngine.loadContent(mensaje);
+                if(newValue!=null){
+                    String mensaje = newValue.getContenido();
+                    WebEngine webEngine = wvMail.getEngine();
+                    webEngine.loadContent(mensaje);
+                }
             }
         });
     }
 
     @FXML
     private void cargarLogin(){
-        BaseController baseController = cargarVentana("EmailLoginWindow.fxml", "Login");
-        baseController.abrirVentana(true);
+        BaseController controller = cargarVentana("EmailLoginWindow.fxml", "Login");
+        controller.abrirVentana(true);
 
-        tablaMails.setItems(Logica.getInstance().getListaMails("INBOX"));
+        tablaMails.setItems(Logica.getInstance().getListaMails("INBOX", ((EmailLoginWindowController)controller).getMailAccount()));
 
         root = Logica.getInstance().getRootPrincipal();
         treeViewMail.setRoot(root);
+        treeViewMail.setShowRoot(false);
         root.setExpanded(true);
     }
 
