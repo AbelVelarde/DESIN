@@ -22,18 +22,8 @@ public class Mail{
     }
 
     public String getRemitente(){
-        String remitente = "";
         try {
-            int n = message.getFrom().length;
-            for (int i = 0; i < n ; i++) {
-                if(i == 0){
-                    remitente = message.getFrom()[i].toString();
-                }
-                else{
-                    remitente = remitente + ", " + message.getFrom()[i].toString();
-                }
-            }
-            return remitente;
+            return message.getFrom()[0].toString();
         } catch (MessagingException e) {
             e.printStackTrace();
             return null;

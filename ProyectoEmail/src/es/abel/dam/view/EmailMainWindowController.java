@@ -2,30 +2,20 @@ package es.abel.dam.view;
 
 import es.abel.dam.logica.Logica;
 import es.abel.dam.models.Mail;
-import es.abel.dam.models.MailAccount;
 import es.abel.dam.models.MailTreeItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
+import javax.mail.Folder;
 import java.net.URL;
-import java.util.Properties;
 import java.util.ResourceBundle;
-import javax.mail.*;
 
 public class EmailMainWindowController extends BaseController implements Initializable {
 
@@ -38,25 +28,19 @@ public class EmailMainWindowController extends BaseController implements Initial
     @FXML
     private WebView wvMail;
 
-    TreeItem root;
+    private TreeItem root;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         treeViewMail.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
             @Override
-            public void changed(ObservableValue<? extends TreeItem<String>> observableValue, TreeItem<String> stringTreeItem, TreeItem<String> newValue) {
-                if(((MailTreeItem)newValue.getParent()).getFolder() != null){
-                    String carpeta = "";
-                    while(newValue.getParent().getParent()!=null){
-                        carpeta =  newValue.toString() + "/" + carpeta;
-                        newValue = newValue.getParent();
-                    }
-                    StringBuilder str = new StringBuilder(carpeta);
-                    str.delete(carpeta.length()-1, carpeta.length());
-                    carpeta = str.toString();
-                    System.out.println(carpeta);
-                    tablaMails.setItems(Logica.getInstance().getListaMails(carpeta, ((MailTreeItem)newValue).getMailAccount()));
-                }
+            public void changed(ObservableValue<? extends TreeItem<String>> observableValue, TreeItem<String> oldValue, TreeItem<String> newValue) {
+//                Folder oldFolder =  ((MailTreeItem)oldValue).getFolder();
+//                if(oldFolder.isOpen()){
+//                    oldFolder.close();
+//                }
+                MailTreeItem mti = (MailTreeItem)newValue;
+                tablaMails.setItems(Logica.getInstance().getMailList(mti.getFolder(), mti.getMailAccount()));
             }
         });
 
@@ -77,7 +61,7 @@ public class EmailMainWindowController extends BaseController implements Initial
         BaseController controller = cargarVentana("EmailLoginWindow.fxml", "Login");
         controller.abrirVentana(true);
 
-        tablaMails.setItems(Logica.getInstance().getListaMails("INBOX", ((EmailLoginWindowController)controller).getMailAccount()));
+        tablaMails.setItems(Logica.getInstance().getDefaultMails(((EmailLoginWindowController)controller).getMailAccount()));
 
         root = Logica.getInstance().getRootPrincipal();
         treeViewMail.setRoot(root);

@@ -32,7 +32,7 @@ public class EmailLoginWindowController extends BaseController implements Initia
     @FXML
     public void añadirMail(){
         mailAccount = new MailAccount(tfCorreo.getText(), pfPassword.getText());
-        Logica.getInstance().setCuenta(mailAccount);
+        Logica.getInstance().setAccount(mailAccount);
         getStage().close();
     }
 

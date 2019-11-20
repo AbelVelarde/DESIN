@@ -26,7 +26,7 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Ventana">
               <items>
-                <MenuItem fx:id="miTemas" mnemonicParsing="false" text="Temas" />
+                <MenuItem fx:id="miTemas" mnemonicParsing="false" onAction="#cambiarTemas" text="Temas" />
               </items>
             </Menu>
         </menus>

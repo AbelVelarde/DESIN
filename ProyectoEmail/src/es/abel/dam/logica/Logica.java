@@ -34,15 +34,15 @@ public class Logica {
         rootPrincipal = new MailTreeItem("", null, null);
     }
 
-    public void setCuenta(MailAccount mailAccount){
+    public void setAccount(MailAccount mailAccount){
         if(!listaCuentas.contains(mailAccount)){
             listaCuentas.add(mailAccount);
         }
-        Folder f = cargarMail(mailAccount);
-        rootPrincipal.getChildren().add(cargarTreeView(mailAccount, f));
+        Folder f = loadMail(mailAccount);
+        rootPrincipal.getChildren().add(getTreeItems(mailAccount, f));
     }
 
-    private Folder cargarMail(MailAccount mailAccount){
+    private Folder loadMail(MailAccount mailAccount){
         try {
             Properties prop = new Properties();
             Session emailSesion = Session.getDefaultInstance(prop, null);
@@ -56,12 +56,21 @@ public class Logica {
         }
     }
 
-    public ObservableList<Mail> getListaMails(String carpeta, MailAccount mailAccount){
-        //TODO: cambiar funcionalidad para que reciba una folder
+    public ObservableList<Mail> getDefaultMails(MailAccount mailAccount){
         try {
-            Folder folder = cargarMail(mailAccount).getFolder(carpeta);
-            folder.open(1);
-            Message[] messages = folder.getMessages();
+            return getMailList(store.getDefaultFolder().getFolder("INBOX"), mailAccount);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public ObservableList<Mail> getMailList(Folder carpeta, MailAccount mailAccount){
+        try {
+            if(!carpeta.isOpen()){
+                carpeta.open(1);
+            }
+            Message[] messages = carpeta.getMessages();
             listaMails.clear();
             for (Message message: messages) {
                 listaMails.add(new Mail(message));
@@ -72,10 +81,14 @@ public class Logica {
         return listaMails;
     }
 
-    private MailTreeItem cargarTreeView(MailAccount mailAccount, Folder folder){
+    public MailTreeItem getRootPrincipal(){
+        return rootPrincipal;
+    }
+
+    private MailTreeItem getTreeItems(MailAccount mailAccount, Folder folder){
         try {
             MailTreeItem root = new MailTreeItem(mailAccount.getAccount(), mailAccount, folder);
-            getFolder((root).getFolder().list(), root, mailAccount);
+            getFolder(root.getFolder().list(), root, mailAccount);
             root.setExpanded(true);
             return root;
         } catch (MessagingException e) {
@@ -84,6 +97,13 @@ public class Logica {
         }
     }
 
+    /**
+     *
+     * @param folders Array de carpetas
+     * @param item
+     * @param mailAccount
+     * @throws MessagingException
+     */
     private void getFolder(Folder[] folders, MailTreeItem item, MailAccount mailAccount) throws MessagingException {
         for (Folder folder : folders) {
             MailTreeItem mti = new MailTreeItem(folder.getName(), mailAccount, folder);
@@ -94,9 +114,4 @@ public class Logica {
             }
         }
     }
-
-    public MailTreeItem getRootPrincipal(){
-        return rootPrincipal;
-    }
-
 }
