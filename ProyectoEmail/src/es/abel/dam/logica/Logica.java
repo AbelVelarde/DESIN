@@ -47,7 +47,7 @@ public class Logica {
             Properties prop = new Properties();
             Session emailSesion = Session.getDefaultInstance(prop, null);
             store = emailSesion.getStore("imaps");
-            store.connect("smtp.gmail.com", mailAccount.getAccount(), mailAccount.getPassword());
+            store.connect("imap.gmail.com", mailAccount.getAccount(), mailAccount.getPassword());
             return store.getDefaultFolder();
         }catch(MessagingException e){
             e.printStackTrace();
@@ -56,16 +56,16 @@ public class Logica {
         }
     }
 
-    public ObservableList<Mail> getDefaultMails(MailAccount mailAccount){
+    public ObservableList<Mail> getDefaultMails(){
         try {
-            return getMailList(store.getDefaultFolder().getFolder("INBOX"), mailAccount);
+            return getMailList(store.getDefaultFolder().getFolder("INBOX"));
         } catch (MessagingException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public ObservableList<Mail> getMailList(Folder carpeta, MailAccount mailAccount){
+    public ObservableList<Mail> getMailList(Folder carpeta){
         try {
             if(!carpeta.isOpen()){
                 carpeta.open(1);

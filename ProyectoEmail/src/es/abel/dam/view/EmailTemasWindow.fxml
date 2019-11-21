@@ -18,15 +18,15 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <Button fx:id="btnAceptar" layoutX="14.0" layoutY="359.0" mnemonicParsing="false" text="Aceptar" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
-                        <Button fx:id="btnCancelar" layoutX="76.0" layoutY="359.0" mnemonicParsing="false" text="Cancelar" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="100.0" />
+                        <Button fx:id="btnAceptar" layoutX="14.0" layoutY="359.0" mnemonicParsing="false" text="Aceptar" onAction="#accept" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
+                        <Button fx:id="btnCancelar" layoutX="76.0" layoutY="359.0" mnemonicParsing="false" text="Cancelar" onAction="#cancel" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="100.0" />
                         <ComboBox fx:id="cbTemas" layoutX="15.0" layoutY="70.0" prefWidth="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="70.0" />
                         <Label layoutX="20.0" layoutY="44.0" prefHeight="17.0" prefWidth="150.0" text="Seleccione un tema:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <VBox layoutX="6.0" layoutY="-1.0" prefHeight="400.0" prefWidth="325.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox fx:id="vboxMuestra" layoutX="6.0" layoutY="-1.0" prefHeight="400.0" prefWidth="325.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <MenuBar>
                                  <menus>

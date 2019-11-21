@@ -40,7 +40,7 @@ public class EmailMainWindowController extends BaseController implements Initial
 //                    oldFolder.close();
 //                }
                 MailTreeItem mti = (MailTreeItem)newValue;
-                tablaMails.setItems(Logica.getInstance().getMailList(mti.getFolder(), mti.getMailAccount()));
+                tablaMails.setItems(Logica.getInstance().getMailList(mti.getFolder()));
             }
         });
 
@@ -61,7 +61,7 @@ public class EmailMainWindowController extends BaseController implements Initial
         BaseController controller = cargarVentana("EmailLoginWindow.fxml", "Login");
         controller.abrirVentana(true);
 
-        tablaMails.setItems(Logica.getInstance().getDefaultMails(((EmailLoginWindowController)controller).getMailAccount()));
+        tablaMails.setItems(Logica.getInstance().getDefaultMails());
 
         root = Logica.getInstance().getRootPrincipal();
         treeViewMail.setRoot(root);
