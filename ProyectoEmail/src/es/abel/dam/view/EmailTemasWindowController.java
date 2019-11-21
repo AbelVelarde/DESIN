@@ -22,7 +22,7 @@ public class EmailTemasWindowController extends BaseController implements Initia
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cbTemas.getItems().addAll(Application.STYLESHEET_CASPIAN, Application.STYLESHEET_MODENA);
-        cbTemas.getSelectionModel().select(Application.STYLESHEET_MODENA);
+        cbTemas.getSelectionModel().select(Application.getUserAgentStylesheet());
 
         cbTemas.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -39,7 +39,7 @@ public class EmailTemasWindowController extends BaseController implements Initia
 
     @FXML
     private void cancel(){
-        Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
+        Application.setUserAgentStylesheet(Application.getUserAgentStylesheet());
         getStage().close();
     }
 
