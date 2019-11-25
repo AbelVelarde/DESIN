@@ -1,6 +1,8 @@
 package es.abel.dam.models;
 
-public class MailAccount {
+import java.util.Objects;
+
+public class MailAccount{
 
     private String account;
     private String password;
@@ -21,5 +23,14 @@ public class MailAccount {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MailAccount that = (MailAccount) o;
+        return Objects.equals(account, that.account) &&
+                Objects.equals(password, that.password);
     }
 }

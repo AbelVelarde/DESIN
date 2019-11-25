@@ -37,9 +37,10 @@ public class Logica {
     public void setAccount(MailAccount mailAccount){
         if(!listaCuentas.contains(mailAccount)){
             listaCuentas.add(mailAccount);
+            Folder f = loadMail(mailAccount);
+            rootPrincipal.getChildren().add(getTreeItems(mailAccount, f));
         }
-        Folder f = loadMail(mailAccount);
-        rootPrincipal.getChildren().add(getTreeItems(mailAccount, f));
+
     }
 
     private Folder loadMail(MailAccount mailAccount){
@@ -67,13 +68,15 @@ public class Logica {
 
     public ObservableList<Mail> getMailList(Folder carpeta){
         try {
-            if(!carpeta.isOpen()){
-                carpeta.open(1);
-            }
-            Message[] messages = carpeta.getMessages();
-            listaMails.clear();
-            for (Message message: messages) {
-                listaMails.add(new Mail(message));
+            if(carpeta!=null && carpeta.getType() == 3){
+                if(!carpeta.isOpen()){
+                    carpeta.open(1);
+                }
+                Message[] messages = carpeta.getMessages();
+                listaMails.clear();
+                for (Message message: messages) {
+                    listaMails.add(new Mail(message));
+                }
             }
         } catch (MessagingException e) {
             e.printStackTrace();
