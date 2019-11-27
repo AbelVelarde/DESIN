@@ -41,13 +41,14 @@ public class EmailMainWindowController extends BaseController implements Initial
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        mainProgress.setVisible(false);
         treeViewMail.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
             @Override
             public void changed(ObservableValue<? extends TreeItem<String>> observableValue, TreeItem<String> oldValue, TreeItem<String> newValue) {
                 MailTreeItem newmti = (MailTreeItem)newValue;
                 MailTreeItem oldmti = (MailTreeItem)oldValue;
 
-                if(oldmti != null &&oldmti.getFolder().isOpen()){
+                if(oldmti != null && oldmti.getFolder().isOpen()){
                     try {
                         oldmti.getFolder().close();
                     } catch (MessagingException e) {
