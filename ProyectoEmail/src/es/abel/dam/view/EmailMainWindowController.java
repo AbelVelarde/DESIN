@@ -2,6 +2,7 @@ package es.abel.dam.view;
 
 import es.abel.dam.logica.Logica;
 import es.abel.dam.models.Mail;
+import es.abel.dam.models.MailAccount;
 import es.abel.dam.models.MailTreeItem;
 import es.abel.dam.servicios.GetMailsService;
 import javafx.beans.value.ChangeListener;
@@ -55,22 +56,7 @@ public class EmailMainWindowController extends BaseController implements Initial
                         e.printStackTrace();
                     }
                 }
-
-                GetMailsService gms = new GetMailsService(newmti.getFolder());
-                gms.start();
-                gms.setOnRunning(new EventHandler<WorkerStateEvent>() {
-                    @Override
-                    public void handle(WorkerStateEvent workerStateEvent) {
-                        mainProgress.setVisible(true);
-                    }
-                });
-                gms.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-                    @Override
-                    public void handle(WorkerStateEvent workerStateEvent) {
-                        tablaMails.setItems(gms.getValue());
-                        mainProgress.setVisible(false);
-                    }
-                });
+                refrescarTabla(newmti);
             }
         });
 
@@ -91,7 +77,7 @@ public class EmailMainWindowController extends BaseController implements Initial
         BaseController controller = cargarVentana("EmailLoginWindow.fxml", "Login");
         controller.abrirVentana(true);
 
-        tablaMails.setItems(Logica.getInstance().getDefaultMails());
+        //tablaMails.setItems(Logica.getInstance().getDefaultMails());
 
         root = Logica.getInstance().getRootPrincipal();
         treeViewMail.setRoot(root);
@@ -100,10 +86,38 @@ public class EmailMainWindowController extends BaseController implements Initial
     }
 
     @FXML
+    private void borrarCorreo(){
+        MailTreeItem mti = (MailTreeItem)treeViewMail.getSelectionModel().getSelectedItem();
+        Mail mail = tablaMails.getSelectionModel().getSelectedItem();
+        Folder folder = mti.getFolder();
+        MailAccount mailAccount = mti.getMailAccount();
+
+        Logica.getInstance().deleteMail(mail, folder, mailAccount);
+
+        refrescarTabla(mti);
+    }
+
+    @FXML
     private void cambiarTemas(){
         BaseController controller = cargarVentana("EmailTemasWindow.fxml", "Temas");
         controller.abrirVentana(true);
     }
 
-
+    private void refrescarTabla(MailTreeItem mti){
+        GetMailsService gms = new GetMailsService(mti.getFolder());
+        gms.start();
+        gms.setOnRunning(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent workerStateEvent) {
+                mainProgress.setVisible(true);
+            }
+        });
+        gms.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent workerStateEvent) {
+                tablaMails.setItems(gms.getValue());
+                mainProgress.setVisible(false);
+            }
+        });
+    }
 }

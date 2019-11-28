@@ -17,13 +17,18 @@
    <children>
       <MenuBar style="-fx-background-color: lightgrey;">
         <menus>
-          <Menu mnemonicParsing="false" text="Correos">
+          <Menu mnemonicParsing="false" text="Cuentas">
             <items>
-                <MenuItem mnemonicParsing="false" onAction="#cargarLogin" text="Añadir Correo" />
-                <MenuItem mnemonicParsing="false" text="Editar Correo" />
-                <MenuItem mnemonicParsing="false" text="Borrar Correo" />
+                <MenuItem mnemonicParsing="false" onAction="#cargarLogin" text="Añadir Cuenta" />
+                <MenuItem mnemonicParsing="false" text="Editar Cuenta" />
+                <MenuItem mnemonicParsing="false" text="Borrar Cuenta" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Correos">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#borrarCorreo" text="Borrar Correo" />
+              </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Ventana">
               <items>
                 <MenuItem fx:id="miTemas" mnemonicParsing="false" onAction="#cambiarTemas" text="Temas" />
@@ -49,15 +54,20 @@
                                  <children>
                                     <TableView fx:id="tablaMails" layoutX="14.0" layoutY="-48.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <columns>
-                                          <TableColumn prefWidth="191.0" text="Asunto">
+                                          <TableColumn prefWidth="190.0" text="Asunto">
                                             <cellValueFactory>
                                                 <PropertyValueFactory property="asunto" />
                                              </cellValueFactory>
                                             </TableColumn>
-                                            <TableColumn minWidth="9.0" prefWidth="186.0" text="Remitente">
+                                            <TableColumn minWidth="9.0" prefWidth="190.0" text="Remitente">
                                               <cellValueFactory>
                                                 <PropertyValueFactory property="remitente" />
                                              </cellValueFactory>
+                                          </TableColumn>
+                                          <TableColumn minWidth="9.0" prefWidth="190.0" text="Fecha">
+                                              <cellValueFactory>
+                                                  <PropertyValueFactory property="fecha" />
+                                              </cellValueFactory>
                                           </TableColumn>
                                       </columns>
                                     </TableView>

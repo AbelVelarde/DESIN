@@ -7,10 +7,16 @@ import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Mail{
 
     private Message message;
+
+    public Message getMessage(){
+        return message;
+    }
 
     public String getAsunto(){
         try {
@@ -39,7 +45,17 @@ public class Mail{
             e.printStackTrace();
             return null;
         }
+    }
 
+    public String getFecha() {
+        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm dd-MM-yyyy");
+        try {
+            Date date = message.getReceivedDate();
+            return sdf.format(date);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public Mail(Message message){
