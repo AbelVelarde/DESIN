@@ -42,6 +42,16 @@ public class EmailMainWindowController extends BaseController implements Initial
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        /*
+            TODO: rowfactory to unbold msgs.
+            devolver nueva tableRow.
+            update item.
+            Si el mensaje no es nulo.
+            Si el mensaje no esta leido: bold
+            Else: nada.
+         */
+
+
         btnMgResponder.setDisable(true);
         btnMgReenviar.setDisable(true);
         btnMgBorrar.setDisable(true);
@@ -95,6 +105,12 @@ public class EmailMainWindowController extends BaseController implements Initial
         treeViewMail.setRoot(root);
         treeViewMail.setShowRoot(false);
         root.setExpanded(true);
+    }
+
+    @FXML
+    private void cargarCorreo(){
+        BaseController controller = cargarVentana("EmailMensajeWindow.fxml", "Correo");
+        controller.abrirVentana(true);
     }
 
     @FXML

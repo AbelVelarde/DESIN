@@ -3,6 +3,7 @@ package es.abel.dam.models;
 import org.apache.commons.mail.HtmlEmail;
 import org.apache.commons.mail.util.MimeMessageParser;
 
+import javax.mail.Flags;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -16,6 +17,15 @@ public class Mail{
 
     public Message getMessage(){
         return message;
+    }
+
+    public boolean isRead(){
+        try{
+            return message.isSet(Flags.Flag.SEEN);
+        }catch(MessagingException e){
+            e.printStackTrace();
+        }
+        return true;
     }
 
     public String getAsunto(){

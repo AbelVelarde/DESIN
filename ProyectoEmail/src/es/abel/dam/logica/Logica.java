@@ -8,6 +8,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -15,8 +17,11 @@ public class Logica {
 
     private static Logica INSTANCE = null;
 
+    private Properties props;
+    private Session session = null;
+
     private ObservableList<Mail> listaMails;
-    private ArrayList<MailAccount> listaCuentas;
+    private ObservableList<MailAccount> listaCuentas;
 
     private MailTreeItem rootPrincipal;
 
@@ -28,9 +33,24 @@ public class Logica {
     }
 
     public Logica() {
-        listaCuentas = new ArrayList<>();
+        props = new Properties();
+        props.put("incomingHost", "imap.gmail.com");
+        props.put("mail.store.protocol", "imaps");
+        props.put("mail.transport.protocol", "smtps");
+        props.put("mail.smtps.host", "smtp.gmail.com");
+        props.put("mail.smtps.auth", true);
+        props.put("outgoingHost", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+
+        listaCuentas = FXCollections.observableArrayList();
         listaMails = FXCollections.observableArrayList();
         rootPrincipal = new MailTreeItem("", null, null);
+    }
+
+    public ObservableList<MailAccount> getAccountList(){
+        return listaCuentas;
     }
 
     public void setAccount(MailAccount mailAccount) {
@@ -39,14 +59,21 @@ public class Logica {
             Folder f = loadMail(mailAccount);
             rootPrincipal.getChildren().add(getTreeItems(mailAccount, f));
         }
+    }
 
+    private void createSession(MailAccount mailAccount){
+        session = Session.getDefaultInstance(props, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(mailAccount.getAccount(), mailAccount.getPassword());
+            }
+        });
     }
 
     private Folder loadMail(MailAccount mailAccount) {
         try {
-            Properties prop = new Properties();
-            Session emailSesion = Session.getDefaultInstance(prop, null);
-            Store store = emailSesion.getStore("imaps");
+            createSession(mailAccount);
+            Store store = session.getStore("imaps");
             store.connect("imap.gmail.com", mailAccount.getAccount(), mailAccount.getPassword());
             mailAccount.setStore(store);
             return store.getDefaultFolder();
@@ -63,6 +90,27 @@ public class Logica {
         } catch (MessagingException e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public void createNewMessage(String contenido, MailAccount mailAccount, String[] destinatarios, String asunto){
+        createSession(mailAccount);
+        MimeMessage mimeMessage = new MimeMessage(session);
+
+        try{
+            mimeMessage.setText(contenido);
+            mimeMessage.setFrom(mailAccount.getAccount());
+            for(String destinatario : destinatarios){
+                mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));
+            }
+            mimeMessage.setSubject(asunto);
+
+            Transport.send(mimeMessage);
+//            Transport transport = session.getTransport();
+//            transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
+//            transport.close();
+        }catch(MessagingException e){
+            e.printStackTrace();
         }
     }
 

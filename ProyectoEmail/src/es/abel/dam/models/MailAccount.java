@@ -43,4 +43,9 @@ public class MailAccount{
     public Store getStore() {
         return store;
     }
+
+    @Override
+    public String toString(){
+        return account;
+    }
 }

@@ -2,8 +2,6 @@ package es.abel.dam.servicios;
 
 import es.abel.dam.logica.Logica;
 import es.abel.dam.models.Mail;
-import es.abel.dam.models.MailTreeItem;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
