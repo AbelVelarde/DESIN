@@ -123,6 +123,7 @@ public class Logica {
             if (!folder.getName().equals("Papelera")) {
                 Folder papelera = mailAccount.getStore().getDefaultFolder().getFolder("[Gmail]/Papelera");
                 folder.copyMessages(new Message[]{m}, papelera);
+                folder.close();
             } else {
                 m.setFlag(Flags.Flag.DELETED, true);
                 folder.close();
