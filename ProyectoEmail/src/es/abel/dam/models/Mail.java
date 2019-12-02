@@ -40,7 +40,13 @@ public class Mail{
         MimeMessageParser mimeParser = new MimeMessageParser((MimeMessage) message);
         try {
             mimeParser.parse();
-            return mimeParser.getHtmlContent();
+            if(mimeParser.getHtmlContent() != null){
+                return mimeParser.getHtmlContent();
+            }
+            else{
+                return mimeParser.getPlainContent();
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
             return null;

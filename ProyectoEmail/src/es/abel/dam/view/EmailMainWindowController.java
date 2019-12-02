@@ -11,10 +11,7 @@ import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
+import javafx.scene.control.*;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
@@ -28,21 +25,28 @@ public class EmailMainWindowController extends BaseController implements Initial
 
     @FXML
     private TableView<Mail> tablaMails;
-
     @FXML
     private TreeView<String> treeViewMail;
-
     @FXML
     private WebView wvMail;
-
     @FXML
     private ProgressIndicator mainProgress;
+    @FXML
+    private Button btnMgResponder;
+    @FXML
+    private Button btnMgReenviar;
+    @FXML
+    private Button btnMgBorrar;
 
     private TreeItem root;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        btnMgResponder.setDisable(true);
+        btnMgReenviar.setDisable(true);
+        btnMgBorrar.setDisable(true);
         mainProgress.setVisible(false);
+
         treeViewMail.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
             @Override
             public void changed(ObservableValue<? extends TreeItem<String>> observableValue, TreeItem<String> oldValue, TreeItem<String> newValue) {
@@ -64,9 +68,17 @@ public class EmailMainWindowController extends BaseController implements Initial
             @Override
             public void changed(ObservableValue<? extends Mail> observableValue, Mail mail, Mail newValue) {
                 if(newValue!=null){
+                    btnMgResponder.setDisable(false);
+                    btnMgReenviar.setDisable(false);
+                    btnMgBorrar.setDisable(false);
                     String mensaje = newValue.getContenido();
                     WebEngine webEngine = wvMail.getEngine();
                     webEngine.loadContent(mensaje);
+                }
+                else{
+                    btnMgResponder.setDisable(true);
+                    btnMgReenviar.setDisable(true);
+                    btnMgBorrar.setDisable(true);
                 }
             }
         });
