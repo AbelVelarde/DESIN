@@ -34,15 +34,28 @@ public class Logica {
 
     public Logica() {
         props = new Properties();
-        props.put("incomingHost", "imap.gmail.com");
-        props.put("mail.store.protocol", "imaps");
-        props.put("mail.transport.protocol", "smtps");
-        props.put("mail.smtps.host", "smtp.gmail.com");
-        props.put("mail.smtps.auth", true);
-        props.put("outgoingHost", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+//        props.put("incomingHost", "imap.gmail.com");
+//        props.put("mail.store.protocol", "imaps");
+//        props.put("mail.transport.protocol", "smtps");
+//        props.put("mail.smtps.host", "smtp.gmail.com");
+//        props.put("mail.smtps.auth", true);
+//        props.put("outgoingHost", "smtp.gmail.com");
+//        props.put("mail.smtp.port", "587");
+//        props.put("mail.smtp.auth", "true");
+//        props.put("mail.smtp.starttls.enable", "true");
+
+        props.put("mail.smtp.user","username");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "25");
+        props.put("mail.debug", "true");
         props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.starttls.enable","true");
+        props.put("mail.smtp.EnableSSL.enable","true");
+
+        props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.setProperty("mail.smtp.socketFactory.fallback", "false");
+        props.setProperty("mail.smtp.port", "465");
+        props.setProperty("mail.smtp.socketFactory.port", "465");
 
         listaCuentas = FXCollections.observableArrayList();
         listaMails = FXCollections.observableArrayList();
@@ -100,15 +113,16 @@ public class Logica {
         try{
             mimeMessage.setText(contenido);
             mimeMessage.setFrom(mailAccount.getAccount());
-            for(String destinatario : destinatarios){
-                mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));
+
+            InternetAddress[] to = new InternetAddress[destinatarios.length];
+            for(int i=0; i<destinatarios.length; i++){
+                to[i] = new InternetAddress(destinatarios[i]);
             }
+            mimeMessage.setRecipients(Message.RecipientType.TO, to);
             mimeMessage.setSubject(asunto);
 
             Transport.send(mimeMessage);
-//            Transport transport = session.getTransport();
-//            transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
-//            transport.close();
+
         }catch(MessagingException e){
             e.printStackTrace();
         }
