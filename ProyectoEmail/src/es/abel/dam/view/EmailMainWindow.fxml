@@ -28,7 +28,7 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Correos">
               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#cargarCorreo" text="Nuevo Correo" />
+                  <MenuItem mnemonicParsing="false" onAction="#enviarCorreo" text="Nuevo Correo" />
                 <MenuItem mnemonicParsing="false" onAction="#borrarCorreo" text="Borrar Correo" />
               </items>
             </Menu>
@@ -82,7 +82,7 @@
                                     <ToolBar prefHeight="17.0" prefWidth="443.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <items>
                                         <Button fx:id="btnMgResponder" mnemonicParsing="false" text="Responder" />
-                                          <Button fx:id="btnMgReenviar" mnemonicParsing="false" text="Reenviar" />
+                                          <Button fx:id="btnMgReenviar" mnemonicParsing="false" onAction="#reenviarCorreo" text="Reenviar" />
                                           <Button fx:id="btnMgBorrar" mnemonicParsing="false" onAction="#borrarCorreo" text="Borrar" />
                                       </items>
                                     </ToolBar>

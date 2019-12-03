@@ -13,6 +13,8 @@ import java.util.ResourceBundle;
 
 public class EmailTemasWindowController extends BaseController implements Initializable {
 
+
+
     @FXML
     ComboBox<String> cbTemas;
 
@@ -39,7 +41,7 @@ public class EmailTemasWindowController extends BaseController implements Initia
 
     @FXML
     private void cancel(){
-        Application.setUserAgentStylesheet(Application.getUserAgentStylesheet());
+        Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
         getStage().close();
     }
 

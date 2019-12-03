@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.util.Callback;
 
 import javax.mail.Folder;
 import javax.mail.MessagingException;
@@ -92,6 +93,8 @@ public class EmailMainWindowController extends BaseController implements Initial
                 }
             }
         });
+
+        pasarNegrita();
     }
 
     @FXML
@@ -108,8 +111,15 @@ public class EmailMainWindowController extends BaseController implements Initial
     }
 
     @FXML
-    private void cargarCorreo(){
+    private void enviarCorreo(){
         BaseController controller = cargarVentana("EmailMensajeWindow.fxml", "Correo");
+        controller.abrirVentana(true);
+    }
+
+    @FXML
+    private void reenviarCorreo(){
+        BaseController controller = cargarVentana("EmailMensajeWindow.fxml", "Correo");
+        ((EmailMensajeWindowController)controller).reenviar(tablaMails.getSelectionModel().getSelectedItem());
         controller.abrirVentana(true);
     }
 
@@ -145,6 +155,28 @@ public class EmailMainWindowController extends BaseController implements Initial
             public void handle(WorkerStateEvent workerStateEvent) {
                 tablaMails.setItems(gms.getValue());
                 mainProgress.setVisible(false);
+            }
+        });
+    }
+
+    private void pasarNegrita(){
+        tablaMails.setRowFactory(new Callback<TableView<Mail>, TableRow<Mail>>() {
+            @Override
+            public TableRow<Mail> call(TableView<Mail> mailTableView) {
+                return new TableRow<>(){
+                    @Override
+                    protected void updateItem(Mail mail, boolean b){
+                        super.updateItem(mail, b);
+                        if(mail!=null){
+                            if(!mail.isRead()){
+                                setStyle("-fx-font-weight:bold");
+                            }
+                            else{
+                                setStyle("");
+                            }
+                        }
+                    }
+                };
             }
         });
     }

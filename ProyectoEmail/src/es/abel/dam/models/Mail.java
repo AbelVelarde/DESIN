@@ -74,6 +74,20 @@ public class Mail{
         }
     }
 
+    public String[] getDestinatario(){
+        String[] dest = null;
+        try {
+            dest = new String[message.getAllRecipients().length];
+            for(int i=0; i<message.getAllRecipients().length;i++){
+                dest[i] = message.getAllRecipients()[i].toString();
+            }
+            return dest;
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public Mail(Message message){
         this.message = message;
     }

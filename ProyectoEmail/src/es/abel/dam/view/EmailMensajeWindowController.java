@@ -1,6 +1,7 @@
 package es.abel.dam.view;
 
 import es.abel.dam.logica.Logica;
+import es.abel.dam.models.Mail;
 import es.abel.dam.models.MailAccount;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -42,5 +43,17 @@ public class EmailMensajeWindowController extends BaseController implements Init
         String asunto = tfAsunto.getText();
 
        Logica.getInstance().createNewMessage(contenido, remitente, destinatarios, asunto);
+    }
+
+    public void reenviar(Mail mail) {
+        String contenido = "---------- Mensaje reenviado ----------" +
+                "<br>De: " + mail.getRemitente() +
+                "<br>Fecha: " + mail.getFecha()  +
+                "<br>Asunto: " + mail.getAsunto()  +
+                "<br>Para: " + mail.getDestinatario().toString() +
+                "<br>" +
+                "<br>" + mail.getContenido();
+        htmlEditor.setHtmlText(contenido);
+        tfAsunto.setText("Re: " + mail.getAsunto());
     }
 }
