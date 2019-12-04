@@ -66,7 +66,7 @@ public class EmailMainWindowController extends BaseController implements Initial
 
                 if(oldmti != null && oldmti.getFolder().isOpen()){
                     try {
-                        oldmti.getFolder().close();
+                        oldmti.getFolder().close(true);
                     } catch (MessagingException e) {
                         e.printStackTrace();
                     }
