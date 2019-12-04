@@ -11,7 +11,7 @@ public class Logica {
     private ObservableList<String> listaAulas;
     private ObservableList<Reserva> listaReservas;
 
-    private int numAulas = 10;
+    private int numAulas = 100;
 
     private Logica(){
         listaAulas = FXCollections.observableArrayList();

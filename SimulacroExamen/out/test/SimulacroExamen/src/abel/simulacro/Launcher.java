@@ -16,7 +16,9 @@ public class Launcher extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("views/ReservasView.fxml"));
         stage.setTitle("Pantalla Principal");
-        stage.setScene(new Scene(root, 640, 500));
+        Scene scene = new Scene(root, 640, 500);
+        scene.getStylesheets().add(getClass().getResource("/abel/simulacro/res/buttons.css").toExternalForm());
+        stage.setScene(scene);
         stage.show();
     }
 }

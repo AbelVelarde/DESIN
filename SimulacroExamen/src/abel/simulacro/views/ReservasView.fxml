@@ -15,8 +15,8 @@
          <children>
             <ComboBox fx:id="cbAulas" layoutX="14.0" layoutY="14.0" prefWidth="150.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="15.0" />
             <DatePicker fx:id="datePicker" layoutX="184.0" layoutY="14.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="15.0" />
-            <Button fx:id="btnReservar" layoutX="476.0" layoutY="14.0" mnemonicParsing="false" onAction="#reservar" style="-fx-background-color: FFCCFF;" styleClass="btn" text="Reservar" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0" />
-            <Button fx:id="btnLiberar" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#liberar" style="-fx-background-color: FFCCFF;" styleClass="btn" stylesheets="@../res/buttons.css" text="Liberar" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" />
+            <Button fx:id="btnReservar" layoutX="555.0" layoutY="15.0" mnemonicParsing="false" onAction="#reservar" styleClass="btn" text="Reservar" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0" />
+            <Button fx:id="btnLiberar" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#liberar" styleClass="btn" text="Liberar" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" />
             <TableView fx:id="tvAulas" layoutX="32.0" layoutY="61.0" prefHeight="277.0" prefWidth="582.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="60.0">
               <columns>
                 <TableColumn prefWidth="134.0" text="Aula">
