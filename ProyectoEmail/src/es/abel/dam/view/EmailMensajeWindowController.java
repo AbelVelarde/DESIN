@@ -65,7 +65,7 @@ public class EmailMensajeWindowController extends BaseController implements Init
         tfAsunto.setText("FW: " + mail.getAsunto());
     }
 
-    public void responder(Mail mail) {
+    public void responder(Mail mail, Folder folder) {
         this.mail = mail;
         tfDestinatario.setText(mail.getDestinatario()[0]);
         tfAsunto.setText("RE: " + mail.getAsunto());
