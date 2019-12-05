@@ -81,7 +81,7 @@
                                     <WebView fx:id="wvMail" layoutX="-2.0" layoutY="34.0" prefHeight="155.0" prefWidth="443.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="34.0" />
                                     <ToolBar prefHeight="17.0" prefWidth="443.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <items>
-                                        <Button fx:id="btnMgResponder" mnemonicParsing="false" text="Responder" />
+                                        <Button fx:id="btnMgResponder" mnemonicParsing="false" onAction="#responderCorreo" text="Responder" />
                                           <Button fx:id="btnMgReenviar" mnemonicParsing="false" onAction="#reenviarCorreo" text="Reenviar" />
                                           <Button fx:id="btnMgBorrar" mnemonicParsing="false" onAction="#borrarCorreo" text="Borrar" />
                                       </items>

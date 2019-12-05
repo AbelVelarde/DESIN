@@ -23,6 +23,8 @@ public class EmailMensajeWindowController extends BaseController implements Init
     @FXML
     private TextField tfAsunto;
 
+    private Mail mail;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cbAcounts.setItems(Logica.getInstance().getAccountList());
@@ -36,13 +38,19 @@ public class EmailMensajeWindowController extends BaseController implements Init
     @FXML
     private void enviar(){
         String contenido = htmlEditor.getHtmlText();
+        if(mail != null){
+            contenido = contenido + "<br><br>" +
+                    "<br> " + mail.getFecha() + ", " +
+                    mail.getDestinatario()[0] + " escribio: " +
+                    "<br> " + mail.getContenido();
+        }
         MailAccount remitente = cbAcounts.getSelectionModel().getSelectedItem();
-
         String[] destinatarios = tfDestinatario.getText().split(", ");
-
         String asunto = tfAsunto.getText();
 
-       Logica.getInstance().createNewMessage(contenido, remitente, destinatarios, asunto);
+        Logica.getInstance().createNewMessage(contenido, remitente, destinatarios, asunto);
+
+        getStage().close();
     }
 
     public void reenviar(Mail mail) {
@@ -54,6 +62,12 @@ public class EmailMensajeWindowController extends BaseController implements Init
                 "<br>" +
                 "<br>" + mail.getContenido();
         htmlEditor.setHtmlText(contenido);
-        tfAsunto.setText("Re: " + mail.getAsunto());
+        tfAsunto.setText("FW: " + mail.getAsunto());
+    }
+
+    public void responder(Mail mail) {
+        this.mail = mail;
+        tfDestinatario.setText(mail.getDestinatario()[0]);
+        tfAsunto.setText("RE: " + mail.getAsunto());
     }
 }

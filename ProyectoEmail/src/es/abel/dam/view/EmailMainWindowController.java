@@ -51,8 +51,6 @@ public class EmailMainWindowController extends BaseController implements Initial
             Si el mensaje no esta leido: bold
             Else: nada.
          */
-
-
         btnMgResponder.setDisable(true);
         btnMgReenviar.setDisable(true);
         btnMgBorrar.setDisable(true);
@@ -120,6 +118,13 @@ public class EmailMainWindowController extends BaseController implements Initial
     private void reenviarCorreo(){
         BaseController controller = cargarVentana("EmailMensajeWindow.fxml", "Correo");
         ((EmailMensajeWindowController)controller).reenviar(tablaMails.getSelectionModel().getSelectedItem());
+        controller.abrirVentana(true);
+    }
+
+    @FXML
+    private void responderCorreo(){
+        BaseController controller = cargarVentana("EmailMensajeWindow.fxml", "Correo");
+        ((EmailMensajeWindowController)controller).responder(tablaMails.getSelectionModel().getSelectedItem());
         controller.abrirVentana(true);
     }
 
