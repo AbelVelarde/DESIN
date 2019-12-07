@@ -116,15 +116,21 @@ public class EmailMainWindowController extends BaseController implements Initial
 
     @FXML
     private void reenviarCorreo(){
+        MailAccount a = ((MailTreeItem)treeViewMail.getSelectionModel().getSelectedItem()).getMailAccount();
+        Mail m = tablaMails.getSelectionModel().getSelectedItem();
+
         BaseController controller = cargarVentana("EmailMensajeWindow.fxml", "Correo");
-        ((EmailMensajeWindowController)controller).reenviar(tablaMails.getSelectionModel().getSelectedItem());
+        ((EmailMensajeWindowController)controller).reenviar(m,a);
         controller.abrirVentana(true);
     }
 
     @FXML
     private void responderCorreo(){
+        MailAccount a = ((MailTreeItem)treeViewMail.getSelectionModel().getSelectedItem()).getMailAccount();
+        Mail m = tablaMails.getSelectionModel().getSelectedItem();
+
         BaseController controller = cargarVentana("EmailMensajeWindow.fxml", "Correo");
-        ((EmailMensajeWindowController)controller).responder(tablaMails.getSelectionModel().getSelectedItem());
+        ((EmailMensajeWindowController)controller).responder(m,a);
         controller.abrirVentana(true);
     }
 

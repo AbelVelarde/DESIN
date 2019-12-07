@@ -9,6 +9,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.web.HTMLEditor;
 
+import javax.mail.Folder;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -53,20 +54,24 @@ public class EmailMensajeWindowController extends BaseController implements Init
         getStage().close();
     }
 
-    public void reenviar(Mail mail) {
+    public void reenviar(Mail mail, MailAccount mailAccount) {
         String contenido = "---------- Mensaje reenviado ----------" +
                 "<br>De: " + mail.getRemitente() +
                 "<br>Fecha: " + mail.getFecha()  +
                 "<br>Asunto: " + mail.getAsunto()  +
-                "<br>Para: " + mail.getDestinatario().toString() +
+                "<br>Para: " + mail.getDestinatario()[0] +
                 "<br>" +
                 "<br>" + mail.getContenido();
+        cbAcounts.getSelectionModel().select(mailAccount);
+        cbAcounts.setDisable(true);
         htmlEditor.setHtmlText(contenido);
         tfAsunto.setText("FW: " + mail.getAsunto());
     }
 
-    public void responder(Mail mail, Folder folder) {
+    public void responder(Mail mail, MailAccount mailAccount) {
         this.mail = mail;
+        cbAcounts.getSelectionModel().select(mailAccount);
+        cbAcounts.setDisable(true);
         tfDestinatario.setText(mail.getDestinatario()[0]);
         tfAsunto.setText("RE: " + mail.getAsunto());
     }
