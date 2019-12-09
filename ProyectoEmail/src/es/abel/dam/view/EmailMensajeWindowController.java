@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 public class EmailMensajeWindowController extends BaseController implements Initializable {
 
     @FXML
-    private ComboBox<MailAccount> cbAcounts;
+    private ComboBox<MailAccount> cbAccounts;
     @FXML
     private HTMLEditor htmlEditor;
     @FXML
@@ -28,7 +28,7 @@ public class EmailMensajeWindowController extends BaseController implements Init
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        cbAcounts.setItems(Logica.getInstance().getAccountList());
+        cbAccounts.setItems(Logica.getInstance().getAccountList());
     }
 
     @FXML
@@ -45,7 +45,7 @@ public class EmailMensajeWindowController extends BaseController implements Init
                     mail.getDestinatario()[0] + " escribio: " +
                     "<br> " + mail.getContenido();
         }
-        MailAccount remitente = cbAcounts.getSelectionModel().getSelectedItem();
+        MailAccount remitente = cbAccounts.getSelectionModel().getSelectedItem();
         String[] destinatarios = tfDestinatario.getText().split(", ");
         String asunto = tfAsunto.getText();
 
@@ -62,16 +62,16 @@ public class EmailMensajeWindowController extends BaseController implements Init
                 "<br>Para: " + mail.getDestinatario()[0] +
                 "<br>" +
                 "<br>" + mail.getContenido();
-        cbAcounts.getSelectionModel().select(mailAccount);
-        cbAcounts.setDisable(true);
+        cbAccounts.getSelectionModel().select(mailAccount);
+        cbAccounts.setDisable(true);
         htmlEditor.setHtmlText(contenido);
         tfAsunto.setText("FW: " + mail.getAsunto());
     }
 
     public void responder(Mail mail, MailAccount mailAccount) {
         this.mail = mail;
-        cbAcounts.getSelectionModel().select(mailAccount);
-        cbAcounts.setDisable(true);
+        cbAccounts.getSelectionModel().select(mailAccount);
+        cbAccounts.setDisable(true);
         tfDestinatario.setText(mail.getDestinatario()[0]);
         tfAsunto.setText("RE: " + mail.getAsunto());
     }

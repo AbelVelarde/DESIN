@@ -12,20 +12,20 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <TextField fx:id="tfCorreo" layoutX="204.0" layoutY="96.0" prefHeight="25.0" prefWidth="233.0" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="130.0" />
-            <PasswordField fx:id="pfPassword" layoutX="195.0" layoutY="230.0" prefHeight="25.0" prefWidth="233.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="195.0" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="230.0" />
-            <Label layoutX="200.0" layoutY="75.0" prefHeight="25.0" prefWidth="111.0" text="CORREO:" AnchorPane.bottomAnchor="275.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="75.0">
+            <TextField fx:id="tfCorreo" layoutX="194.0" layoutY="120.0" prefHeight="25.0" prefWidth="233.0" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="213.0" AnchorPane.topAnchor="120.0" />
+            <PasswordField fx:id="pfPassword" layoutX="195.0" layoutY="230.0" prefHeight="25.0" prefWidth="233.0" AnchorPane.bottomAnchor="145.0" AnchorPane.leftAnchor="195.0" AnchorPane.rightAnchor="212.0" />
+            <Label layoutX="195.0" layoutY="95.0" prefHeight="25.0" prefWidth="115.0" text="CORREO:" AnchorPane.leftAnchor="195.0" AnchorPane.rightAnchor="330.0" AnchorPane.topAnchor="95.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="200.0" layoutY="175.0" prefHeight="25.0" prefWidth="111.0" text="CONTRASEÑA:" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="175.0">
+            <Label layoutX="195.0" layoutY="200.0" prefHeight="25.0" prefWidth="115.0" text="CONTRASEÑA:" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="195.0" AnchorPane.rightAnchor="330.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btnLoginAccept" onAction="#añadirMail" layoutX="14.0" layoutY="366.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Aceptar" />
-            <Button fx:id="btnLoginCancel" onAction="#cancelar" layoutX="143.0" layoutY="366.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Cancelar" />
+            <Button fx:id="btnLoginAccept" layoutX="14.0" layoutY="366.0" mnemonicParsing="false" onAction="#añadirMail" prefHeight="25.0" prefWidth="90.0" text="Aceptar" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+            <Button fx:id="btnLoginCancel" layoutX="536.0" layoutY="366.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="25.0" prefWidth="90.0" text="Cancelar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
          </children>
     </AnchorPane>
   </children>

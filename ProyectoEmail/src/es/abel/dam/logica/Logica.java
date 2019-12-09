@@ -252,4 +252,10 @@ public class Logica {
         }
         return false;
     }
+
+    public void deleteAccount(MailAccount mailAccount) {
+        listaCuentas.remove(mailAccount);
+        rootPrincipal = new MailTreeItem("", null, null);
+        setAccounts();
+    }
 }

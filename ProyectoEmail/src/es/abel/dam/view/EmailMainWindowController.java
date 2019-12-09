@@ -100,12 +100,20 @@ public class EmailMainWindowController extends BaseController implements Initial
         BaseController controller = cargarVentana("EmailLoginWindow.fxml", "Login");
         controller.abrirVentana(true);
 
-        tablaMails.setItems(Logica.getInstance().getDefaultMails());
-
+//        tablaMails.setItems(Logica.getInstance().getDefaultMails());
         root = Logica.getInstance().getRootPrincipal();
         treeViewMail.setRoot(root);
         treeViewMail.setShowRoot(false);
         root.setExpanded(true);
+    }
+
+    @FXML
+    private void eliminarCuenta(){
+        BaseController controller = cargarVentana("EmailDeleteWindow.fxml", "Borrar Cuenta");
+        controller.abrirVentana(true);
+
+        treeViewMail.setRoot(Logica.getInstance().getRootPrincipal());
+        treeViewMail.setShowRoot(false);
     }
 
     @FXML

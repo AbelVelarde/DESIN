@@ -23,7 +23,7 @@
             <items>
                 <MenuItem fx:id="menuAñadirCuenta" mnemonicParsing="false" onAction="#cargarLogin" text="Añadir Cuenta" />
                 <MenuItem mnemonicParsing="false" text="Editar Cuenta" />
-                <MenuItem mnemonicParsing="false" text="Borrar Cuenta" />
+                <MenuItem mnemonicParsing="false" onAction="#eliminarCuenta" text="Borrar Cuenta" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Correos">
