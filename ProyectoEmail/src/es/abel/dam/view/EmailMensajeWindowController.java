@@ -42,7 +42,7 @@ public class EmailMensajeWindowController extends BaseController implements Init
         if(mail != null){
             contenido = contenido + "<br><br>" +
                     "<br> " + mail.getFecha() + ", " +
-                    mail.getDestinatario()[0] + " escribio: " +
+                    mail.getRemitente() + " escribio: " +
                     "<br> " + mail.getContenido();
         }
         MailAccount remitente = cbAccounts.getSelectionModel().getSelectedItem();
@@ -72,7 +72,7 @@ public class EmailMensajeWindowController extends BaseController implements Init
         this.mail = mail;
         cbAccounts.getSelectionModel().select(mailAccount);
         cbAccounts.setDisable(true);
-        tfDestinatario.setText(mail.getDestinatario()[0]);
+        tfDestinatario.setText(mail.getRemitente());
         tfAsunto.setText("RE: " + mail.getAsunto());
     }
 }

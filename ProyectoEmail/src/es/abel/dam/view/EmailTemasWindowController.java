@@ -13,13 +13,11 @@ import java.util.ResourceBundle;
 
 public class EmailTemasWindowController extends BaseController implements Initializable {
 
-
+    @FXML
+    private ComboBox<String> cbTemas;
 
     @FXML
-    ComboBox<String> cbTemas;
-
-    @FXML
-    VBox vboxMuestra;
+    private VBox vboxMuestra;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

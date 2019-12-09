@@ -50,7 +50,6 @@ public class Logica {
         props.put("mail.smtp.user","username");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "25");
-//        props.put("mail.debug", "true");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable","true");
         props.put("mail.smtp.EnableSSL.enable","true");
@@ -85,12 +84,16 @@ public class Logica {
     }
 
     private void createSession(MailAccount mailAccount){
-        session = Session.getDefaultInstance(props, new Authenticator() {
+        session = null;
+        String cuenta = mailAccount.getAccount();
+        String pass = mailAccount.getPassword();
+        Authenticator auth = new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(mailAccount.getAccount(), mailAccount.getPassword());
+                return new PasswordAuthentication(cuenta, pass);
             }
-        });
+        };
+        session = Session.getInstance(props, auth);
     }
 
     private Folder loadMail(MailAccount mailAccount) {
@@ -118,7 +121,6 @@ public class Logica {
     public void createNewMessage(String contenido, MailAccount mailAccount, String[] destinatarios, String asunto){
         createSession(mailAccount);
         MimeMessage mimeMessage = new MimeMessage(session);
-
         try{
             mimeMessage.setContent(contenido, "text/html");
             //mimeMessage.setText(contenido);
