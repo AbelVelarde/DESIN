@@ -19,9 +19,9 @@
    <children>
       <MenuBar style="-fx-background-color: lightgrey;">
         <menus>
-          <Menu mnemonicParsing="false" text="Cuentas">
+          <Menu fx:id="menuCuentas" mnemonicParsing="false" text="Cuentas">
             <items>
-                <MenuItem mnemonicParsing="false" onAction="#cargarLogin" text="Añadir Cuenta" />
+                <MenuItem fx:id="menuAñadirCuenta" mnemonicParsing="false" onAction="#cargarLogin" text="Añadir Cuenta" />
                 <MenuItem mnemonicParsing="false" text="Editar Cuenta" />
                 <MenuItem mnemonicParsing="false" text="Borrar Cuenta" />
             </items>

@@ -64,7 +64,7 @@ public class Mail{
     }
 
     public String getFecha() {
-        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm dd-MM-yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         try {
             Date date = message.getReceivedDate();
             return sdf.format(date);

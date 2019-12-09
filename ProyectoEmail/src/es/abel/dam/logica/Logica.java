@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -24,6 +25,8 @@ public class Logica {
     private ObservableList<MailAccount> listaCuentas;
 
     private MailTreeItem rootPrincipal;
+
+    Store store = null;
 
     public static Logica getInstance() {
         if (INSTANCE == null) {
@@ -62,8 +65,15 @@ public class Logica {
         rootPrincipal = new MailTreeItem("", null, null);
     }
 
-    public ObservableList<MailAccount> getAccountList(){
+    public ObservableList<MailAccount> getAccountList() {
         return listaCuentas;
+    }
+
+    public void setAccounts(){
+        for (MailAccount mailAccount : listaCuentas) {
+            Folder f = loadMail(mailAccount);
+            rootPrincipal.getChildren().add(getTreeItems(mailAccount, f));
+        }
     }
 
     public void setAccount(MailAccount mailAccount) {
@@ -86,9 +96,8 @@ public class Logica {
     private Folder loadMail(MailAccount mailAccount) {
         try {
             createSession(mailAccount);
-            Store store = session.getStore("imaps");
+            store = session.getStore("imaps");
             store.connect("imap.gmail.com", mailAccount.getAccount(), mailAccount.getPassword());
-            mailAccount.setStore(store);
             return store.getDefaultFolder();
         } catch (MessagingException e) {
             e.printStackTrace();
@@ -97,9 +106,9 @@ public class Logica {
         }
     }
 
-    public ObservableList<Mail> getDefaultMails(MailAccount mailAccount) {
+    public ObservableList<Mail> getDefaultMails() {
         try {
-            return getMailList(mailAccount.getStore().getDefaultFolder().getFolder("INBOX"));
+            return getMailList(store.getDefaultFolder().getFolder("INBOX"));
         } catch (MessagingException e) {
             e.printStackTrace();
             return null;
@@ -184,7 +193,7 @@ public class Logica {
         Message m = mail.getMessage();
         try {
             if (!folder.getName().equals("Papelera")) {
-                Folder papelera = mailAccount.getStore().getDefaultFolder().getFolder("[Gmail]/Papelera");
+                Folder papelera = folder.getStore().getDefaultFolder().getFolder("[Gmail]/Papelera");
                 folder.copyMessages(new Message[]{m}, papelera);
                 folder.close(true);
             } else {
@@ -194,5 +203,53 @@ public class Logica {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
+    }
+
+    public void saveListaCuentas() {
+        File file = new File("FicheroCuentas.txt");
+        ObjectOutputStream oos = null;
+        try{
+            ArrayList<MailAccount> arrayList = new ArrayList<>(listaCuentas);
+            oos = new ObjectOutputStream(new FileOutputStream(file));
+            oos.writeObject(arrayList);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        finally {
+            if(oos != null){
+                try {
+                    oos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public boolean loadListaCuentas(){
+        File file = new File("FicheroCuentas.txt");
+        ObjectInputStream ois = null;
+        try{
+            if(file.exists()){
+                ois = new ObjectInputStream(new FileInputStream(file));
+                listaCuentas = FXCollections.observableArrayList((ArrayList<MailAccount>)ois.readObject());
+                setAccounts();
+                if(listaCuentas.size() > 0){
+                    return true;
+                }
+            }
+        }catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        finally {
+            if(ois != null){
+                try {
+                    ois.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return false;
     }
 }

@@ -19,7 +19,9 @@ import javafx.util.Callback;
 import javax.mail.Folder;
 import javax.mail.MessagingException;
 import javax.mail.Service;
+import java.io.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class EmailMainWindowController extends BaseController implements Initializable {
@@ -43,14 +45,12 @@ public class EmailMainWindowController extends BaseController implements Initial
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        /*
-            TODO: rowfactory to unbold msgs.
-            devolver nueva tableRow.
-            update item.
-            Si el mensaje no es nulo.
-            Si el mensaje no esta leido: bold
-            Else: nada.
-         */
+        boolean hayCuentas = Logica.getInstance().loadListaCuentas();
+        if(hayCuentas){
+            treeViewMail.setRoot(Logica.getInstance().getRootPrincipal());
+            treeViewMail.setShowRoot(false);
+        }
+
         btnMgResponder.setDisable(true);
         btnMgReenviar.setDisable(true);
         btnMgBorrar.setDisable(true);
@@ -100,7 +100,7 @@ public class EmailMainWindowController extends BaseController implements Initial
         BaseController controller = cargarVentana("EmailLoginWindow.fxml", "Login");
         controller.abrirVentana(true);
 
-        //tablaMails.setItems(Logica.getInstance().getDefaultMails());
+        tablaMails.setItems(Logica.getInstance().getDefaultMails());
 
         root = Logica.getInstance().getRootPrincipal();
         treeViewMail.setRoot(root);
