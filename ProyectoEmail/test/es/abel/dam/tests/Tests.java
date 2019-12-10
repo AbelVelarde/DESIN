@@ -25,6 +25,9 @@ public class Tests extends ApplicationTest {
         stage.show();
     }
 
+    /**
+     * Test que añade una cuenta. Si existe la cuenta con el mismo nombre no añadira una nueva
+     */
     @Test
     public void testAñadirCuenta(){
         clickOn("#menuCuentas");
@@ -37,50 +40,19 @@ public class Tests extends ApplicationTest {
         type(KeyCode.ENTER);
 
         clickOn("#tablaMails");
-
-        FxAssert.verifyThat("#tablaMails", TableViewMatchers.containsRow(new String[]{"Prueba", "bryangallegoclases@gmail.com", "28-11-2019"}));
     }
 
+    /**
+     * Test que cambia el tema de la aplicacion
+     */
     @Test
-    public void testResponder(){
-        clickOn("#menuCuentas");
-        clickOn("#menuAñadirCuenta");
-        clickOn("#btnLoginAccept");
+    public void testTemas()  {
+        clickOn("#menuVentana");
+        clickOn("#miTemas");
 
-        clickOn("#treeViewMail");
-        type(KeyCode.DOWN);
+        clickOn("#cbTemas");
         type(KeyCode.DOWN);
         type(KeyCode.ENTER);
-
-        clickOn("#tablaMails");
-        type(KeyCode.DOWN);
-        clickOn("#btnMgResponder");
-
-        clickOn("#cbAccounts");
-        type(KeyCode.DOWN);
-        type(KeyCode.ENTER);
-
-        clickOn("#tfDestinatario");
-        write("AbelVelardeProfesional@gmail.com");
-
-        clickOn("#tfAsunto");
-        write("Prueba Test Responder");
-
-        clickOn("#tfAsunto");
-        write("Prueba Test Responder");
-
-        clickOn("#htmlEditor");
-        write("Prueba test responder mensaje");
-
-        clickOn("#btnEnviar");
-
-        clickOn("#treeViewMail");
-        type(KeyCode.DOWN);
-        type(KeyCode.DOWN);
-        type(KeyCode.DOWN);
-        type(KeyCode.DOWN);
-        type(KeyCode.DOWN);
-
-        FxAssert.verifyThat("#tablaMails", TableViewMatchers.containsRow(new String[]{"Prueba Responder Correo", "sandierparapromociones@gmail.com", "08-12-2019"}));
+        clickOn("#btnAceptar");
     }
 }

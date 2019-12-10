@@ -26,14 +26,14 @@ public class MailAccount implements Serializable{
         this.password = password;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        MailAccount that = (MailAccount) o;
-//        return Objects.equals(account, that.account) &&
-//                Objects.equals(password, that.password);
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MailAccount that = (MailAccount) o;
+        return Objects.equals(account, that.account) &&
+                Objects.equals(password, that.password);
+    }
 
     @Override
     public String toString(){

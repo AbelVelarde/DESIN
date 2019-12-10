@@ -32,7 +32,7 @@
                 <MenuItem fx:id="menuBorrarCorreo" mnemonicParsing="false" onAction="#borrarCorreo" text="Borrar Correo" />
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Ventana">
+            <Menu fx:id="menuVentana" mnemonicParsing="false" text="Ventana">
               <items>
                 <MenuItem fx:id="miTemas" mnemonicParsing="false" onAction="#cambiarTemas" text="Temas" />
               </items>
