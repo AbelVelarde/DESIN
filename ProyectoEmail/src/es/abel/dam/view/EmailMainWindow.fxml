@@ -22,14 +22,14 @@
           <Menu fx:id="menuCuentas" mnemonicParsing="false" text="Cuentas">
             <items>
                 <MenuItem fx:id="menuAñadirCuenta" mnemonicParsing="false" onAction="#cargarLogin" text="Añadir Cuenta" />
-                <MenuItem mnemonicParsing="false" text="Editar Cuenta" />
+                <MenuItem fx:id="menuEditarCuenta" mnemonicParsing="false" text="Editar Cuenta" />
                 <MenuItem mnemonicParsing="false" onAction="#eliminarCuenta" text="Borrar Cuenta" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Correos">
               <items>
                   <MenuItem mnemonicParsing="false" onAction="#enviarCorreo" text="Nuevo Correo" />
-                <MenuItem mnemonicParsing="false" onAction="#borrarCorreo" text="Borrar Correo" />
+                <MenuItem fx:id="menuBorrarCorreo" mnemonicParsing="false" onAction="#borrarCorreo" text="Borrar Correo" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Ventana">

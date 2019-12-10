@@ -40,6 +40,10 @@ public class EmailMainWindowController extends BaseController implements Initial
     private Button btnMgReenviar;
     @FXML
     private Button btnMgBorrar;
+    @FXML
+    private MenuItem menuBorrarCorreo;
+    @FXML
+    private MenuItem menuEditarCuenta;
 
     private TreeItem root;
 
@@ -54,6 +58,8 @@ public class EmailMainWindowController extends BaseController implements Initial
         btnMgResponder.setDisable(true);
         btnMgReenviar.setDisable(true);
         btnMgBorrar.setDisable(true);
+        menuBorrarCorreo.setDisable(true);
+        menuEditarCuenta.setDisable(true);
         mainProgress.setVisible(false);
 
         treeViewMail.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
@@ -76,18 +82,22 @@ public class EmailMainWindowController extends BaseController implements Initial
         tablaMails.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Mail>() {
             @Override
             public void changed(ObservableValue<? extends Mail> observableValue, Mail mail, Mail newValue) {
+                WebEngine webEngine = null;
+                String mensaje = "";
                 if(newValue!=null){
                     btnMgResponder.setDisable(false);
                     btnMgReenviar.setDisable(false);
                     btnMgBorrar.setDisable(false);
-                    String mensaje = newValue.getContenido();
-                    WebEngine webEngine = wvMail.getEngine();
+                    menuBorrarCorreo.setDisable(false);
+                    mensaje = newValue.getContenido();
+                    webEngine = wvMail.getEngine();
                     webEngine.loadContent(mensaje);
                 }
                 else{
                     btnMgResponder.setDisable(true);
                     btnMgReenviar.setDisable(true);
                     btnMgBorrar.setDisable(true);
+                    menuBorrarCorreo.setDisable(true);
                 }
             }
         });
@@ -100,7 +110,7 @@ public class EmailMainWindowController extends BaseController implements Initial
         BaseController controller = cargarVentana("EmailLoginWindow.fxml", "Login");
         controller.abrirVentana(true);
 
-//        tablaMails.setItems(Logica.getInstance().getDefaultMails());
+//      tablaMails.setItems(Logica.getInstance().getDefaultMails());
         root = Logica.getInstance().getRootPrincipal();
         treeViewMail.setRoot(root);
         treeViewMail.setShowRoot(false);
