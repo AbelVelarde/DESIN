@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.abel.dam.view.VentanaPrincipalController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
@@ -25,7 +28,15 @@
                 </TableColumn>
               </columns>
             </TableView>
-            <Button fx:id="btnAlta" onAction="#abrirAlta" layoutX="574.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Alta" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+            <Button fx:id="btnAlta" layoutX="574.0" layoutY="361.0" mnemonicParsing="false" onAction="#abrirAlta" prefHeight="25.0" prefWidth="68.0" text="Alta" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+            <ComboBox fx:id="cbFiltroUno" layoutX="134.0" layoutY="37.0" prefWidth="150.0" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="40.0" />
+            <ComboBox fx:id="cbFiltroDos" layoutX="348.0" layoutY="40.0" prefWidth="150.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="40.0" />
+            <Label layoutX="14.0" layoutY="41.0" text="Filtro:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnFiltrar" onAction="#filtrar" layoutX="570.0" layoutY="40.0" mnemonicParsing="false" text="Filtrar" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
          </children>
     </AnchorPane>
   </children>
