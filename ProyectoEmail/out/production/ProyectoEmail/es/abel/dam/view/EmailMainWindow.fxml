@@ -37,6 +37,11 @@
                 <MenuItem fx:id="miTemas" mnemonicParsing="false" onAction="#cambiarTemas" text="Temas" />
               </items>
             </Menu>
+            <Menu fx:id="menuCuentas1" mnemonicParsing="false" text="EXAMEN">
+               <items>
+                  <MenuItem fx:id="menuAbrirVentanaExamen" mnemonicParsing="false" onAction="#abrirVentanaExamen" text="Abrir ventana Examen" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
       <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="1024.0" prefWidth="1024.0" style="-fx-background-color: lightblue;">

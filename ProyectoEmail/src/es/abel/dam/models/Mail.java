@@ -19,6 +19,11 @@ public class Mail{
         return message;
     }
 
+    @Override
+    public String toString(){
+        return getRemitente() + ", " + getFecha();
+    }
+
     public boolean isRead(){
         try{
             return message.isSet(Flags.Flag.SEEN);

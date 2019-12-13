@@ -260,4 +260,16 @@ public class Logica {
         rootPrincipal = new MailTreeItem("", null, null);
         setAccounts();
     }
+
+    public ObservableList<Mail> getExamenInboxMails()  {
+        MailAccount mailAccount = listaCuentas.get(0);
+        Folder folder = loadMail(mailAccount);
+        try {
+            Folder inbox = folder.getFolder("INBOX");
+            return getMailList(inbox);
+        } catch (MessagingException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

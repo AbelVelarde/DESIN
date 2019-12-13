@@ -105,6 +105,13 @@ public class EmailMainWindowController extends BaseController implements Initial
         pasarNegrita();
     }
 
+
+    @FXML
+    private void abrirVentanaExamen(){
+        BaseController controller = cargarVentana("VentanaExamen.fxml", "Ventana Examen");
+        controller.abrirVentana(true);
+    }
+
     @FXML
     private void cargarLogin(){
         BaseController controller = cargarVentana("EmailLoginWindow.fxml", "Login");
