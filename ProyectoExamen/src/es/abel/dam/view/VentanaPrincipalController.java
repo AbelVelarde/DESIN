@@ -56,10 +56,10 @@ public class VentanaPrincipalController extends BaseController implements Initia
         String difMayor = cbFiltroDos.getSelectionModel().getSelectedItem();
 
         if(difMenor == null){
-            difMenor = "6a";
+            difMenor = Logica.getInstance().getListaDificultades().get(0);
         }
         if(difMayor == null){
-            difMayor = "7c";
+            difMayor = Logica.getInstance().getListaDificultades().get(Logica.getInstance().getListaDificultades().size() - 1);
         }
 
         ArrayList<String> dificultades = Logica.getInstance().getDificultades(difMenor, difMayor);
