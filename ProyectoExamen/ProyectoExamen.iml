@@ -10,5 +10,6 @@
     <orderEntry type="library" name="org.testfx:testfx-core:4.0.16-alpha" level="application" />
     <orderEntry type="library" name="org.testfx:testfx-junit:4.0.15-alpha" level="application" />
     <orderEntry type="library" name="JavaFX" level="application" />
+    <orderEntry type="library" name="JavaFX 13" level="application" />
   </component>
 </module>

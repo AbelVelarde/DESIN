@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.abel.dam.view.VentanaPrincipalController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TableView fx:id="tablaVias" layoutX="10.0" layoutY="81.0" prefHeight="310.0" prefWidth="621.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+              <columns>
+                <TableColumn prefWidth="149.0" text="NOMBRE">
+                  <cellValueFactory>
+                      <PropertyValueFactory property="nombre" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="162.0" text="DIFICULTAD">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dificultad" />
+                    </cellValueFactory>
+                </TableColumn>
+              </columns>
+            </TableView>
+            <Button fx:id="btnAlta" onAction="#abrirAlta" layoutX="574.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Alta" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

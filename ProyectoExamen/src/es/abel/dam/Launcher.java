@@ -17,15 +17,9 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("view/EmailMainWindow.fxml"));
-        stage.setTitle("Email Controller");
+        Parent root = FXMLLoader.load(getClass().getResource("view/VentanaPrincipal.fxml"));
+        stage.setTitle("Ventana Principal");
         stage.setScene(new Scene(root, 1024, 720));
-        stage.setOnHidden(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent windowEvent) {
-                Logica.getInstance().saveListaCuentas();
-            }
-        });
         stage.show();
     }
 
