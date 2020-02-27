@@ -206,16 +206,16 @@ public class MainApp extends Application {
     /**
      * Metodo que permite actualizar la tabla al realizar un cambio(añadir, editar o borrar) en la lista de partidos de logica.
      */
-    private void actualizarTabla(){
+    private void actualizarTabla() {
         tablaPartidos.getItems().removeAll(tablaPartidos.getItems());
         ObservableList listaCopia = FXCollections.observableArrayList();
-        for (Partido partido:Logica.getINSTANCE().getListaPartidos()) {
+        for (Partido partido : Logica.getINSTANCE().getListaPartidos()) {
             listaCopia.add(partido);
         }
         tablaPartidos.getItems().addAll(listaCopia);
         comboFiltrado.getSelectionModel().select(0);
 
-
+    }
     /**
      * Metodo que permite guardar a disco la lista de partidos al cerrar la applicacion.
      */

@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="GestorPartidos:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/GestorPartidos_jar</output-path>
+    <root id="root">
+      <element id="archive" name="GestorPartidos.jar">
+        <element id="module-output" name="GestorPartidos" />
+      </element>
+      <element id="library" level="application" name="JavaFX 13" />
+    </root>
+  </artifact>
+</component>
